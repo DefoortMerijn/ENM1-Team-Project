@@ -13,7 +13,7 @@ using System.Collections.Generic;
 
 namespace ENM1_api
 {
-    public static class Function1
+    public static class ENM1_API
     {
 
         static string URL = Environment.GetEnvironmentVariable("InfluxDB_url");
@@ -30,16 +30,11 @@ namespace ENM1_api
 
             var query = "import \"influxdata/influxdb/schema\" "
                       + "import \"json\""
-                      + "schema.fieldKeys(bucket: \"Transfosite\")"
-                      /*+"  |> map(fn: (r) => ({ _value: string(v: json.encode(v: { \"field\":r._value}))}))"*/;
+                      + "schema.fieldKeys(bucket: \"Transfosite\")";
+
             var tables = await client.GetQueryApi().QueryAsync(query, ORG);
             List<string> fields = tables.SelectMany(table => table.Records).Select(record => (string)record.GetValue()).ToList();
             var json = JsonConvert.SerializeObject(fields);
-            //foreach (var record in tables.SelectMany(table => table.Records))
-            //{
-            //    Console.WriteLine($"{record.GetValue()}");
-            //    Console.WriteLine($"{record.GetValueByIndex(3)}");
-            //}
 
             return new JsonResult(fields);
         }
@@ -54,6 +49,7 @@ namespace ENM1_api
                        +$"   |> filter(fn: (r) => r._field == \"{field}\")";
 
             var tables = await client.GetQueryApi().QueryAsync(query, ORG);
+
             var records = tables.SelectMany(table => table.Records).ToList();
             var json = new
             {
