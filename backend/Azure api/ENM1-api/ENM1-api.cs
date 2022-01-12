@@ -25,18 +25,22 @@ namespace ENM1_api
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "fields")] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            using var client = InfluxDBClientFactory.Create("http://howest-energy-monitoring.westeurope.cloudapp.azure.com:8086", TOKEN);
 
-            string name = req.Query["name"];
+            var query = "import \"influxdata/influxdb/schema\" "
+                      + "import \"json\""
+                      + "schema.fieldKeys(bucket: \"Transfosite\")"
+                      /*+"  |> map(fn: (r) => ({ _value: string(v: json.encode(v: { \"field\":r._value}))}))"*/;
+            var tables = await client.GetQueryApi().QueryAsync(query, ORG);
+            List<string> fields = tables.SelectMany(table => table.Records).Select(record => (string)record.GetValue()).ToList();
+            var json = JsonConvert.SerializeObject(fields);
+            //foreach (var record in tables.SelectMany(table => table.Records))
+            //{
+            //    Console.WriteLine($"{record.GetValue()}");
+            //    Console.WriteLine($"{record.GetValueByIndex(3)}");
+            //}
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-
-
-
-            return new OkObjectResult(null);
+            return new JsonResult(fields);
         }
-
     }
 }
