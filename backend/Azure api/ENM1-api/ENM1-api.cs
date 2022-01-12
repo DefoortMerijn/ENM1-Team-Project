@@ -23,7 +23,7 @@ namespace ENM1_api
 
         [FunctionName("GetFields")]
         public static async Task<IActionResult> GetFields(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "fields")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "power/fields")] HttpRequest req,
             ILogger log)
         {
             using var client = InfluxDBClientFactory.Create(URL, TOKEN);
@@ -42,6 +42,30 @@ namespace ENM1_api
             //}
 
             return new JsonResult(fields);
+        }
+
+        [FunctionName("GetRecentPowerUsage")]
+        public static async Task<IActionResult> GetRecentPowerUsage(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "power/usage/recent/{field}")] HttpRequest req, ILogger log, string field)
+        {
+            using var client = InfluxDBClientFactory.Create(URL, TOKEN);
+            var query = $"from(bucket: \"{BUCKET}\")"
+                       + "   |> range(start: -1h)"
+                       +$"   |> filter(fn: (r) => r._field == \"{field}\")";
+
+            var tables = await client.GetQueryApi().QueryAsync(query, ORG);
+            var records = tables.SelectMany(table => table.Records).ToList();
+            var json = new
+            {
+                info = new
+                {
+                    field = records[0].GetField(),
+                    measurement = records[0].GetMeasurement(),
+                    meter = records[0].GetValueByKey("meter")
+                },
+                values = records.Select(r => new { time = r.GetTime(), value = r.GetValue() })
+            };
+            return new JsonResult(json);
         }
     }
 }
