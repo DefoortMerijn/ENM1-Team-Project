@@ -50,9 +50,12 @@ namespace ENM1_api
 
             var tables = await client.GetQueryApi().QueryAsync(query, ORG);
 
+            if (tables.Count == 0) return new BadRequestObjectResult(new { http_code = 400, error_message = "Table not found, check if given name is correct (case sensitive)" });
+
             var records = tables.SelectMany(table => table.Records).ToList();
             var json = new
             {
+                http_code = 200,
                 info = new
                 {
                     field = records[0].GetField(),
