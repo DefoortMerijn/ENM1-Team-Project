@@ -16,6 +16,7 @@ namespace ENM1_api
     public static class Function1
     {
 
+        static string URL = Environment.GetEnvironmentVariable("InfluxDB_url");
         static string TOKEN = Environment.GetEnvironmentVariable("InfluxDB_token");
         static string BUCKET = Environment.GetEnvironmentVariable("InfluxDB_bucket");
         static string ORG = Environment.GetEnvironmentVariable("InfluxDB_org");
@@ -25,7 +26,7 @@ namespace ENM1_api
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "fields")] HttpRequest req,
             ILogger log)
         {
-            using var client = InfluxDBClientFactory.Create("http://howest-energy-monitoring.westeurope.cloudapp.azure.com:8086", TOKEN);
+            using var client = InfluxDBClientFactory.Create(URL, TOKEN);
 
             var query = "import \"influxdata/influxdb/schema\" "
                       + "import \"json\""
