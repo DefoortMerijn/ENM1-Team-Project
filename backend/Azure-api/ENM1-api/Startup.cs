@@ -13,7 +13,7 @@ namespace ENM1_api
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            
+            new ENM1_MQTT(Environment.GetEnvironmentVariable("MqttHostname"));
         }
     }
 }
