@@ -19,12 +19,16 @@ namespace ENM1_api
             client.Connect(Guid.NewGuid().ToString());
 
             // subscribe to topic with QoS 2 
-            client.Subscribe(new string[] { "/" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+            client.Subscribe(new string[] { "servicelocation/477d2645-2919-44c3-acf7-cad592ce7cdc/realtime" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+           
+
         }
 
         static void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine(e.Topic);
+            string json = Encoding.UTF8.GetString(e.Message);
+            Debug.WriteLine(json);
         }
     }
 }
