@@ -16,8 +16,12 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-state="duiktank">
+					<h1 class="js-test">duiktank</h1>
+				</section>
+				<section data-state="chart">
+					<canvas id="myChart"></canvas>
+				</section>
 			</div>
 		</div>
 
@@ -25,6 +29,9 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+		<!-- <script src="plugin/chart/plugin.js"></script> -->
+
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -34,6 +41,94 @@
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+
+				// // ...
+				// chart: {
+				// 	defaults: {
+				// 		color: 'lightgray', // color of labels
+				// 		scale: {
+				// 			beginAtZero: true,
+				// 			ticks: { stepSize: 1 },
+				// 			grid: { color: "lightgray" } , // color of grid lines
+				// 		},
+				// 	},
+				// 	line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
+				// 	bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+				// 	pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+				// },
+        		// // ...
+			});
+
+			Reveal.addEventListener( 'duiktank', function() {
+				const url = "https://enm1.azurewebsites.net/api/power/usage/recent/Stopcontacten_Circuit_Niveau0_Cafetaria_55Q1_L2";
+
+				fetch(url)
+				.then(response => response.json())
+				.then(data => {
+					let responseData = data.values;
+
+					responseData.forEach(element => {
+						console.log(element);
+					});
+
+					console.log(responseData)
+
+					const test = document.querySelector('.js-test');
+    				test.innerHTML= responseData[0].value;
+				})
+			});
+
+			Reveal.addEventListener( 'chart', function() {
+				const url = "https://enm1.azurewebsites.net/api/power/usage/recent/Stopcontacten_Circuit_Niveau0_Cafetaria_55Q1_L2";
+
+				fetch(url)
+				.then(response => response.json())
+				.then(data => {
+					let responseData = data.values;
+					let arrayData = [];
+
+					responseData.forEach(element => {
+						arrayData.push(element.value)
+					});
+
+					console.log(arrayData)
+
+					const ctx = document.getElementById('myChart').getContext('2d');
+					const myChart = new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+							datasets: [{
+								label: 'Ampere in de duiktank',
+								data: arrayData,
+								backgroundColor: [
+									'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)'
+								],
+								borderColor: [
+									'rgba(255, 99, 132, 1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)'
+								],
+								borderWidth: 1
+							}]
+						},
+						options: {
+							scales: {
+								y: {
+									beginAtZero: true
+								}
+							}
+						}
+					});
+				})
 			});
 		</script>
 	</body>
