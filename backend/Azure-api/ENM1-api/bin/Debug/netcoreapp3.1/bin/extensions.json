@@ -1,0 +1,5 @@
+{
+  "extensions":[
+    { "name": "Startup", "typeName":"ENM1_api.Startup, ENM1-api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"}
+  ]
+}
