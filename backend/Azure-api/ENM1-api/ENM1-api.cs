@@ -47,7 +47,7 @@ namespace ENM1_api
             using var client = InfluxDBClientFactory.Create(URL, TOKEN);
             var query = $"from(bucket: \"{BUCKET}\")"
                        + "   |> range(start: -1h)"
-                       +$"   |> filter(fn: (r) => r._field == \"{field}\")";
+                       + $"   |> filter(fn: (r) => r._field == \"{field}\")";
 
             var tables = await client.GetQueryApi().QueryAsync(query, ORG);
 
@@ -76,7 +76,7 @@ namespace ENM1_api
             var query = $"from(bucket: \"{BUCKET}\")"
                        + "   |> range(start: -1d)"
                        + "   |> aggregateWindow(every: 1h, fn: sum)"
-                       +$"   |> filter(fn: (r) => r._field == \"{field}\")";
+                       + $"   |> filter(fn: (r) => r._field == \"{field}\")";
 
             var tables = await client.GetQueryApi().QueryAsync(query, ORG);
 
