@@ -51,7 +51,8 @@ html {
 }
 
 .c-logo{
-    font-size: 2.5rem;
+    display: flex;
+    justify-content: start;
 }
 
 .c-title{
@@ -74,36 +75,23 @@ html {
 }
 
 .c-card-container{
-    width: 62.5%;
+    width: 66%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 2rem;
 }
 
-.c-text {
-  font-size: 2.2vh;
-  text-align: left;
-  padding: 10px;
-}
-
-.c-card__container {
-  width: 62.5%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
-}
-
 .c-card {
   background-color: #1c1f38;
   border-radius: 1rem;
   font-size: 3.9vh;
-  padding: 32px 0;
+  padding: 32px;
+  max-height: 336px;
 }
 
 .c-month {
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 2;
 }
 
 /*------------------------------------*\
