@@ -7,23 +7,31 @@
     width: 37.5%;
     background-color: #1C1F38;
     height: 100vh;
+    max-width: 480px;
+    position: relative;
 }
 
 .c-logo{
-    font-size: 3.5vh;
+    font-size: 2.5rem;
 }
 
 .c-title{
-    font-size: 7.5vh;
+    font-size: 3rem;
     text-align: left;
     padding-left: 64px;
 }
 
 .c-text{
-    font-size: 2vh;
+    font-size: 1rem;
     text-align: left;
     padding: 32px;
     padding-left: 64px;
+}
+
+.c-backgroundImage{
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .c-card-container{
@@ -45,3 +53,8 @@
 .c-month{
     grid-column: 1 / span 2;
 }
+
+img{
+    -webkit-clip-path:polygon(0% 20%, 100% 0%,100% 100%,0% 80%);
+    clip-path: polygon(0 0, 100% 60%, 100% 100%, 0% 100%);
+  }
