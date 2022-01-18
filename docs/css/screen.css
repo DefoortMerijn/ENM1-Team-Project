@@ -1,6 +1,45 @@
-.c-dashboard{
-    display: flex;
-    flex-direction: row;
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif; */
+/*------------------------------------*\
+#VARIABLES
+\*------------------------------------*/
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+html {
+  font-size: 62.5%; /* font-size: 10px; */
+  font-family: "Roboto Condensed", Helvetica, arial, sans-serif;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+.o-hidden {
+  display: none;
+}
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+.c-dashboard {
+  display: flex;
+  flex-direction: row;
 }
 
 .c-infobar{
@@ -42,19 +81,35 @@
     padding: 2rem;
 }
 
-.c-card{
-    background-color: #1C1F38;
-    border-radius: 1rem;
-    font-size: 3.9vh;
-    padding: 2rem;
-    box-sizing: border-box;
+.c-text {
+  font-size: 2.2vh;
+  text-align: left;
+  padding: 10px;
 }
 
-.c-month{
-    grid-column: 1 / span 2;
+.c-card__container {
+  width: 62.5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
 }
 
-img{
-    -webkit-clip-path:polygon(0% 20%, 100% 0%,100% 100%,0% 80%);
-    clip-path: polygon(0 0, 100% 60%, 100% 100%, 0% 100%);
-  }
+.c-card {
+  background-color: #1c1f38;
+  border-radius: 1rem;
+  font-size: 3.9vh;
+  padding: 32px 0;
+}
+
+.c-month {
+  grid-column: 1 / span 3;
+}
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
