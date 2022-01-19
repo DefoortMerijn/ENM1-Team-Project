@@ -1,20 +1,36 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
+
 /* font-family: 'Roboto', sans-serif;
 font-family: 'Roboto Condensed', sans-serif; */
+
 /*------------------------------------*\
 #VARIABLES
 \*------------------------------------*/
 
+:root {
+  /* Colors */
+  --global-color-dark-blue: #15182d;
+  --global-color-blue: #1c1f38;
+  --global-color-black: #0c0e1b;
+  --global-color-red: #c92f4d;
+  --global-color-white: #f7f7f8;
+
+  /* Whitespace */
+
+  /* Fonts */
+}
+
 /*------------------------------------*\
 #GENERIC
 \*------------------------------------*/
-html {
+html .reveal {
   font-size: 62.5%; /* font-size: 10px; */
   font-family: "Roboto Condensed", Helvetica, arial, sans-serif;
   font-weight: 300;
   box-sizing: border-box;
+  background-color: var(--global-color-black);
 }
 
 *,
@@ -42,50 +58,54 @@ html {
   flex-direction: row;
 }
 
-.c-infobar{
-    width: 37.5%;
-    background-color: #1C1F38;
-    height: 100vh;
-    max-width: 480px;
-    position: relative;
+.c-infobar {
+  background-color: var(--global-color-blue);
+  height: 100vh;
+  max-width: 37.5%;
+  position: relative;
 }
 
-.c-logo{
-    display: flex;
-    justify-content: start;
+.c-logo {
+  display: flex;
+  justify-content: start;
+  padding: 5px;
 }
 
-.c-title{
-    font-size: 3rem;
-    text-align: left;
-    padding-left: 64px;
+.c-title {
+  font-size: 3rem;
+  text-align: left;
+  padding-left: 64px;
 }
 
-.c-text{
-    font-size: 1rem;
-    text-align: left;
-    padding: 32px;
-    padding-left: 64px;
+.c-text {
+  font-size: 1rem;
+  text-align: left;
+  padding: 32px;
+  padding-left: 64px;
 }
 
-.c-backgroundImage{
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.c-image {
+  width: 100%;
 }
 
-.c-card-container{
-    width: 66%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
+.c-backgroundImage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.c-card-container {
+  width: 66%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .c-card {
-  background-color: #1c1f38;
-  border-radius: 1rem;
-  font-size: 3.9vh;
+  background-color: var(--global-color-blue);
+  border-radius: 4%;
+  font-size: 3rem;
   padding: 32px;
   max-height: 336px;
 }
