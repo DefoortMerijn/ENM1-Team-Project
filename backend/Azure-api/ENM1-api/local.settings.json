@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "InfluxDB_token": "R1y9jV0mvg4_yU-DMCtXnhrNChRsQwxib4Nj60WtWKLbKHChThCzrFFg-kmlAe-yOvKpz9YGOpYnX_Kh7xYxEQ==",
+    "InfluxDB_url": "http://howest-energy-monitoring.westeurope.cloudapp.azure.com:8086",
+    "InfluxDB_org": "Howest",
+    "InfluxDB_bucket": "Transfosite",
+    "MqttConnection": "Server=http://howest-energy-monitoring.westeurope.cloudapp.azure.com;Port=8086",
+    "MqttHostname": "howest-energy-monitoring.westeurope.cloudapp.azure.com"
+  }
+}
