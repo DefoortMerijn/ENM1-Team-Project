@@ -9,9 +9,6 @@ using Newtonsoft.Json;
 using InfluxDB.Client;
 using System.Linq;
 using System.Collections.Generic;
-using CaseOnline.Azure.WebJobs.Extensions.Mqtt;
-using CaseOnline.Azure.WebJobs.Extensions.Mqtt.Messaging;
-using System.Text;
 
 namespace ENM1_api
 {
@@ -99,16 +96,6 @@ namespace ENM1_api
             };
 
             return new JsonResult(json);
-        }
-
-        [FunctionName("SimpleFunction")]
-        public static void SimpleFunction(
-        [MqttTrigger("servicelocation/477d2645-2919-44c3-acf7-cad592ce7cdc/realtime")] IMqttMessage message,
-        ILogger logger)
-        {
-            var body = message.GetMessage();
-            var bodyString = Encoding.UTF8.GetString(body);
-            logger.LogInformation($"{DateTime.Now:g} Message for topic {message.Topic}: {bodyString}");
         }
     }
 }
