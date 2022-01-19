@@ -1,55 +1,32 @@
 # ENM1-Team-Project Backend
 
 ## API Routes
+
+###### Main URL : https://enm1.azurewebsites.net/api/
+
+### Get Power Usage Duiktank
 ---
+`power/duiktank/fields`
 
-**main url** : https://enm1.azurewebsites.net/api/
+Get list of all usable duiktank fields
 
-**Get all fields:** 
+`power/duiktank/usage/{time}/{field}`
 
-_power/duiktank/fields_
+Get power usage data
 
-**Get data of a field from one hour ago until now per 5min:**
+Route parameters:
+- field: The field you want to filter on, if left empty all fields will be given (This can be slow depending on the amount of data)
+- time:
+    - `year`: Shows data up until 1 year ago, grouped per month
+    - `month`: Shows data up until 31 days ago, grouped per day
+    - `week`: Shows data up until 7 days ago, grouped per day
+    - `day`: Shows data up until 24 hours ago, grouped per hour
+    - `recent`: Shows data up until 1 hour ago, grouped per 5 min
 
-_power/duiktank/usage/recent/{field}_
 
-**Get data of a field from one day ago until now per hour**
 
-_power/duiktank/usage/day/{field}_
 
-**Get data of a field from a week ago until now per day**
-
-_power/duiktank/usage/week/{field}_
-
-**Get data of a field from a month ago until now per day**
-
-_power/duiktank/usage/month/{field}_ 
-
-**Get data of a field from a year ago until now per month**
-
-_power/duiktank/usage/month/{field}_ 
-
-**Get data of all fields from an hour ago until now per 5 min**
-
-_power/duiktank/usage/recent_
-
-**Get data of all fields from one day ago until now per hour** 
-
-_power/duiktank/usage/day_
-
-**Get data of all fields from a week ago until now per day**
-
-_power/duiktank/usage/week_
-
-**Get data of all fields from a month agon until now per day**
-
-_power/duiktank/usage/month_
-
-**Get data of all fields from a year ago until now per month**
-
-_power/duiktank/usage/year_
-
-## All fields
+## Duiktank Fields
 
 ### Bord_EB
 
