@@ -7,47 +7,47 @@
 
 **Get all fields:** 
 
-power/duiktank/fields
+_power/duiktank/fields_
 
 **Get data of a field from one hour ago until now per 5min:**
 
-power/duiktank/usage/recent/{field}
+_power/duiktank/usage/recent/{field}_
 
 **Get data of a field from one day ago until now per hour**
 
-power/duiktank/usage/day/{field}
+_power/duiktank/usage/day/{field}_
 
 **Get data of a field from a week ago until now per day**
 
-power/duiktank/usage/week/{field}
+_power/duiktank/usage/week/{field}_
 
 **Get data of a field from a month ago until now per day**
 
-power/duiktank/usage/month/{field} 
+_power/duiktank/usage/month/{field}_ 
 
 **Get data of a field from a year ago until now per month**
 
-power/duiktank/usage/month/{field} 
+_power/duiktank/usage/month/{field}_ 
 
 **Get data of all fields from an hour ago until now per 5 min**
 
-power/duiktank/usage/recent
+_power/duiktank/usage/recent_
 
 **Get data of all fields from one day ago until now per hour** 
 
-power/duiktank/usage/day
+_power/duiktank/usage/day_
 
 **Get data of all fields from a week ago until now per day**
 
-power/duiktank/usage/week
+_power/duiktank/usage/week_
 
 **Get data of all fields from a month agon until now per day**
 
-power/duiktank/usage/month
+_power/duiktank/usage/month_
 
 **Get data of all fields from a year ago until now per month**
 
-power/duiktank/usage/year
+_power/duiktank/usage/year_
 
 ## All fields
 
