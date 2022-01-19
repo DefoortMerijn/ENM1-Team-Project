@@ -53,56 +53,56 @@ power/duiktank/usage/year
 
 ### Bord_EB
 
-Bord_EB_Niveau1_L1  
-Bord_EB_Niveau1_L2  
-Bord_EB_Niveau1_L3  
-Bord_EB_Niveau1_Totaal
+* Bord_EB_Niveau1_L1  
+* Bord_EB_Niveau1_L2  
+* Bord_EB_Niveau1_L3  
+* Bord_EB_Niveau1_Totaal
 
 ### Bord_HVAC
 
-Bord_HVAC_L1  
-Bord_HVAC_L2  
-Bord_HVAC_L3  
-Bord_HVAC_Totaal
+* Bord_HVAC_L1  
+* Bord_HVAC_L2  
+* Bord_HVAC_L3  
+* Bord_HVAC_Totaal
 
 ### Bord_Waterbehandeling
 
-Bord_Waterbehandeling_L1  
-Bord_Waterbehandeling_L2  
-Bord_Waterbehandeling_L3  
-Bord_Waterbehandeling_Totaal
+* Bord_Waterbehandeling_L1  
+* Bord_Waterbehandeling_L2  
+* Bord_Waterbehandeling_L3  
+* Bord_Waterbehandeling_Totaal
 
 ### Buitenbar
 
-Buitenbar_L1  
-Buitenbar_L2  
-Buitenbar_L3  
-Buitenbar_Totaal
+* Buitenbar_L1  
+* Buitenbar_L2  
+* Buitenbar_L3  
+* Buitenbar_Totaal
 
 ### Compressor
 
-Compressor_L1  
-Compressor_L2  
-Compressor_L3  
-Compressor_Totaal
+* Compressor_L1  
+* Compressor_L2  
+* Compressor_L3  
+* Compressor_Totaal
 
 ### Net
 
-Net_L1  
-Net_L2  
-Net_L3  
-TotaalNet
+* Net_L1  
+* Net_L2  
+* Net_L3  
+* TotaalNet
 
 ### Stopcontacten_Circuit_Niveau0_Cafetaria
 
-Stopcontacten_Circuit_Niveau0_Cafetaria_55Q1_L2  
-Stopcontacten_Circuit_Niveau0_Cafetaria_55Q3_L3  
-Stopcontacten_Circuit_Niveau0_Cafetaria_55Q5_L1  
-Stopcontacten_Circuit_Niveau0_Cafetaria_55Q7_L2  
-Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal
+* Stopcontacten_Circuit_Niveau0_Cafetaria_55Q1_L2  
+* Stopcontacten_Circuit_Niveau0_Cafetaria_55Q3_L3  
+* Stopcontacten_Circuit_Niveau0_Cafetaria_55Q5_L1  
+* Stopcontacten_Circuit_Niveau0_Cafetaria_55Q7_L2  
+* Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal
 
 ### Datarack
 
-Voeding_Datarack_L3
+* Voeding_Datarack_L3
 
 
