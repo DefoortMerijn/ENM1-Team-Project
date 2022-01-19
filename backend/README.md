@@ -6,11 +6,11 @@
 
 ### Get Power Usage Duiktank
 ---
-`power/duiktank/fields`
+`/power/duiktank/fields`
 
 Get list of all usable duiktank fields
 
-`power/duiktank/usage/{time}/{field}`
+`/power/duiktank/usage/{time}/{field}`
 
 Get power usage data
 
