@@ -5,10 +5,12 @@
     <RootNamespace>ENM1_api</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="CaseOnline.Azure.WebJobs.Extensions.Mqtt" Version="2.1.0" />
     <PackageReference Include="InfluxDB.Client" Version="3.2.0" />
     <PackageReference Include="M2MqttDotnetCore" Version="1.1.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.13" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
