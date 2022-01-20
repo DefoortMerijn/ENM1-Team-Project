@@ -2,8 +2,7 @@
 #FONTS
 \*------------------------------------*/
 
-/* font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Condensed', sans-serif; */
+
 
 /*------------------------------------*\
 #VARIABLES
@@ -11,11 +10,14 @@ font-family: 'Roboto Condensed', sans-serif; */
 
 :root {
   /* Colors */
-  --global-color-dark-blue: #15182d;
+  --global-main-color: #1C1F38;
+  --global-secondary-color: #0D0F1e;
+  --global-font-color: white;
+  /* --global-color-dark-blue: #15182d;
   --global-color-blue: #1c1f38;
   --global-color-black: #0c0e1b;
   --global-color-red: #c92f4d;
-  --global-color-white: #f7f7f8;
+  --global-color-white: #f7f7f8; */
 
   /* Whitespace */
 
@@ -23,113 +25,98 @@ font-family: 'Roboto Condensed', sans-serif; */
   --global-font-family-light: "Roboto Condensed";
 }
 
+html{
+  font-size: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 /*------------------------------------*\
 #GENERIC
 \*------------------------------------*/
-html.reveal-full-page {
-  font-size: 62.5%; /* font-size: 10px; */
-  font-family: var(--global-font-family-light), Helvetica, arial, sans-serif;
-  font-weight: 300;
-  box-sizing: border-box;
-  background-color: var(--global-color-black);
+
+.c-dashboard{
+  height: 100%;
+  width: 100%;
+
+  display: flex !important;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+.c-infobar{
+  background-color: var(--global-main-color);
+  width: 30%;
+  height: 100%;
+
+  position: relative;
 }
 
-.reveal .slides {
+.c-infobar-logo{
+  font-size: 2rem;
   text-align: left;
+  margin: .5rem;
+  margin-bottom: 0;
 }
 
-.reveal img {
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0;
-  
-}
-/*------------------------------------*\
-#Elements
-\*------------------------------------*/
-
-/*------------------------------------*\
-#OBJECTS
-\*------------------------------------*/
-.o-hidden {
-  display: none;
-}
-/*------------------------------------*\
-#COMPONENTS
-\*------------------------------------*/
-
-.c-dashboard {
-  display: flex;
-  flex-direction: row;
+.c-infobar-title{
+  font-size: 2rem;
+  text-align: left;
+  margin: 0 2rem;
 }
 
-.c-infobar {
-  background-color: var(--global-color-blue);
-  height: 100vh;
-  max-width: 37.5%;
+.c-infobar-text{
+  font-size: 1rem;
+  text-align: left;
+  margin: 0 2rem;
 }
 
-.c-logo {
-  display: flex;
-  justify-content: start;
-  padding: 5px;
-}
-
-.c-info {
-  padding-left: 64px;
-}
-
-.reveal .c-info__title {
-  font-size: 3.6rem;
-  font-weight: 300;
-  font-family: var(--global-font-family-light), sans-serif;
-  text-transform: uppercase;
-}
-
-.c-info__title--underline {
-  border-bottom: 5px solid var(--global-color-white);
-}
-
-.reveal .c-info__text {
-  font-size: 1.4rem;
-  line-height: 1.8;
-  padding-top: 8px;
-  padding-right: 64px;
-  font-family: var(--global-font-family-light), sans-serif;
-}
-
-img.c-background-image {
+.c-infobar-backgroundImage{
   position: absolute;
-  top: auto;
-  right: auto;
-  left: 0;
   bottom: 0;
+  left: 0;
 }
 
-.c-card__container {
-  width: 66%;
+.c-container{
+  width: 70%;
+
+  padding: 1rem;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
 }
 
-.c-card {
-  background-color: var(--global-color-blue);
-  border-radius: 4%;
-  font-size: 3rem;
-  padding: 32px;
-  max-height: 336px;
+.c-card{
+  background-color: var(--global-main-color);
+  border-radius: 1rem; 	
+  padding: 1rem;
 }
 
-.c-month {
-  grid-column: 1 / span 2;
+.c-card-title{
+  font-size: 1.5rem;
+}
+
+.c-card-container{
+  font-size: 2rem;
+  height: 85%;
+  display: flex;
+  align-items: center;
+}
+
+.c-quiz-title{
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.c-quiz-container{
+  list-style-type: upper-alpha !important; 
+  display: block !important;
+}
+
+.c-quiz-question{
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
 }
 
 /*------------------------------------*\
