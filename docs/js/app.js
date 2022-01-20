@@ -15,7 +15,6 @@ Reveal.addEventListener("duiktank", function () {
     fetch(urlToday)
     .then((response) => response.json())
     .then((data) => {
-    console.log(data);
     let responseData = data.data[0].values;
     let arrayData = [];
     let arrayLabels = [];
@@ -27,7 +26,6 @@ Reveal.addEventListener("duiktank", function () {
         arrayLabels.push(hour)
     });
 
-    console.log(arrayLabels)
     const ctxToday = document.getElementById("c-today-chart").getContext("2d");
     const todayChart = new Chart(ctxToday, {
             type: "bar",
@@ -35,10 +33,10 @@ Reveal.addEventListener("duiktank", function () {
                 labels: arrayLabels,
                 datasets: [
                     {
-                    label: "Verbruik duiktank in wattage",
+                    label: "Verbruik in Watt",
                     data: arrayData,
                     backgroundColor: [
-                                "rgba(255, 99, 132)",
+                                "rgba(201, 47, 77)",
                             ],
                     borderColor: [
                                 "rgba(255, 99, 132, 1)",
@@ -105,10 +103,79 @@ Reveal.addEventListener("duiktank", function () {
         labels: arrayLabels,
         datasets: [
             {
-            label: "Verbruik duiktank in wattage",
+            label: "Verbruik in Watt",
             data: arrayData,
             backgroundColor: [
-                        "rgba(255, 99, 132, 0.2)",
+                        "rgba(201, 47, 77)",
+                    ],
+            borderColor: [
+                        "rgba(201, 47, 77)",,
+                    ],
+            }
+        ]
+        //end of data
+        },
+        options: {
+        plugins:{
+            legend: {
+            display: true,
+            labels: {
+                color: 'white'
+            }
+            },
+        },
+        scales:{
+            y: {
+            grid:{
+                color:"white"
+            },
+            ticks:{
+                color: "white"
+            }
+            },
+            x: {
+            grid:{
+                color:"white"
+            },
+            ticks:{
+                color: "white"
+            }
+            },
+        }
+        },
+        //end of options
+        plugins:[pluginCustomBackground],
+    });
+    // end of fetch 
+    });
+
+    const urlComparison = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    fetch(urlComparison)
+    .then((response) => response.json())
+    .then((data) => {
+    let responseData = data.data[0].values;
+    let arrayData = [];
+    let arrayLabels = [];
+
+
+    responseData.forEach((element) => {
+        arrayData.push(element.value);
+        var date = new Date(element.time)
+        var day = date.getDate()	
+        arrayLabels.push(day)
+    });
+
+    const ctxComparison = document.getElementById("c-comparison-chart").getContext("2d");
+    const comparisonChart = new Chart(ctxComparison, {
+        type: "bar",
+        data: {
+        labels: ["Vlaamse woning","Duiktank"],
+        datasets: [
+            {
+            label: "Verbruik in Kilowatt",
+            data: [3300, 78000],
+            backgroundColor: [
+                        "rgba(201, 47, 77)",
                     ],
             borderColor: [
                         "rgba(255, 99, 132, 1)",
@@ -148,7 +215,6 @@ Reveal.addEventListener("duiktank", function () {
         //end of options
         plugins:[pluginCustomBackground],
     });
-
     // end of fetch 
     });
 });
