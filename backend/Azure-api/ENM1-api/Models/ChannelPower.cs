@@ -8,20 +8,20 @@ namespace ENM1_api.Models
     internal class ChannelPower
     {
         [JsonProperty(PropertyName = "power")]
-        public int power { get; set; }
+        public int Power { get; set; }
         [JsonProperty(PropertyName = "current")]
-        public int current { get; set; }
+        public int Current { get; set; }
         [JsonProperty(PropertyName = "apparentPower")]
-        public int apparentPower { get; set; }
+        public int ApparentPower { get; set; }
         [JsonProperty(PropertyName = "serviceLocationId")]
-        public int serviceLocationId { get; set; }
+        public int ServiceLocationId { get; set; }
         [JsonProperty(PropertyName = "phaseId")]
-        public int phaseId { get; set; }
+        public int PhaseId { get; set; }
         [JsonProperty(PropertyName = "formula")]
-        public string formula { get; set; }
+        public string Formula { get; set; }
 
         // Converts MQTT ID to Smappee ID, $5500031443/3$ => 5500031443 D
-        private long[] formulaArr => Array.ConvertAll(formula.Substring(1, formula.Length - 2).Split("/"), long.Parse);
+        private long[] formulaArr => Array.ConvertAll(Formula.Substring(1, Formula.Length - 2).Split("/"), long.Parse);
         public string SmappeeID => $"{formulaArr[0]} {"ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(int)formulaArr[1]]}";
 
         // Converts Smappee ID to Smappee Name
