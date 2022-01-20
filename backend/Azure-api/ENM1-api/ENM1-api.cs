@@ -19,6 +19,11 @@ namespace ENM1_api
         static string TOKEN = Environment.GetEnvironmentVariable("InfluxDB_token");
         static string BUCKET = Environment.GetEnvironmentVariable("InfluxDB_bucket");
         static string ORG = Environment.GetEnvironmentVariable("InfluxDB_org");
+        static InfluxDBClientOptions OPTIONS = new InfluxDBClientOptions.Builder()
+                .Url(URL)
+                .AuthenticateToken(TOKEN)
+                .TimeOut(TimeSpan.FromSeconds(30))
+                .ReadWriteTimeOut(TimeSpan.FromSeconds(30)).Build();
 
         // Dict of time types along with their respective duration units
         static Dictionary<string, string[]> pairs = new Dictionary<string, string[]>()
@@ -40,7 +45,7 @@ namespace ENM1_api
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "power/duiktank/fields")] HttpRequest req,
             ILogger log)
         {
-            using var client = InfluxDBClientFactory.Create(URL, TOKEN);
+            using var client = InfluxDBClientFactory.Create(OPTIONS);
             var query = "import \"influxdata/influxdb/schema\" "
                       + "import \"json\""
                       + "schema.fieldKeys(bucket: \"Transfosite\")";
@@ -111,7 +116,7 @@ namespace ENM1_api
             string window = pairs[time][1];
 
             // create query
-            using var client = InfluxDBClientFactory.Create(URL, TOKEN);
+            using var client = InfluxDBClientFactory.Create(OPTIONS);
             var query = $"from(bucket: \"{BUCKET}\")"
                        + $"\n|> range(start: {range})" // if field param was given -> filter on field, else just filter on blacklist
                        + $"\n|> filter(fn: (r) => {(field != null ? $"r._field == \"{field}\"" : $"not contains(value: r._field, set: {strBlacklist})")})"
