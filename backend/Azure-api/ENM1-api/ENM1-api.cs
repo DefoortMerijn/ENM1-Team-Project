@@ -97,5 +97,52 @@ namespace ENM1_api
 
             return new JsonResult(json);
         }
+
+
+        [FunctionName("GetPowerUsageDuiktankMean")]
+        public static async Task<IActionResult> GetPowerUsageDuiktankMean(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "power/duiktank/meanUsage/{time}/{field?}")] HttpRequest req, ILogger log, string time, string field)
+        {
+            // Check whether correct time parameter was given, otherwise return BadRequest
+            if (!pairs.ContainsKey(time)) return new BadRequestObjectResult(new { http_code = 400, error_message = "Incorrect time parameter, please check documentation" });
+
+            // get range and window from given time parameter
+            string range = pairs[time][0];
+            string window = pairs[time][1];
+
+            // create query
+            using var client = InfluxDBClientFactory.Create(URL, TOKEN);
+            var query = $"from(bucket: \"{BUCKET}\")"
+                       + $"\n|> range(start: {range})" // if field param was given -> filter on field, else just filter on blacklist
+                       + $"\n|> filter(fn: (r) => {(field != null ? $"r._field == \"{field}\"" : $"not contains(value: r._field, set: {strBlacklist})")})"
+                       + $"\n|> aggregateWindow(every: {window}, fn: mean)";
+            var tables = await client.GetQueryApi().QueryAsync(query, ORG);
+
+            // check for found tables, otherwise return BadRequest
+            if (tables.Count == 0) return new BadRequestObjectResult(new { http_code = 400, error_message = "No data found, check if given field parameter is correct (case sensitive)" });
+
+
+            // format to JSON
+            var records = tables.SelectMany(table => table.Records).ToList();
+            var json = new
+            {
+                http_code = 200,
+                info = new
+                {
+                    measurement = records[0].GetMeasurement(),
+                    meter = records[0].GetValueByKey("meter")
+                },
+                data = records
+                         .OrderBy(r => r.GetField())
+                         .GroupBy(r => r.GetField())
+                         .Select(x => new
+                         {
+                             Field = x.Key,
+                             values = x.Select(y => new { time = y.GetTimeInDateTime(), value = y.GetValue() })
+                         })
+            };
+
+            return new JsonResult(json);
+        }
     }
 }
