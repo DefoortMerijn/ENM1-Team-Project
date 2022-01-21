@@ -10,7 +10,9 @@
   /* Colors */
   --global-main-color: #1c1f38;
   --global-secondary-color: #0d0f1e;
+  --global-tertiary-color: #c92f4d;
   --global-font-color: #ffffff;
+
   /* --global-color-dark-blue: #15182d;
   --global-color-blue: #1c1f38;
   --global-color-black: #0c0e1b;
@@ -69,13 +71,13 @@ p{
 }
 
 .c-infobar-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: left;
   margin: 0 2rem;
 }
 
 .c-infobar-text {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: left;
   margin: 0 2rem;
 }
@@ -125,13 +127,14 @@ p{
 }
 
 .c-quiz-question {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   /* margin-left: 2rem; */
   margin-bottom: 1rem;
   text-align: left;
   background-color: #0d0f1e;
   padding: 1rem;
   border-radius: .4rem;
+  transition: background-color 2s;
 }
 
 /*------------------------------------*\

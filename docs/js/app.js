@@ -14,10 +14,10 @@ Reveal.addEventListener("duiktank", function () {
 
     function showAnswer() {
         var antwoord = document.querySelector(".c-quiz-question__a");
-        antwoord.style.backgroundColor = "hotpink";
+        antwoord.style.backgroundColor = "#c92f4d";
     }
 
-    setTimeout(showAnswer, 5000);
+    setTimeout(showAnswer, 10000);
 
     const urlToday = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
     fetch(urlToday)
