@@ -3,18 +3,20 @@ function showAnswer() {
     antwoord.style.backgroundColor = "#c92f4d";
 }
 
+const pluginCustomBackground = {
+    id: 'custom_canvas_background_color',
+    beforeDraw: (chart) => {
+        const ctx = chart.canvas.getContext('2d');
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = '#15182D';
+        ctx.fillRect(0, 0, chart.width, chart.height);
+        ctx.restore();
+        }
+};
+
 function getCharts( urlToday, urlMonth, urlComparison ){
-    const pluginCustomBackground = {
-        id: 'custom_canvas_background_color',
-        beforeDraw: (chart) => {
-            const ctx = chart.canvas.getContext('2d');
-            ctx.save();
-            ctx.globalCompositeOperation = 'destination-over';
-            ctx.fillStyle = '#15182D';
-            ctx.fillRect(0, 0, chart.width, chart.height);
-            ctx.restore();
-            }
-        };
+
 
         console.log("enter");
     
@@ -149,7 +151,7 @@ function getCharts( urlToday, urlMonth, urlComparison ){
             }
             },
             //end of options
-            plugins:[pluginCustomBackground],
+            plugins:[],
         });
         // end of fetch 
         });
@@ -217,7 +219,7 @@ function getCharts( urlToday, urlMonth, urlComparison ){
             }
             },
             //end of options
-            plugins:[pluginCustomBackground],
+            plugins:[],
         });
         // end of fetch 
         });

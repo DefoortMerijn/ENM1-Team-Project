@@ -11,6 +11,7 @@
   --global-main-color: #1c1f38;
   --global-secondary-color: #0d0f1e;
   --global-tertiary-color: #c92f4d;
+  --global-chart-color: #15182D;
   --global-font-color: #ffffff;
 
   /* --global-color-dark-blue: #15182d;
@@ -114,6 +115,11 @@ p{
   height: 85%;
   display: flex;
   align-items: center;
+}
+
+.c-chart{
+  background-color: var(--global-chart-color);
+  border-radius: .5rem;
 }
 
 .c-quiz__title {
