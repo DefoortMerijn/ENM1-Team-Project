@@ -9,6 +9,14 @@ using Newtonsoft.Json;
 using InfluxDB.Client;
 using System.Linq;
 using System.Collections.Generic;
+using CaseOnline.Azure.WebJobs.Extensions.Mqtt;
+using CaseOnline.Azure.WebJobs.Extensions.Mqtt.Messaging;
+using System.Text;
+using Newtonsoft.Json.Linq;
+using System.IO;
+using ENM1_api.Models;
+using InfluxDB.Client.Writes;
+using InfluxDB.Client.Api.Domain;
 
 namespace ENM1_api
 {
@@ -96,6 +104,51 @@ namespace ENM1_api
             };
 
             return new JsonResult(json);
+        }
+
+        [FunctionName("SimpleFunction")]
+        public static void SimpleFunction(
+        [MqttTrigger("/placeholder")] IMqttMessage message,
+        ILogger logger)
+        {
+            var body = message.GetMessage();
+            var bodyString = Encoding.UTF8.GetString(body);
+            //logger.LogInformation($"{DateTime.Now:g} Message for topic {message.Topic}: {bodyString}");
+
+            // convert MQTT data to list of ChannelPower objects
+            JObject json = JObject.Parse(bodyString);
+            List<ChannelPower> chList = JsonConvert.DeserializeObject<List<ChannelPower>>(json["channelPowers"].ToString());
+
+
+            // prepare Influx client
+            using (var client = InfluxDBClientFactory.Create(URL, TOKEN))
+            {
+                List<PointData> points = new List<PointData>();
+                foreach (ChannelPower ch in chList)
+                {
+                    // create point from ChannelPower obj
+                    var point = PointData.Measurement("temperature")
+                        .Field("power", ch.Power)
+                        .Field("current", ch.Current)
+                        .Field("apparentpower", ch.ApparentPower)
+                        .Field("phaseid", ch.PhaseId)
+                        .Field("servicelocationid", ch.ServiceLocationId)
+                        .Tag("formula", ch.SmappeeName)
+                        .Tag("field", ch.SmappeeName)
+                        .Timestamp(int.Parse(json["utcTimeStamp"].ToString()), WritePrecision.Ns);
+
+                    points.Add(point);
+                }
+
+                client.GetWriteApi().WritePoints(points);
+            }
+
+            
+
+            
+
+
+
         }
     }
 }
