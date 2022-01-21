@@ -1,4 +1,5 @@
 Reveal.addEventListener("duiktank", function () {
+
     const pluginCustomBackground = {
     id: 'custom_canvas_background_color',
     beforeDraw: (chart) => {
@@ -8,8 +9,15 @@ Reveal.addEventListener("duiktank", function () {
         ctx.fillStyle = '#15182D';
         ctx.fillRect(0, 0, chart.width, chart.height);
         ctx.restore();
-    }
+        }
     };
+
+    function showAnswer() {
+        var antwoord = document.querySelector(".c-quiz-question__a");
+        antwoord.style.backgroundColor = "#c92f4d";
+    }
+
+    setTimeout(showAnswer, 10000);
 
     const urlToday = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
     fetch(urlToday)
@@ -172,7 +180,7 @@ Reveal.addEventListener("duiktank", function () {
         labels: ["Vlaamse woning","Duiktank"],
         datasets: [
             {
-            label: "Verbruik in Kilowatt",
+            label: "Verbruik in Kilowatt per jaar",
             data: [3300, 78000],
             backgroundColor: [
                         "rgba(201, 47, 77)",
