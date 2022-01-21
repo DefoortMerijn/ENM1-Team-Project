@@ -47,6 +47,13 @@ p{
   margin: none;
 }
 
+.c-start{
+  display: flex !important;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .c-dashboard {
   background-color: var(--global-secondary-color);
   color: var(--global-font-color);

@@ -1,7 +1,7 @@
-function showAnswer() {
-    var antwoord = document.querySelector(".c-quiz__question__a");
-    antwoord.style.backgroundColor = "#c92f4d";
-}
+// function showAnswer() {
+//     var antwoord = document.querySelector(".c-quiz__question__a");
+//     antwoord.style.backgroundColor = "#c92f4d";
+// }
 
 const get = (url) => fetch(url).then((r)=> r.json());
 
@@ -143,7 +143,6 @@ Reveal.addEventListener("duiktank", async () => {
     createChart(ctxToday, "bar" , dataToday);
     createChart(ctxMonth, "line" , dataMonth);
     createChart(ctxComparison, "bar" , dataYear);
-    setTimeout(showAnswer, 10000);
 });
 
 Reveal.addEventListener("demo", async () => {
@@ -231,7 +230,6 @@ Reveal.addEventListener("demo", async () => {
     createChart(ctxToday, "bar" , dataToday);
     createChart(ctxMonth, "line" , dataMonth);
     createChart(ctxComparison, "bar" , dataYear);
-    setTimeout(showAnswer, 10000);
 });
 
 Reveal.addEventListener("hoofdgebouw", async () => {
@@ -319,7 +317,6 @@ Reveal.addEventListener("hoofdgebouw", async () => {
     createChart(ctxToday, "bar" , dataToday);
     createChart(ctxMonth, "line" , dataMonth);
     createChart(ctxComparison, "bar" , dataYear);
-    setTimeout(showAnswer, 10000);
 });
 
 Reveal.addEventListener("silo", async () => {
@@ -407,7 +404,6 @@ Reveal.addEventListener("silo", async () => {
     createChart(ctxToday, "bar" , dataToday);
     createChart(ctxMonth, "line" , dataMonth);
     createChart(ctxComparison, "bar" , dataYear);
-    setTimeout(showAnswer, 10000);
 });
 
 Reveal.addEventListener("mechanikergebouw", async () => {
@@ -495,7 +491,6 @@ Reveal.addEventListener("mechanikergebouw", async () => {
     createChart(ctxToday, "bar" , dataToday);
     createChart(ctxMonth, "line" , dataMonth);
     createChart(ctxComparison, "bar" , dataYear);
-    setTimeout(showAnswer, 10000);
 });
 
 Reveal.addEventListener("waterkot", async () => {
@@ -583,5 +578,4 @@ Reveal.addEventListener("waterkot", async () => {
     createChart(ctxToday, "bar" , dataToday);
     createChart(ctxMonth, "line" , dataMonth);
     createChart(ctxComparison, "bar" , dataYear);
-    setTimeout(showAnswer, 10000);
 });
