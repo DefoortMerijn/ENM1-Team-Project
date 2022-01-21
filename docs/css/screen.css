@@ -32,8 +32,21 @@ html {
 /*------------------------------------*\
 #GENERIC
 \*------------------------------------*/
+p{
+  margin: 1.4rem 0;
+  line-height: 1.3;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+.reveal ol{
+  margin: none;
+}
 
 .c-dashboard {
+  background-color: var(--global-secondary-color);
+  color: var(--global-font-color);
   height: 100%;
   width: 100%;
 
@@ -56,13 +69,13 @@ html {
 }
 
 .c-infobar-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: left;
   margin: 0 2rem;
 }
 
 .c-infobar-text {
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-align: left;
   margin: 0 2rem;
 }
@@ -113,8 +126,12 @@ html {
 
 .c-quiz-question {
   font-size: 1.5rem;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   margin-bottom: 1rem;
+  text-align: left;
+  background-color: #0d0f1e;
+  padding: 1rem;
+  border-radius: .4rem;
 }
 
 /*------------------------------------*\
