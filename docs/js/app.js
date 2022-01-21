@@ -218,3 +218,7 @@ Reveal.addEventListener("duiktank", function () {
     // end of fetch 
     });
 });
+
+Reveal.addEventListener("demonstand", () => {
+    
+});
