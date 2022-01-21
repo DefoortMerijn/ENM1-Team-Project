@@ -11,27 +11,39 @@
   --global-main-color: #1c1f38;
   --global-secondary-color: #0d0f1e;
   --global-font-color: #ffffff;
-  /* --global-color-dark-blue: #15182d;
+  --global-color-dark-blue: #15182d;
   --global-color-blue: #1c1f38;
   --global-color-black: #0c0e1b;
   --global-color-red: #c92f4d;
-  --global-color-white: #f7f7f8; */
+  --global-color-white: #f7f7f8;
 
   /* Whitespace */
 
   /* Fonts */
-  --global-font-family-light: "Roboto Condensed";
-}
-
-html {
-  font-size: 100%;
-  font-family: "Roboto", sans-serif;
-  font-family: "Roboto Condensed", sans-serif;
+  --global-font-family-light: "Roboto Condensed", sans-serif;
+  --global-font-family: "Roboto", sans-serif;
 }
 
 /*------------------------------------*\
 #GENERIC
 \*------------------------------------*/
+html.reveal-full-page .reveal {
+  font-size: 100%; /* font-size: 10px; */
+  font-family: var(--global-font-family-light), Helvetica, arial;
+  font-weight: 300;
+  box-sizing: border-box;
+  background-color: var(--global-color-black);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.reveal .slides {
+  text-align: left;
+}
 
 .c-dashboard {
   height: 100%;
@@ -44,7 +56,6 @@ html {
   background-color: var(--global-main-color);
   width: 30%;
   height: 100%;
-
   position: relative;
 }
 
@@ -59,6 +70,9 @@ html {
   font-size: 2rem;
   text-align: left;
   margin: 0 2rem;
+  font-family: var(--global-font-family);
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--global-color-white);
 }
 
 .c-infobar-text {
