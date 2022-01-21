@@ -13,28 +13,37 @@
   --global-tertiary-color: #c92f4d;
   --global-font-color: #ffffff;
 
-  /* --global-color-dark-blue: #15182d;
+  --global-color-dark-blue: #15182d;
   --global-color-blue: #1c1f38;
   --global-color-black: #0c0e1b;
   --global-color-red: #c92f4d;
-  --global-color-white: #f7f7f8; */
+  --global-color-white: #f7f7f8;
 
   /* Whitespace */
 
   /* Fonts */
-  --global-font-family-light: "Roboto Condensed";
-}
-
-html {
-  font-size: 100%;
-  font-family: "Roboto", sans-serif;
-  font-family: "Roboto Condensed", sans-serif;
+  --global-font-family-light: "Roboto Condensed", sans-serif;
+  --global-font-family: "Roboto", sans-serif;
 }
 
 /*------------------------------------*\
 #GENERIC
 \*------------------------------------*/
-p{
+html.reveal-full-page .reveal {
+  font-size: 100%; /* font-size: 16px; */
+  font-family: var(--global-font-family-light), Helvetica, arial;
+  font-weight: 300;
+  box-sizing: border-box;
+  background-color: var(--global-color-black);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+p {
   margin: 1.4rem 0;
   line-height: 1.3;
 }
@@ -42,7 +51,11 @@ p{
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
-.reveal ol{
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal ol {
   margin: none;
 }
 
@@ -63,26 +76,35 @@ p{
   position: relative;
 }
 
-.c-infobar-logo {
+.c-infobar__logo {
   font-size: 2rem;
   text-align: left;
   margin: 0.5rem;
   margin-bottom: 0;
 }
 
-.c-infobar-title {
-  font-size: 2rem;
+.c-infobar__info {
+  margin: 0 4rem;
+}
+.c-infobar__title {
+  font-size: 3rem;
   text-align: left;
-  margin: 0 2rem;
+  font-family: var(--global-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.c-infobar-text {
-  font-size: 1rem;
-  text-align: left;
-  margin: 0 2rem;
+.c-infobar__title--underline {
+  border-bottom: 5px solid var(--global-color-white);
 }
 
-.c-infobar-backgroundImage {
+.c-infobar__text {
+  font-size: 1.4rem;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.c-infobar__backgroundImage {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -105,35 +127,35 @@ p{
   padding: 1rem;
 }
 
-.c-card-title {
+.c-card__title {
   font-size: 1.5rem;
 }
 
-.c-card-container {
+.c-card__container {
   font-size: 2rem;
   height: 85%;
   display: flex;
   align-items: center;
 }
 
-.c-quiz-title {
+.c-quiz__title {
   text-align: left;
   margin-bottom: 1rem;
 }
 
-.c-quiz-container {
+.c-quiz__container {
   list-style-type: upper-alpha !important;
   display: block !important;
 }
 
-.c-quiz-question {
+.c-quiz__question {
   font-size: 1.25rem;
   /* margin-left: 2rem; */
   margin-bottom: 1rem;
   text-align: left;
   background-color: #0d0f1e;
   padding: 1rem;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   transition: background-color 2s;
 }
 
