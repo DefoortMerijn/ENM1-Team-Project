@@ -44,40 +44,46 @@ function getCharts( urlToday, urlMonth, urlComparison ){
                         backgroundColor: [
                                     "rgba(201, 47, 77)",
                                 ],
-                        borderColor: [
-                                    "rgba(255, 99, 132, 1)",
-                                ],
+                        // borderColor: [
+                        //             "rgba(255, 99, 132, 1)",
+                        //         ],
                         }
-                ]
+                    ]
                 //end of data
                 },
                 options: {
-                plugins:{
-                    legend: {
-                    display: true,
-                    labels: {
-                        color: 'white'
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins:{
+                        legend: {
+                        display: true,
+                        labels: {
+                            color: 'white'
+                        },
+                        },
+                    },
+                    scales:{
+                        y: {
+                            // grid:{
+                            //     color:"white"
+                            // },
+                            beginAtZero: true,
+                            ticks:{
+                                color: "white",
+                                min: 0,
+                            }
+                        },
+                        x: {
+                            // grid:{
+                            //     color:"white"
+                            // },
+                            beginAtZero: true,
+                            ticks:{
+                                color: "white",
+                                min: 0,
+                            }
+                        },
                     }
-                    },
-                },
-                scales:{
-                    y: {
-                    grid:{
-                        color:"white"
-                    },
-                    ticks:{
-                        color: "white"
-                    }
-                    },
-                    x: {
-                    grid:{
-                        color:"white"
-                    },
-                    ticks:{
-                        color: "white"
-                    }
-                    },
-                }
                 },
                 //end of options
                 plugins:[pluginCustomBackground],
@@ -121,32 +127,34 @@ function getCharts( urlToday, urlMonth, urlComparison ){
             //end of data
             },
             options: {
-            plugins:{
-                legend: {
-                display: true,
-                labels: {
-                    color: 'white'
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins:{
+                    legend: {
+                    display: true,
+                    labels: {
+                        color: 'white'
+                    }
+                    },
+                },
+                scales:{
+                    y: {
+                        grid:{
+                            color:"white"
+                        },
+                        ticks:{
+                            color: "white"
+                        }
+                    },
+                    x: {
+                        grid:{
+                            color:"white"
+                        },
+                        ticks:{
+                            color: "white"
+                        }
+                    },
                 }
-                },
-            },
-            scales:{
-                y: {
-                grid:{
-                    color:"white"
-                },
-                ticks:{
-                    color: "white"
-                }
-                },
-                x: {
-                grid:{
-                    color:"white"
-                },
-                ticks:{
-                    color: "white"
-                }
-                },
-            }
             },
             //end of options
             plugins:[pluginCustomBackground],
@@ -189,32 +197,34 @@ function getCharts( urlToday, urlMonth, urlComparison ){
             //end of data
             },
             options: {
-            plugins:{
-                legend: {
-                display: true,
-                labels: {
-                    color: 'white'
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins:{
+                    legend: {
+                    display: true,
+                    labels: {
+                        color: 'white'
+                    }
+                    },
+                },
+                scales:{
+                    y: {
+                        grid:{
+                            color:"white"
+                        },
+                        ticks:{
+                            color: "white"
+                        }
+                    },
+                    x: {
+                        grid:{
+                            color:"white"
+                        },
+                        ticks:{
+                            color: "white"
+                        }
+                    },
                 }
-                },
-            },
-            scales:{
-                y: {
-                grid:{
-                    color:"white"
-                },
-                ticks:{
-                    color: "white"
-                }
-                },
-                x: {
-                grid:{
-                    color:"white"
-                },
-                ticks:{
-                    color: "white"
-                }
-                },
-            }
             },
             //end of options
             plugins:[pluginCustomBackground],
