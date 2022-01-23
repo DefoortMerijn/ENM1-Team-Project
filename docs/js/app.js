@@ -39,11 +39,11 @@ function getCharts( urlToday, urlMonth, urlComparison ){
                     labels: arrayLabels,
                     datasets: [
                         {
-                        label: "Verbruik in Watt",
-                        data: arrayData,
-                        backgroundColor: [
-                                    "rgba(201, 47, 77)",
-                                ],
+                            label: "Verbruik in Watt",
+                            data: arrayData,
+                            backgroundColor: [
+                                "rgba(201, 47, 77)",
+                            ],
                         // borderColor: [
                         //             "rgba(255, 99, 132, 1)",
                         //         ],
@@ -114,14 +114,14 @@ function getCharts( urlToday, urlMonth, urlComparison ){
             labels: arrayLabels,
             datasets: [
                 {
-                label: "Verbruik in Watt",
-                data: arrayData,
-                backgroundColor: [
-                            "rgba(201, 47, 77)",
-                        ],
-                borderColor: [
-                            "rgba(201, 47, 77)",,
-                        ],
+                    label: "Verbruik in Watt",
+                    data: arrayData,
+                    backgroundColor: [
+                        "rgba(201, 47, 77)",
+                    ],
+                    borderColor: [
+                        "rgba(201, 47, 77)",,
+                    ],
                 }
             ]
             //end of data
@@ -139,19 +139,23 @@ function getCharts( urlToday, urlMonth, urlComparison ){
                 },
                 scales:{
                     y: {
-                        grid:{
-                            color:"white"
-                        },
+                        // grid:{
+                        //     color:"white"
+                        // },
+                        beginAtZero: true,
                         ticks:{
-                            color: "white"
+                            color: "white",
+                            min: 0,
                         }
                     },
                     x: {
-                        grid:{
-                            color:"white"
-                        },
+                        // grid:{
+                        //     color:"white"
+                        // },
+                        beginAtZero: true,
                         ticks:{
-                            color: "white"
+                            color: "white",
+                            min: 0,
                         }
                     },
                 }
