@@ -1,0 +1,16 @@
+Flask:
+  SECRET_KEY: 'SECRET_KEY'
+MQTT:
+  BROKER_URL: 'BROKER_URL'
+  BROKER_PORT: 1883
+InfluxDB:
+  Howest:
+    URL: 'URL'
+    TOKEN: 'TOKEN'
+    ORG: 'ORG'
+    BUCKET: 'BUCKET'
+  Transfo:
+    URL: 'URL'
+    TOKEN: 'TOKEN'
+    ORG: 'ORG'
+    BUCKET: 'BUCKET'
