@@ -11,13 +11,10 @@
   --global-main-color: #1c1f38;
   --global-secondary-color: #0d0f1e;
   --global-tertiary-color: #c92f4d;
+  --global-chart-color: #15182D;
   --global-font-color: #ffffff;
-<<<<<<< HEAD
-  --global-color-dark-blue: #15182d;
-=======
 
   /* --global-color-dark-blue: #15182d;
->>>>>>> feature/presentation
   --global-color-blue: #1c1f38;
   --global-color-black: #0c0e1b;
   --global-color-red: #c92f4d;
@@ -33,24 +30,6 @@
 /*------------------------------------*\
 #GENERIC
 \*------------------------------------*/
-<<<<<<< HEAD
-html.reveal-full-page .reveal {
-  font-size: 100%; /* font-size: 10px; */
-  font-family: var(--global-font-family-light), Helvetica, arial;
-  font-weight: 300;
-  box-sizing: border-box;
-  background-color: var(--global-color-black);
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-.reveal .slides {
-  text-align: left;
-=======
 p{
   margin: 1.4rem 0;
   line-height: 1.3;
@@ -59,9 +38,11 @@ p{
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
-.reveal ol{
-  margin: none;
->>>>>>> feature/presentation
+.c-start{
+  display: flex !important;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .c-dashboard {
@@ -80,14 +61,14 @@ p{
   position: relative;
 }
 
-.c-infobar-logo {
+.c-infobar__logo {
   font-size: 2rem;
   text-align: left;
   margin: 0.5rem;
   margin-bottom: 0;
 }
 
-.c-infobar-title {
+.c-infobar__title {
   font-size: 2rem;
   text-align: left;
   margin: 0 2rem;
@@ -96,13 +77,13 @@ p{
   border-bottom: 3px solid var(--global-color-white);
 }
 
-.c-infobar-text {
+.c-infobar__text {
   font-size: 1rem;
   text-align: left;
   margin: 0 2rem;
 }
 
-.c-infobar-backgroundImage {
+.c-infobar__backgroundImage {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -111,12 +92,12 @@ p{
 .c-container {
   width: 70%;
 
-  padding: 1rem;
+  padding: 2rem;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .c-card {
@@ -125,36 +106,53 @@ p{
   padding: 1rem;
 }
 
-.c-card-title {
+.c-card__title {
   font-size: 1.5rem;
 }
 
-.c-card-container {
+.c-card__container {
   font-size: 2rem;
   height: 85%;
   display: flex;
   align-items: center;
 }
 
-.c-quiz-title {
+.c-chart{
+  background-color: var(--global-chart-color);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.c-quiz__title {
   text-align: left;
   margin-bottom: 1rem;
 }
 
-.c-quiz-container {
+.c-quiz__container {
   list-style-type: upper-alpha !important;
   display: block !important;
 }
 
-.c-quiz-question {
+.c-quiz__question {
   font-size: 1.25rem;
   /* margin-left: 2rem; */
   margin-bottom: 1rem;
   text-align: left;
-  background-color: #0d0f1e;
+  background-color: var(--global-chart-color);
   padding: 1rem;
   border-radius: .4rem;
   transition: background-color 2s;
+}
+
+@media (max-width:1200px)  {
+  .c-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .c-chart{
+    padding: .5rem;
+  }
 }
 
 /*------------------------------------*\
