@@ -18,18 +18,13 @@
   --global-color-blue: #1c1f38;
   --global-color-black: #0c0e1b;
   --global-color-red: #c92f4d;
-  --global-color-white: #f7f7f8; */
+  --global-color-white: #f7f7f8;
 
   /* Whitespace */
 
   /* Fonts */
-  --global-font-family-light: "Roboto Condensed";
-}
-
-html {
-  font-size: 100%;
-  font-family: "Roboto", sans-serif;
-  font-family: "Roboto Condensed", sans-serif;
+  --global-font-family-light: "Roboto Condensed", sans-serif;
+  --global-font-family: "Roboto", sans-serif;
 }
 
 /*------------------------------------*\
@@ -63,7 +58,6 @@ p{
   background-color: var(--global-main-color);
   width: 30%;
   height: 100%;
-
   position: relative;
 }
 
@@ -78,6 +72,9 @@ p{
   font-size: 2rem;
   text-align: left;
   margin: 0 2rem;
+  font-family: var(--global-font-family);
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--global-color-white);
 }
 
 .c-infobar__text {
