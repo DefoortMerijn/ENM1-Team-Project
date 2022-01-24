@@ -69,6 +69,11 @@ def get_duiktank_fields():
 @app.route(f'{endpoint}/power/duiktank/usage/<time>', methods=['GET'])
 @app.route(f'{endpoint}/power/duiktank/usage/<time>/<field>', methods=['GET'])
 def get_powerusage_duiktank(time, field=None):
+
+    # check whether correct time parameter was given, otherwise return bad request
+    if time not in time_ranges:
+        return jsonify(status_code=400, message=f'{time} is not a valid time range, please check documentation'), 400
+
     # get Transfo values
     URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
     # get range and window from given time parameter
@@ -83,6 +88,10 @@ def get_powerusage_duiktank(time, field=None):
                         |> aggregateWindow(every: {window}, fn: sum)'''
         tables = client.query_api().query(query, org=ORG)
         client.close()
+
+        # check for found tables, otherwise return bad request
+        if len(tables) == 0:
+            return jsonify(status_code=400, message='No data found, check if given field parameter is correct (case sensitive)'), 400
 
         # group by field, each field contains list of respective records with time and value 
         dict = defaultdict()
