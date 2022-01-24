@@ -43,10 +43,6 @@ p{
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
-.reveal ol{
-  margin: none;
-}
-
 .c-start{
   display: flex !important;
   height: 100%;
@@ -99,12 +95,12 @@ p{
 .c-container {
   width: 70%;
 
-  padding: 1rem;
+  padding: 2rem;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .c-card {
@@ -127,6 +123,7 @@ p{
 .c-chart{
   background-color: var(--global-chart-color);
   border-radius: .5rem;
+  padding: 1rem;
 }
 
 .c-quiz__title {
@@ -144,10 +141,21 @@ p{
   /* margin-left: 2rem; */
   margin-bottom: 1rem;
   text-align: left;
-  background-color: #0d0f1e;
+  background-color: var(--global-chart-color);
   padding: 1rem;
   border-radius: .4rem;
   transition: background-color 2s;
+}
+
+@media (max-width:1200px)  {
+  .c-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .c-chart{
+    padding: .5rem;
+  }
 }
 
 /*------------------------------------*\

@@ -1,12 +1,7 @@
-// function showAnswer() {
-//     var antwoord = document.querySelector(".c-quiz__question__a");
-//     antwoord.style.backgroundColor = "#c92f4d";
-// }
-
 const get = (url) => fetch(url).then((r)=> r.json());
 
-function createChart(ctx, type ,data){
-    return new Chart(ctx,  {
+function createChart( ctx, type, data ){
+    return new Chart( ctx ,  {
         type: type,
         data: data,
         options: {
@@ -15,27 +10,36 @@ function createChart(ctx, type ,data){
                     display: true,
                     labels: {
                         color: 'white'
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Verbruik in Watt',
+                    color: 'white'
+                },
+            },
+            scales:
+            {
+                y: {
+                    grid:{
+                        color:"white"
+                    },
+                    ticks:{
+                        color: "white",
+                        callback: function(value, index, ticks) {
+                            return value + "w";
                         }
-                    },
-                },
-                scales:{
-                    y: {
-                        grid:{
-                        color:"white"
-                    },
-                    ticks:{
-                        color: "white"
                     }
-                    },
-                    x: {
-                        grid:{
-                        color:"white"
+                },
+                x: {
+                    grid:{
+                        color:"white",
                     },
                     ticks:{
                         color: "white"
                     }
                 },
-            }
+            }    
         }
     });
 }
@@ -49,10 +53,6 @@ function getData(response){
 
     return arrayData;
 }
-
-const urlDay = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
-const urlMonth = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
-const urlYear = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
 
 Reveal.addEventListener("duiktank", async () => {
     const urlDay = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
@@ -98,7 +98,7 @@ Reveal.addEventListener("duiktank", async () => {
                     labels: todayLabels,
                     datasets: [
                         {
-                        label: "Verbruik in Watt",
+                        label: "Duiktank",
                         data: todayData,
                         backgroundColor: [
                                     "rgba(201, 47, 77)",
@@ -113,13 +113,13 @@ Reveal.addEventListener("duiktank", async () => {
                         labels: monthLabels,
                         datasets: [
                             {
-                            label: "Verbruik in Watt",
+                            label: "Duiktank",
                             data: monthData,
                             backgroundColor: [
                                         "rgba(201, 47, 77)",
                                     ],
                             borderColor: [
-                                        "rgba(255, 99, 132, 1)",
+                                        "rgba(201, 47, 77)",
                                     ],
                             }
                         ]};
@@ -134,7 +134,7 @@ Reveal.addEventListener("duiktank", async () => {
                                             "rgba(201, 47, 77)",
                                         ],
                                 borderColor: [
-                                            "rgba(255, 99, 132, 1)",
+                                            "rgba(201, 47, 77)",
                                         ],
                             }
                         ]
@@ -146,6 +146,10 @@ Reveal.addEventListener("duiktank", async () => {
 });
 
 Reveal.addEventListener("demo", async () => {
+    const urlDay = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    const urlMonth = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    const urlYear = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+
     const ctxToday = document.getElementById("c-today-chart2").getContext("2d");
     const ctxMonth = document.getElementById("c-month-chart2").getContext("2d");
     const ctxComparison = document.getElementById("c-comparison-chart2").getContext("2d");
@@ -233,12 +237,28 @@ Reveal.addEventListener("demo", async () => {
 });
 
 Reveal.addEventListener("hoofdgebouw", async () => {
+    const urlDay = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_55Q1_L2";
+    const urlDay2 = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_55Q7_L2";
+    const urlDay3 = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_55Q3_L3";
+
+    const urlMonth = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_55Q1_L2";
+    const urlMonth2 = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_55Q7_L2";
+    const urlMonth3 = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_55Q3_L3";
+
+    const urlYear = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+
     const ctxToday = document.getElementById("c-today-chart3").getContext("2d");
     const ctxMonth = document.getElementById("c-month-chart3").getContext("2d");
     const ctxComparison = document.getElementById("c-comparison-chart3").getContext("2d");
 
     const responseToday = await get(urlDay);
+    const responseToday2 = await get(urlDay2);
+    const responseToday3 = await get(urlDay3);
+
     const responseMonth = await get(urlMonth);
+    const responseMonth2 = await get(urlMonth2);
+    const responseMonth3 = await get(urlMonth3);
+
     const responseYear = await get(urlYear);
 
     let todayData = getData(responseToday.data[0].values);
@@ -250,6 +270,9 @@ Reveal.addEventListener("hoofdgebouw", async () => {
             todayLabels.push(hour)
     });
 
+    let todayData2 = getData(responseToday2.data[0].values);
+    let todayData3 = getData(responseToday3.data[0].values);
+
     let monthData = getData(responseMonth.data[0].values);
     let monthLabels = [];
     
@@ -258,6 +281,9 @@ Reveal.addEventListener("hoofdgebouw", async () => {
             var day = date.getDate()	
             monthLabels.push(day)
     });
+
+    let monthData2 = getData(responseMonth2.data[0].values);
+    let monthData3 = getData(responseMonth3.data[0].values);
 
     let yearData = getData(responseYear.data[0].values);
     let yearLabels = [];
@@ -272,14 +298,34 @@ Reveal.addEventListener("hoofdgebouw", async () => {
                     labels: todayLabels,
                     datasets: [
                         {
-                        label: "Verbruik in Watt",
-                        data: todayData,
-                        backgroundColor: [
-                                    "rgba(201, 47, 77)",
-                                ],
-                        borderColor: [
-                                    "rgba(255, 99, 132, 1)",
-                                ],
+                            label: "kantoorgebouw",
+                            data: todayData,
+                            backgroundColor: [
+                                        "rgba(201, 47, 77)",
+                                    ],
+                            borderColor: [
+                                        "rgba(201, 47, 77)",
+                                    ],
+                        },
+                        {
+                            label: "Feestzaal",
+                            data: todayData2,
+                            backgroundColor: [
+                                "rgb(49, 99, 255)",
+                            ],
+                            borderColor: [
+                                "rgb(49, 99, 255)",
+                            ],
+                        },
+                        {
+                            label: "Machinezaal",
+                            data: todayData3,
+                            backgroundColor: [
+                                "rgba(101, 61, 235)",
+                            ],
+                            borderColor: [
+                                "rgba(101, 61, 235)",
+                            ],
                         }
                     ]};
 
@@ -287,19 +333,39 @@ Reveal.addEventListener("hoofdgebouw", async () => {
                         labels: monthLabels,
                         datasets: [
                             {
-                            label: "Verbruik in Watt",
+                            label: "kantoorgebouw",
                             data: monthData,
                             backgroundColor: [
                                         "rgba(201, 47, 77)",
                                     ],
                             borderColor: [
-                                        "rgba(255, 99, 132, 1)",
+                                        "rgba(201, 47, 77)",
                                     ],
+                            },
+                            {
+                                label: "Feestzaal",
+                                data: monthData2,
+                                backgroundColor: [
+                                            "rgb(49, 99, 255)",
+                                        ],
+                                borderColor: [
+                                            "rgb(49, 99, 255)",
+                                        ],
+                            },
+                            {
+                                label: "Machinezaal",
+                                data: monthData3,
+                                backgroundColor: [
+                                            "rgba(101, 61, 235)",
+                                        ],
+                                borderColor: [
+                                            "rgba(101, 61, 235)",
+                                        ],
                             }
                         ]};
 
     const dataYear = {
-                        labels: ["Vlaamse woning", "Duiktank"],
+                        labels: ["Vlaamse woning", "Hoofdgebouw"],
                         datasets: [
                             {
                                 label: "Verbruik in Kilowatt per jaar",
@@ -314,12 +380,16 @@ Reveal.addEventListener("hoofdgebouw", async () => {
                         ]
                     };
 
-    createChart(ctxToday, "bar" , dataToday);
+    createChart(ctxToday, "line" , dataToday);
     createChart(ctxMonth, "line" , dataMonth);
     createChart(ctxComparison, "bar" , dataYear);
 });
 
 Reveal.addEventListener("silo", async () => {
+    const urlDay = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    const urlMonth = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    const urlYear = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+
     const ctxToday = document.getElementById("c-today-chart4").getContext("2d");
     const ctxMonth = document.getElementById("c-month-chart4").getContext("2d");
     const ctxComparison = document.getElementById("c-comparison-chart4").getContext("2d");
@@ -386,7 +456,7 @@ Reveal.addEventListener("silo", async () => {
                         ]};
 
     const dataYear = {
-                        labels: ["Vlaamse woning", "Duiktank"],
+                        labels: ["Vlaamse woning", "Silo"],
                         datasets: [
                             {
                                 label: "Verbruik in Kilowatt per jaar",
@@ -407,6 +477,10 @@ Reveal.addEventListener("silo", async () => {
 });
 
 Reveal.addEventListener("mechanikergebouw", async () => {
+    const urlDay = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    const urlMonth = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    const urlYear = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+
     const ctxToday = document.getElementById("c-today-chart5").getContext("2d");
     const ctxMonth = document.getElementById("c-month-chart5").getContext("2d");
     const ctxComparison = document.getElementById("c-comparison-chart5").getContext("2d");
@@ -473,7 +547,7 @@ Reveal.addEventListener("mechanikergebouw", async () => {
                         ]};
 
     const dataYear = {
-                        labels: ["Vlaamse woning", "Duiktank"],
+                        labels: ["Vlaamse woning", "Oenanthe"],
                         datasets: [
                             {
                                 label: "Verbruik in Kilowatt per jaar",
@@ -494,6 +568,10 @@ Reveal.addEventListener("mechanikergebouw", async () => {
 });
 
 Reveal.addEventListener("waterkot", async () => {
+    const urlDay = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    const urlMonth = "https://enm1.azurewebsites.net/api/power/duiktank/usage/month/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+    const urlYear = "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal";
+
     const ctxToday = document.getElementById("c-today-chart6").getContext("2d");
     const ctxMonth = document.getElementById("c-month-chart6").getContext("2d");
     const ctxComparison = document.getElementById("c-comparison-chart6").getContext("2d");
@@ -560,7 +638,7 @@ Reveal.addEventListener("waterkot", async () => {
                         ]};
 
     const dataYear = {
-                        labels: ["Vlaamse woning", "Duiktank"],
+                        labels: ["Vlaamse woning", "Waterkot"],
                         datasets: [
                             {
                                 label: "Verbruik in Kilowatt per jaar",
