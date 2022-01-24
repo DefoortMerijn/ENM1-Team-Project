@@ -1,3 +1,4 @@
+from calendar import calendar
 from collections import defaultdict
 from email.policy import default
 from itertools import groupby
@@ -8,6 +9,7 @@ from datetime import datetime
 from flask_cors import CORS
 from flask_mqtt import Mqtt
 from functools import reduce
+from distutils import util
 import os, sys, yaml, json
 
 # load config file
@@ -31,11 +33,11 @@ Influx_howest = config['InfluxDB']['Howest']
 Influx_transfo = config['InfluxDB']['Transfo']
 field_blacklist = [ "CO2_5min", "Description_Weather", "Humidity", "Pressure", "Temperature", "Windspeed" ]
 time_ranges = {
-    "year": ["-1y", "1mo"],
-    "month": ["-1mo", "1d"],
-    "week": ["-1w", "1d"],
-    "day": ["-1d", "1h"],
-    "recent": ["-1h", "5m"],
+    "year": ["date.truncate(t: now(), unit: 1y)", "-1y", "1mo"],
+    "month": ["date.truncate(t: now(), unit: 1mo)", "-1mo", "1d"],
+    "week": ["date.truncate(t: now(), unit: 1w)", "-1w", "1d"],
+    "day": ["date.truncate(t: now(), unit: 1d)", "-1d", "1h"],
+    "recent": ["date.truncate(t: now(), unit: 1h)", "-1h", "5m"],
 }
 
 mqtt = Mqtt(app)
@@ -69,23 +71,31 @@ def get_duiktank_fields():
 @app.route(f'{endpoint}/power/duiktank/usage/<time>', methods=['GET'])
 @app.route(f'{endpoint}/power/duiktank/usage/<time>/<field>', methods=['GET'])
 def get_powerusage_duiktank(time, field=None):
-
-    # check whether correct time parameter was given, otherwise return bad request
+    # get route parameters
+    fn = request.args.get('fn', default='sum', type=str)
+    calendar_time = request.args.get('calendarTime', default=False, type=lambda v: v.lower() == 'true')
+    
+    # check whether correct parameters were given, otherwise return bad request
     if time not in time_ranges:
-        return jsonify(status_code=400, message=f'{time} is not a valid time range, please check documentation'), 400
+        return jsonify(status_code=400, message=f'time:{time} is not a valid time range, please check documentation'), 400
+    if fn not in ['sum', 'mean', 'median', 'min', 'max']:
+        return jsonify(status_code=400, message=f'fn:{fn} is not valid, please check documentation'), 400
+
 
     # get Transfo values
     URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
     # get range and window from given time parameter
-    range, window = time_ranges[time]
+    rangeCT, range, window = time_ranges[time]
 
     with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
         
         # if field param was given -> filter on field, else just filter on blacklist
-        query = f'''from(bucket: "{BUCKET}")
-                        |> range(start: {range})
+        query = f'''import "date" 
+                    from(bucket: "{BUCKET}")
+                        |> range(start: {rangeCT if calendar_time else range}, stop: date.truncate(t: now(), unit: {window}))
                         |> filter(fn: (r) => {f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'})
-                        |> aggregateWindow(every: {window}, fn: sum)'''
+                        |> aggregateWindow(every: {window}, fn: {fn})
+                 '''
         tables = client.query_api().query(query, org=ORG)
         client.close()
 
