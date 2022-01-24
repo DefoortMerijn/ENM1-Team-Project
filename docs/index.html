@@ -109,43 +109,51 @@
               />
             </svg>
           </div>
-          <div
-            class="c-container u-grid-template-y-3-x-2 u-grid-item-space-y-1-x-2"
-          >
-            <div class="c-card u-grid-item-space-y-1-x-1">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas class="c-card__data" id="c-today-chart"></canvas>
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
+                </div>
               </div>
-            </div>
-            <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
+                </div>
               </div>
-            </div>
-            <div class="c-card u-grid-item-space-y-2-x-2">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
+                </div>
               </div>
-            </div>
-            <div class="c-card u-grid-item-space-y-2-x-1">
-              <div class="c-card__title c-quiz__title">
-                Het verbruik van de duiktank is ongeveer hoeveel wattage?
-              </div>
-              <div class="c-card__container">
-                <div class="c-quiz__question c-quiz__question__a">A. 2000</div>
-                <div class="c-quiz__question c-quiz__question__b">B. 3000</div>
-                <div class="c-quiz__question c-quiz__question__c">C. 4000</div>
-                <div class="c-quiz__question c-quiz__question__d">D. 5000</div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 2 !!! -->
-        <section class="c-dashboard" data-state="demostand">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +200,7 @@
             </div>
             <div class="c-infobar__info">
               <div class="c-infobar__title">
-                <span class="c-infobar__title--underline">De Duiktank</span>
+                <span class="c-infobar__title--underline">De Demostand</span>
               </div>
               <div class="c-infobar__text">
                 <p>
@@ -227,41 +235,51 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas class="c-card__data" id="c-today-chart"></canvas>
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
+                </div>
               </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
+                </div>
               </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
+                </div>
               </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Het verbruik van de duiktank is ongeveer hoeveel wattage?
-              </div>
-              <div class="c-card__container">
-                <div class="c-quiz__question c-quiz__question__a">A. 2000</div>
-                <div class="c-quiz__question c-quiz__question__b">B. 3000</div>
-                <div class="c-quiz__question c-quiz__question__c">C. 4000</div>
-                <div class="c-quiz__question c-quiz__question__d">D. 5000</div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 3 !!! -->
-        <section class="c-dashboard" data-state="">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -306,24 +324,26 @@
                 </g>
               </svg>
             </div>
-            <div class="c-infobar__title">Naam sectie</div>
-            <div class="c-infobar__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
-                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
-                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
-                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
-                eu scelerisque magna consequat id. Duis nec egestas orci.
-              </p>
-              <p>
-                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
-                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
-                libero pretium laoreet. Proin dictum, justo eu porttitor
-                sollicitudin, augue felis facilisis risus, at ultrices lorem
-                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
-                interdum a lectus. Morbi convallis id urna quis laoreet.
-              </p>
+            <div class="c-infobar__info">
+              <div class="c-infobar__title">
+                <span class="c-infobar__title--underline">De Demostand</span>
+              </div>
+              <div class="c-infobar__text">
+                <p>
+                  Op de Transfosite te Zwevegem staan, verborgen in een
+                  bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                  een internationale groep jonge architecten brachten het
+                  interessante idee op deze om te vormen in een duiktank.
+                </p>
+                <p>
+                  Duiken in de duiktank is te vergelijken met duiken in open
+                  water. In België en Nederland duiken in open water betekent
+                  ook altijd dat de zichtbaarheid beperkt is. De realisatie van
+                  de duiktank is dan ook een perfecte tussenstap tussen duiken
+                  in een zwembad en in open water. Ideaal dus om de duiker
+                  veilig klaar te stomen voor het woelige buitenwater.
+                </p>
+              </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
               <defs>
@@ -341,49 +361,51 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas id="c-today-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Quizvraag over energie of over het onderdeel zelf?
-              </div>
-              <div class="c-quiz__container">
-                <div class="c-quiz__question c-quiz__question__a">
-                  A. Antwoord
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__b">
-                  B. Antwoord
+              </div>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__c">
-                  C. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__d">
-                  D. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 4 !!! -->
-        <section class="c-dashboard" data-state="">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -428,24 +450,26 @@
                 </g>
               </svg>
             </div>
-            <div class="c-infobar__title">Naam sectie</div>
-            <div class="c-infobar__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
-                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
-                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
-                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
-                eu scelerisque magna consequat id. Duis nec egestas orci.
-              </p>
-              <p>
-                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
-                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
-                libero pretium laoreet. Proin dictum, justo eu porttitor
-                sollicitudin, augue felis facilisis risus, at ultrices lorem
-                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
-                interdum a lectus. Morbi convallis id urna quis laoreet.
-              </p>
+            <div class="c-infobar__info">
+              <div class="c-infobar__title">
+                <span class="c-infobar__title--underline">De Demostand</span>
+              </div>
+              <div class="c-infobar__text">
+                <p>
+                  Op de Transfosite te Zwevegem staan, verborgen in een
+                  bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                  een internationale groep jonge architecten brachten het
+                  interessante idee op deze om te vormen in een duiktank.
+                </p>
+                <p>
+                  Duiken in de duiktank is te vergelijken met duiken in open
+                  water. In België en Nederland duiken in open water betekent
+                  ook altijd dat de zichtbaarheid beperkt is. De realisatie van
+                  de duiktank is dan ook een perfecte tussenstap tussen duiken
+                  in een zwembad en in open water. Ideaal dus om de duiker
+                  veilig klaar te stomen voor het woelige buitenwater.
+                </p>
+              </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
               <defs>
@@ -463,49 +487,51 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas id="c-today-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Quizvraag over energie of over het onderdeel zelf?
-              </div>
-              <div class="c-quiz__container">
-                <div class="c-quiz__question c-quiz__question__a">
-                  A. Antwoord
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__b">
-                  B. Antwoord
+              </div>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__c">
-                  C. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__d">
-                  D. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 5 !!! -->
-        <section class="c-dashboard" data-state="">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -550,24 +576,26 @@
                 </g>
               </svg>
             </div>
-            <div class="c-infobar__title">Naam sectie</div>
-            <div class="c-infobar__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
-                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
-                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
-                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
-                eu scelerisque magna consequat id. Duis nec egestas orci.
-              </p>
-              <p>
-                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
-                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
-                libero pretium laoreet. Proin dictum, justo eu porttitor
-                sollicitudin, augue felis facilisis risus, at ultrices lorem
-                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
-                interdum a lectus. Morbi convallis id urna quis laoreet.
-              </p>
+            <div class="c-infobar__info">
+              <div class="c-infobar__title">
+                <span class="c-infobar__title--underline">De Demostand</span>
+              </div>
+              <div class="c-infobar__text">
+                <p>
+                  Op de Transfosite te Zwevegem staan, verborgen in een
+                  bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                  een internationale groep jonge architecten brachten het
+                  interessante idee op deze om te vormen in een duiktank.
+                </p>
+                <p>
+                  Duiken in de duiktank is te vergelijken met duiken in open
+                  water. In België en Nederland duiken in open water betekent
+                  ook altijd dat de zichtbaarheid beperkt is. De realisatie van
+                  de duiktank is dan ook een perfecte tussenstap tussen duiken
+                  in een zwembad en in open water. Ideaal dus om de duiker
+                  veilig klaar te stomen voor het woelige buitenwater.
+                </p>
+              </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
               <defs>
@@ -585,49 +613,51 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas id="c-today-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Quizvraag over energie of over het onderdeel zelf?
-              </div>
-              <div class="c-quiz__container">
-                <div class="c-quiz__question c-quiz__question__a">
-                  A. Antwoord
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__b">
-                  B. Antwoord
+              </div>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__c">
-                  C. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__d">
-                  D. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 6 !!! -->
-        <section class="c-dashboard" data-state="">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -672,24 +702,26 @@
                 </g>
               </svg>
             </div>
-            <div class="c-infobar__title">Naam sectie</div>
-            <div class="c-infobar__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
-                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
-                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
-                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
-                eu scelerisque magna consequat id. Duis nec egestas orci.
-              </p>
-              <p>
-                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
-                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
-                libero pretium laoreet. Proin dictum, justo eu porttitor
-                sollicitudin, augue felis facilisis risus, at ultrices lorem
-                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
-                interdum a lectus. Morbi convallis id urna quis laoreet.
-              </p>
+            <div class="c-infobar__info">
+              <div class="c-infobar__title">
+                <span class="c-infobar__title--underline">De Demostand</span>
+              </div>
+              <div class="c-infobar__text">
+                <p>
+                  Op de Transfosite te Zwevegem staan, verborgen in een
+                  bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                  een internationale groep jonge architecten brachten het
+                  interessante idee op deze om te vormen in een duiktank.
+                </p>
+                <p>
+                  Duiken in de duiktank is te vergelijken met duiken in open
+                  water. In België en Nederland duiken in open water betekent
+                  ook altijd dat de zichtbaarheid beperkt is. De realisatie van
+                  de duiktank is dan ook een perfecte tussenstap tussen duiken
+                  in een zwembad en in open water. Ideaal dus om de duiker
+                  veilig klaar te stomen voor het woelige buitenwater.
+                </p>
+              </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
               <defs>
@@ -707,49 +739,51 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas id="c-today-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Quizvraag over energie of over het onderdeel zelf?
-              </div>
-              <div class="c-quiz__container">
-                <div class="c-quiz__question c-quiz__question__a">
-                  A. Antwoord
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__b">
-                  B. Antwoord
+              </div>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__c">
-                  C. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__d">
-                  D. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 7 !!! -->
-        <section class="c-dashboard" data-state="">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -794,24 +828,26 @@
                 </g>
               </svg>
             </div>
-            <div class="c-infobar__title">Naam sectie</div>
-            <div class="c-infobar__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
-                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
-                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
-                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
-                eu scelerisque magna consequat id. Duis nec egestas orci.
-              </p>
-              <p>
-                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
-                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
-                libero pretium laoreet. Proin dictum, justo eu porttitor
-                sollicitudin, augue felis facilisis risus, at ultrices lorem
-                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
-                interdum a lectus. Morbi convallis id urna quis laoreet.
-              </p>
+            <div class="c-infobar__info">
+              <div class="c-infobar__title">
+                <span class="c-infobar__title--underline">De Demostand</span>
+              </div>
+              <div class="c-infobar__text">
+                <p>
+                  Op de Transfosite te Zwevegem staan, verborgen in een
+                  bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                  een internationale groep jonge architecten brachten het
+                  interessante idee op deze om te vormen in een duiktank.
+                </p>
+                <p>
+                  Duiken in de duiktank is te vergelijken met duiken in open
+                  water. In België en Nederland duiken in open water betekent
+                  ook altijd dat de zichtbaarheid beperkt is. De realisatie van
+                  de duiktank is dan ook een perfecte tussenstap tussen duiken
+                  in een zwembad en in open water. Ideaal dus om de duiker
+                  veilig klaar te stomen voor het woelige buitenwater.
+                </p>
+              </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
               <defs>
@@ -829,49 +865,51 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas id="c-today-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Quizvraag over energie of over het onderdeel zelf?
-              </div>
-              <div class="c-quiz__container">
-                <div class="c-quiz__question c-quiz__question__a">
-                  A. Antwoord
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__b">
-                  B. Antwoord
+              </div>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__c">
-                  C. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__d">
-                  D. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 8 !!! -->
-        <section class="c-dashboard" data-state="">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -916,24 +954,26 @@
                 </g>
               </svg>
             </div>
-            <div class="c-infobar__title">Naam sectie</div>
-            <div class="c-infobar__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
-                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
-                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
-                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
-                eu scelerisque magna consequat id. Duis nec egestas orci.
-              </p>
-              <p>
-                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
-                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
-                libero pretium laoreet. Proin dictum, justo eu porttitor
-                sollicitudin, augue felis facilisis risus, at ultrices lorem
-                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
-                interdum a lectus. Morbi convallis id urna quis laoreet.
-              </p>
+            <div class="c-infobar__info">
+              <div class="c-infobar__title">
+                <span class="c-infobar__title--underline">De Demostand</span>
+              </div>
+              <div class="c-infobar__text">
+                <p>
+                  Op de Transfosite te Zwevegem staan, verborgen in een
+                  bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                  een internationale groep jonge architecten brachten het
+                  interessante idee op deze om te vormen in een duiktank.
+                </p>
+                <p>
+                  Duiken in de duiktank is te vergelijken met duiken in open
+                  water. In België en Nederland duiken in open water betekent
+                  ook altijd dat de zichtbaarheid beperkt is. De realisatie van
+                  de duiktank is dan ook een perfecte tussenstap tussen duiken
+                  in een zwembad en in open water. Ideaal dus om de duiker
+                  veilig klaar te stomen voor het woelige buitenwater.
+                </p>
+              </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
               <defs>
@@ -951,49 +991,51 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas id="c-today-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Quizvraag over energie of over het onderdeel zelf?
-              </div>
-              <div class="c-quiz__container">
-                <div class="c-quiz__question c-quiz__question__a">
-                  A. Antwoord
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__b">
-                  B. Antwoord
+              </div>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__c">
-                  C. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__d">
-                  D. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 9 !!! -->
-        <section class="c-dashboard" data-state="">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1038,24 +1080,26 @@
                 </g>
               </svg>
             </div>
-            <div class="c-infobar__title">Naam sectie</div>
-            <div class="c-infobar__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
-                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
-                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
-                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
-                eu scelerisque magna consequat id. Duis nec egestas orci.
-              </p>
-              <p>
-                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
-                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
-                libero pretium laoreet. Proin dictum, justo eu porttitor
-                sollicitudin, augue felis facilisis risus, at ultrices lorem
-                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
-                interdum a lectus. Morbi convallis id urna quis laoreet.
-              </p>
+            <div class="c-infobar__info">
+              <div class="c-infobar__title">
+                <span class="c-infobar__title--underline">De Demostand</span>
+              </div>
+              <div class="c-infobar__text">
+                <p>
+                  Op de Transfosite te Zwevegem staan, verborgen in een
+                  bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                  een internationale groep jonge architecten brachten het
+                  interessante idee op deze om te vormen in een duiktank.
+                </p>
+                <p>
+                  Duiken in de duiktank is te vergelijken met duiken in open
+                  water. In België en Nederland duiken in open water betekent
+                  ook altijd dat de zichtbaarheid beperkt is. De realisatie van
+                  de duiktank is dan ook een perfecte tussenstap tussen duiken
+                  in een zwembad en in open water. Ideaal dus om de duiker
+                  veilig klaar te stomen voor het woelige buitenwater.
+                </p>
+              </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
               <defs>
@@ -1073,49 +1117,51 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas id="c-today-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Quizvraag over energie of over het onderdeel zelf?
-              </div>
-              <div class="c-quiz__container">
-                <div class="c-quiz__question c-quiz__question__a">
-                  A. Antwoord
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__b">
-                  B. Antwoord
+              </div>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__c">
-                  C. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__d">
-                  D. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
         <!-- !!! Slide 10 !!! -->
-        <section class="c-dashboard" data-state="">
-          <div class="c-infobar">
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar u-grid-item-space-y-1-x-1">
             <div class="c-infobar__logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1160,24 +1206,26 @@
                 </g>
               </svg>
             </div>
-            <div class="c-infobar__title">Naam sectie</div>
-            <div class="c-infobar__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
-                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
-                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
-                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
-                eu scelerisque magna consequat id. Duis nec egestas orci.
-              </p>
-              <p>
-                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
-                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
-                libero pretium laoreet. Proin dictum, justo eu porttitor
-                sollicitudin, augue felis facilisis risus, at ultrices lorem
-                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
-                interdum a lectus. Morbi convallis id urna quis laoreet.
-              </p>
+            <div class="c-infobar__info">
+              <div class="c-infobar__title">
+                <span class="c-infobar__title--underline">De Demostand</span>
+              </div>
+              <div class="c-infobar__text">
+                <p>
+                  Op de Transfosite te Zwevegem staan, verborgen in een
+                  bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                  een internationale groep jonge architecten brachten het
+                  interessante idee op deze om te vormen in een duiktank.
+                </p>
+                <p>
+                  Duiken in de duiktank is te vergelijken met duiken in open
+                  water. In België en Nederland duiken in open water betekent
+                  ook altijd dat de zichtbaarheid beperkt is. De realisatie van
+                  de duiktank is dan ook een perfecte tussenstap tussen duiken
+                  in een zwembad en in open water. Ideaal dus om de duiker
+                  veilig klaar te stomen voor het woelige buitenwater.
+                </p>
+              </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
               <defs>
@@ -1195,41 +1243,43 @@
               />
             </svg>
           </div>
-          <div class="c-container u-grid-template-y-2-x-2">
-            <div class="c-card">
-              <div class="c-card__title">Vandaag</div>
-              <div class="c-card__container">
-                <canvas id="c-today-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card c-card__month">
-              <div class="c-card__title">Maand</div>
-              <div class="c-card__container">
-                <canvas id="c-month-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title">Vergelijking</div>
-              <div class="c-card__container">
-                <canvas id="c-comparison-chart" class="c-card__data"></canvas>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__title c-quiz__title">
-                Quizvraag over energie of over het onderdeel zelf?
-              </div>
-              <div class="c-quiz__container">
-                <div class="c-quiz__question c-quiz__question__a">
-                  A. Antwoord
+          <div class="c-container u-grid-item-space-y-1-x-2">
+            <div class="u-grid-template-y-3-x-2">
+              <div class="c-card u-grid-item-space-y-1-x-1">
+                <div class="c-card__title">Vandaag</div>
+                <div class="c-card__container">
+                  <canvas class="c-card__data" id="c-today-chart"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__b">
-                  B. Antwoord
+              </div>
+              <div class="c-card c-card__month u-grid-item-space-y-1-x-2">
+                <div class="c-card__title">Maand</div>
+                <div class="c-card__container">
+                  <canvas id="c-month-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__c">
-                  C. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-2">
+                <div class="c-card__title">Vergelijking</div>
+                <div class="c-card__container">
+                  <canvas id="c-comparison-chart" class="c-card__data"></canvas>
                 </div>
-                <div class="c-quiz__question c-quiz__question__d">
-                  D. Antwoord
+              </div>
+              <div class="c-card u-grid-item-space-y-2-x-1">
+                <div class="c-card__title c-quiz__title">
+                  Het verbruik van de duiktank is ongeveer hoeveel wattage?
+                </div>
+                <div class="c-card__container">
+                  <div class="c-quiz__question c-quiz__question__a">
+                    A. 2000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__b">
+                    B. 3000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__c">
+                    C. 4000
+                  </div>
+                  <div class="c-quiz__question c-quiz__question__d">
+                    D. 5000
+                  </div>
                 </div>
               </div>
             </div>
