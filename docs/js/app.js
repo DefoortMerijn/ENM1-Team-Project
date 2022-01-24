@@ -247,7 +247,7 @@ Reveal.addEventListener("duiktank", function () {
     setTimeout(showAnswer, 10000);
 });
 
-Reveal.addEventListener("demo", function () {
+Reveal.addEventListener("demostand", function () {
     console.log("demo")
     getCharts(
         "https://enm1.azurewebsites.net/api/power/duiktank/usage/day/Stopcontacten_Circuit_Niveau0_Cafetaria_Totaal",

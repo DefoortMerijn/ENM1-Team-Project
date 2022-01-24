@@ -62,17 +62,15 @@ p {
 .c-dashboard {
   background-color: var(--global-secondary-color);
   color: var(--global-font-color);
-  height: 100%;
-  width: 100%;
-
-  display: flex !important;
+  display: grid !important;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 100%;
+  max-height: 100vh;
 }
 
 .c-infobar {
   background-color: var(--global-main-color);
-  width: 30%;
-  height: 100%;
-
   position: relative;
 }
 
@@ -107,7 +105,7 @@ p {
 .c-infobar__backgroundImage {
   position: absolute;
   bottom: 0;
-  left: 0;
+  margin-bottom: 3.4rem;
 }
 
 .c-container {
@@ -167,8 +165,8 @@ p {
 
 .u-grid-template-y-3-x-2 {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 }
 
@@ -180,13 +178,22 @@ p {
   grid-row: span 2;
 }
 
-.u-grid-item-space-y-1-x-2 {
-  grid-area: span 2 / span 8;
+.u-grid-item-space-y-1-x-1 {
+  grid-area: 1 / span 1;
 }
 
-.u-grid-item-spacex-y-2-x-1 {
-  grid-area: span 2 / span 4;
+.u-grid-item-space-y-1-x-2 {
+  grid-area: 1 / span 2;
 }
+
+.u-grid-item-space-y-2-x-1 {
+  grid-area: 2 / span 1;
+}
+
+.u-grid-item-space-y-2-x-2 {
+  grid-area: 2 / span 2;
+}
+
 /*------------------------------------*\
 #MEDIA
 \*------------------------------------*/
