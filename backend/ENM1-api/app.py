@@ -17,15 +17,20 @@ else:
 
 # start app
 app = Flask(__name__)
-
-# enviroment variables
+####### CONFIG #######
 app.config['SECRET_KEY'] = config['Flask']['SECRET_KEY']
 app.config['MQTT_BROKER_URL'] = config['MQTT']['BROKER_URL']
 app.config['MQTT_BROKER_PORT'] = config['MQTT']['BROKER_PORT']
 app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds
-
 Influx_howest = config['InfluxDB']['Howest']
 Influx_transfo = config['InfluxDB']['Transfo']
+##### END CONFIG #####
+mqtt = Mqtt(app)
+CORS(app)
+
+
+# main endpoint
+endpoint = '/api/v1'
 # blacklist fields that contain values that cannot be calculated (mean/median/etc)
 field_blacklist = [ "CO2_5min", "Description_Weather", "Humidity", "Pressure", "Temperature", "Windspeed" ]
 # time ranges and their corresponding values
@@ -37,106 +42,103 @@ time_ranges = {
     "recent": ["date.truncate(t: now(), unit: 1h)", "-1h", "5m"],
 }
 
-mqtt = Mqtt(app)
-CORS(app)
-
-
-# custom endpoint
-endpoint = '/api/v1'
-
 
 ###### FLASK ROUTES ######
 @app.route('/')
 def index():
     return 'use /api/v1', 303
 
-# get all possible fields & measurements from Transfo influxdb
+# get all available fields & measurements from Transfo influxdb
 @app.route(f'{endpoint}/transfo/power/fields', methods=['GET'])
 def get_transfo_fields():
-    # get Transfo values
+    # get Transfo config values
     URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
 
     with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
-        # get measurements
+        # get all measurements
         query = f'import "influxdata/influxdb/schema" schema.measurements(bucket: "{BUCKET}")' 
         mTables = client.query_api().query(query, org=ORG)
         measurements = [r.values['_value'] for r in mTables[0].records] # convert to list of measurements
 
-        # get field values for each measurement
-        mf = {}
-        for m in measurements:
-            query = f'import "influxdata/influxdb/schema" schema.measurementFieldKeys(bucket: "{BUCKET}",measurement: "{m}")'
+        # get all field values for each measurement
+        dict = {}
+        for measurement in measurements:
+            query = f'import "influxdata/influxdb/schema" schema.measurementFieldKeys(bucket: "{BUCKET}",measurement: "{measurement}")'
             fTables = client.query_api().query(query, org=ORG)
             fields = [r.values['_value'] for r in fTables[0].records] # convert to list of fields
             fields = list(filter(lambda x: x not in field_blacklist, fields)) # remove blacklisted fields
-            mf[m] = fields # add list of fields to dict under measurement name
+            dict[measurement] = fields # add list of fields to dict under measurement name
             print(fTables)
 
         client.close()
-        return jsonify(mf), 200
+        return jsonify(dict), 200
 
 @app.route(f'{endpoint}/transfo/power/usage/<measurement>/<time>', methods=['GET'])
 def get_powerusage_transfo(measurement, time):
-    # get route parameters
-    fn = request.args.get('fn', default='sum', type=str)
-    field = request.args.get('field', default=None, type=str)
-    showPhases = request.args.get('showPhases', default=False, type=lambda v: v.lower() == 'true')
-    calendar_time = request.args.get('calendarTime', default=False, type=lambda v: v.lower() == 'true')
-    
-    # check whether correct parameters were given, otherwise return bad request
-    if time not in time_ranges:
-        return jsonify(status_code=400, message=f'time:{time} is not a valid time range, please check documentation'), 400
-    if fn not in ['sum', 'mean', 'median', 'min', 'max']:
-        return jsonify(status_code=400, message=f'fn:{fn} is not valid, please check documentation'), 400
-
-
-    # get Transfo values
-    URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
-    # get range and window from given time parameter
-    rangeCT, range, window = time_ranges[time]
-
-    with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
+    try:
+        # get route parameters
+        fn = request.args.get('fn', default='sum', type=str)
+        field = request.args.get('field', default=None, type=str)
+        showPhases = request.args.get('showPhases', default=False, type=lambda v: v.lower() == 'true')
+        calendar_time = request.args.get('calendarTime', default=False, type=lambda v: v.lower() == 'true')
         
-        # if field param was given -> filter on field, else just filter on blacklist
-        fieldFilter = f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'
-        # if showPhases is False, filter out phase fields (L1,L2,L3)
-        phaseFilter = '|> filter(fn: (r) => r._field !~ /L\d+$/ )' if not showPhases else ''
-        query = f'''import "date" 
-                    from(bucket: "{BUCKET}")
-                        |> range(start: {rangeCT if calendar_time else range}, stop: date.truncate(t: now(), unit: {window}))
-                        |> filter(fn: (r) => r._measurement == "{measurement}")
-                        |> filter(fn: (r) => {fieldFilter})
-                        {phaseFilter}
-                        |> aggregateWindow(every: {window}, fn: {fn})
-                 '''
-        tables = client.query_api().query(query, org=ORG)
-        client.close()
-
-        # check for found tables, otherwise return bad request
-        if len(tables) == 0:
-            return jsonify(status_code=400, message='No data found, check if given parameters (measurement & field) are correct (case sensitive)'), 400
-
-        # group by field, each field contains list of respective records with time and value 
-        dict = defaultdict()
-        for table in tables:
-            for r in table.records:
-                dict.setdefault(r.values['_field'], []).append({'time': r.values['_time'], 'value': r.values['_value']})
+        # check whether correct parameters were given, otherwise return bad request
+        if time not in time_ranges:
+            return jsonify(status_code=400, message=f'time:{time} is not a valid time range, please check documentation'), 400
+        if fn not in ['sum', 'mean', 'median', 'min', 'max']:
+            return jsonify(status_code=400, message=f'fn:{fn} is not valid, please check documentation'), 400
 
 
-        return jsonify(
-            http_code=200, 
-            info={
-                'measurement': "Transfo Zwevegem", 
-                'field': field or 'all',
-                'fn': fn,
-                'time': time,
-                'calendarTime': calendar_time
-                }, 
-            values=dict
-            ), 200
+        # get Transfo config values
+        URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
+        # get range and window from given time parameter
+        rangeCT, range, window = time_ranges[time]
+
+        with InfluxDBClient(url=URL, token=TOKEN, org=ORG, timeout=20000) as client:
+            
+            # if field param was given -> filter on field, else just filter on blacklist
+            fieldFilter = f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'
+            # if showPhases is False, filter out phase fields (L1,L2,L3)
+            phaseFilter = '|> filter(fn: (r) => r._field !~ /L\d+$/ )' if not showPhases else ''
+            query = f'''import "date" 
+                        from(bucket: "{BUCKET}")
+                            |> range(start: {rangeCT if calendar_time else range}, stop: date.truncate(t: now(), unit: {window}))
+                            |> filter(fn: (r) => r._measurement == "{measurement}")
+                            |> filter(fn: (r) => {fieldFilter})
+                            {phaseFilter}
+                            |> aggregateWindow(every: {window}, fn: {fn})
+                    '''
+            tables = client.query_api().query(query, org=ORG)
+            client.close()
+
+            # check for found tables, otherwise return bad request
+            if len(tables) == 0:
+                return jsonify(status_code=400, message='No data found, check if given parameters (measurement & field) are correct (case sensitive)'), 400
+
+            # group by field, each field contains list of respective records with time and value 
+            dict = defaultdict()
+            for table in tables:
+                for r in table.records:
+                    dict.setdefault(r.values['_field'], []).append({'time': r.values['_time'], 'value': r.values['_value']})
 
 
-# MQTT
+            return jsonify(
+                http_code=200, 
+                info={
+                    'measurement': measurement, 
+                    'field': field or 'all',
+                    'fn': fn,
+                    'time': time,
+                    'calendarTime': calendar_time
+                    }, 
+                values=dict
+                ), 200
+    except Exception as e:
+        return jsonify(status_code=500, message=f'Internal Server Error: {e}'), 500
+######## END ROUTES ########
+
+
+######## MQTT ########
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
     print("Connected to Transfo MQTT broker with result code " + str(rc))
@@ -177,7 +179,7 @@ def add_point_data(points):
         with client.write_api() as write_api:
             print(f'Writing {len(points)} points to InfluxDB')
             write_api.write(bucket=BUCKET, org=ORG, record=points)
-
+######## END MQTT ########
 
 
 # start app
