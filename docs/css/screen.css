@@ -63,6 +63,7 @@ p {
   background-color: var(--global-secondary-color);
   color: var(--global-font-color);
   display: grid !important;
+  height: 100%;
   grid-template-rows: repeat(1, 1fr);
   grid-template-columns: repeat(3, 1fr);
 }
@@ -102,7 +103,7 @@ p {
 
 .c-infobar__backgroundImage {
   position: absolute;
-  bottom: -10px;
+  bottom: 0;
   overflow: hidden;
 }
 
