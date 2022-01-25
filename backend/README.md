@@ -2,17 +2,17 @@
 
 ## API Routes
 
-###### Main URL : https://enm1.azurewebsites.net/api/
+###### Main URL : https://enm1-flask.azurewebsites.net/api/v1
 
 ### Get Power Usage Duiktank
 
 ---
 
-`/power/duiktank/fields`
+`/transfo/power/fields`
 
 Get list of all usable duiktank fields
 
-`/power/duiktank/usage/{time}/{field}`
+`/transfo/power/usage/{time}/{field}`
 
 Get power usage data
 
@@ -28,15 +28,17 @@ Route parameters:
 
 Query parameters [optional]:
 
-- `?fn=`: gives you the option to choose which function you use to return the values
-
-  Functions:
-
-  - `sum`(default) : return the total sum of the values
+- `?fn`: decides how to group the returned data
+  Options:
+  - `sum`: return the total sum of the values, this is default if nothing is given
   - `mean`: returns the mean of the values
   - `median`: returns the median of the values
   - `min`: gives the smallest value of the requested data
   - `max`: gives the largest value of the requested data
+
+- `?calendarTime`: True/False, decides whether to return a calendar time period, defaults to False
+
+   For example: When querying for a month, data returned will be only of current month if True, else it will return data from a full 31 days ago
 
 ## Duiktank Fields
 
