@@ -1,3 +1,4 @@
+from cmath import phase
 from collections import defaultdict
 from flask import Flask, jsonify, request
 from influxdb_client import InfluxDBClient, Point, WritePrecision
@@ -79,6 +80,7 @@ def get_powerusage_transfo(measurement, time):
     # get route parameters
     fn = request.args.get('fn', default='sum', type=str)
     field = request.args.get('field', default=None, type=str)
+    showPhases = request.args.get('showPhases', default=False, type=lambda v: v.lower() == 'true')
     calendar_time = request.args.get('calendarTime', default=False, type=lambda v: v.lower() == 'true')
     
     # check whether correct parameters were given, otherwise return bad request
@@ -96,10 +98,15 @@ def get_powerusage_transfo(measurement, time):
     with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
         
         # if field param was given -> filter on field, else just filter on blacklist
+        fieldFilter = f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'
+        # if showPhases is False, filter out phase fields (L1,L2,L3)
+        phaseFilter = '|> filter(fn: (r) => r._field !~ /L\d+$/ )' if not showPhases else ''
         query = f'''import "date" 
                     from(bucket: "{BUCKET}")
                         |> range(start: {rangeCT if calendar_time else range}, stop: date.truncate(t: now(), unit: {window}))
-                        |> filter(fn: (r) => r._measurement == "{measurement}" and {f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'})
+                        |> filter(fn: (r) => r._measurement == "{measurement}")
+                        |> filter(fn: (r) => {fieldFilter})
+                        {phaseFilter}
                         |> aggregateWindow(every: {window}, fn: {fn})
                  '''
         tables = client.query_api().query(query, org=ORG)
@@ -107,7 +114,7 @@ def get_powerusage_transfo(measurement, time):
 
         # check for found tables, otherwise return bad request
         if len(tables) == 0:
-            return jsonify(status_code=400, message='No data found, check if given field parameter is correct (case sensitive)'), 400
+            return jsonify(status_code=400, message='No data found, check if given parameters (measurement & field) are correct (case sensitive)'), 400
 
         # group by field, each field contains list of respective records with time and value 
         dict = defaultdict()
