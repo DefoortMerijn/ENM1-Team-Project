@@ -25,7 +25,9 @@ app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds
 
 Influx_howest = config['InfluxDB']['Howest']
 Influx_transfo = config['InfluxDB']['Transfo']
+# blacklist fields that contain values that cannot be calculated (mean/median/etc)
 field_blacklist = [ "CO2_5min", "Description_Weather", "Humidity", "Pressure", "Temperature", "Windspeed" ]
+# time ranges and their corresponding values
 time_ranges = {
     "year": ["date.truncate(t: now(), unit: 1y)", "-1y", "1mo"],
     "month": ["date.truncate(t: now(), unit: 1mo)", "-1mo", "1d"],
@@ -47,20 +49,30 @@ endpoint = '/api/v1'
 def index():
     return 'use /api/v1', 303
 
-# get all possible fields from transfo influxdb
+# get all possible fields & measurements from Transfo influxdb
 @app.route(f'{endpoint}/transfo/power/fields', methods=['GET'])
 def get_transfo_fields():
     # get Transfo values
     URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
 
     with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
-        query = f'import "influxdata/influxdb/schema" schema.fieldKeys(bucket: "{BUCKET}")'
-        tables = client.query_api().query(query, org=ORG)
-        client.close()
+        # get measurements
+        query = f'import "influxdata/influxdb/schema" schema.measurements(bucket: "{BUCKET}")' 
+        mTables = client.query_api().query(query, org=ORG)
+        measurements = [r.values['_value'] for r in mTables[0].records] # convert to list of measurements
 
-        fields = [r.values['_value'] for r in tables[0].records] # get field values
-        fields = list(filter(lambda x: x not in field_blacklist, fields)) # remove blacklisted fields
-        return jsonify(fields), 200
+        # get field values for each measurement
+        mf = {}
+        for m in measurements:
+            query = f'import "influxdata/influxdb/schema" schema.measurementFieldKeys(bucket: "{BUCKET}",measurement: "{m}")'
+            fTables = client.query_api().query(query, org=ORG)
+            fields = [r.values['_value'] for r in fTables[0].records] # convert to list of fields
+            fields = list(filter(lambda x: x not in field_blacklist, fields)) # remove blacklisted fields
+            mf[m] = fields # add list of fields to dict under measurement name
+            print(fTables)
+
+        client.close()
+        return jsonify(mf), 200
 
 @app.route(f'{endpoint}/transfo/power/usage/<time>', methods=['GET'])
 @app.route(f'{endpoint}/transfo/power/usage/<time>/<field>', methods=['GET'])
