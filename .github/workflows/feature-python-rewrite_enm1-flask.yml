@@ -9,6 +9,10 @@ on:
     branches:
       - feature/python-rewrite
   workflow_dispatch:
+  
+defaults:
+  run:
+    working-directory: ./backend/ENM1-api/
 
 jobs:
   build:
@@ -36,9 +40,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: python-app
-          path: |
-            . 
-            !venv/
+          path: ./backend/ENM1-api/
 
   deploy:
     runs-on: ubuntu-latest
