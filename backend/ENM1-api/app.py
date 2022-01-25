@@ -110,7 +110,17 @@ def get_powerusage_duiktank(time, field=None):
                 dict.setdefault(r.values['_field'], []).append({'time': r.values['_time'], 'value': r.values['_value']})
 
 
-        return jsonify(http_code=200, info={'measurement': "Duiktank"}, values=dict), 200
+        return jsonify(
+            http_code=200, 
+            info={
+                'measurement': "Transfo Zwevegem", 
+                'field': field or 'all',
+                'fn': fn,
+                'time': time,
+                'calendarTime': calendar_time
+                }, 
+            values=dict
+            ), 200
 
 
 # MQTT
