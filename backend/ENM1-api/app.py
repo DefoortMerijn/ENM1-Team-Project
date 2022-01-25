@@ -1,15 +1,9 @@
-from calendar import calendar
 from collections import defaultdict
-from email.policy import default
-from itertools import groupby
-from flask import Flask, jsonify, request, url_for, Response, session
+from flask import Flask, jsonify, request
 from influxdb_client import InfluxDBClient, Point, WritePrecision
-from influxdb_client.client.write_api import WriteOptions
 from datetime import datetime
 from flask_cors import CORS
 from flask_mqtt import Mqtt
-from functools import reduce
-from distutils import util
 import os, sys, yaml, json
 
 # load config file
@@ -53,9 +47,9 @@ endpoint = '/api/v1'
 def index():
     return 'use /api/v1', 303
 
-# get all possible fields from duiktank influxdb
-@app.route(f'{endpoint}/power/duiktank/fields', methods=['GET'])
-def get_duiktank_fields():
+# get all possible fields from transfo influxdb
+@app.route(f'{endpoint}/transfo/power/fields', methods=['GET'])
+def get_transfo_fields():
     # get Transfo values
     URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
 
@@ -68,9 +62,9 @@ def get_duiktank_fields():
         fields = list(filter(lambda x: x not in field_blacklist, fields)) # remove blacklisted fields
         return jsonify(fields), 200
 
-@app.route(f'{endpoint}/power/duiktank/usage/<time>', methods=['GET'])
-@app.route(f'{endpoint}/power/duiktank/usage/<time>/<field>', methods=['GET'])
-def get_powerusage_duiktank(time, field=None):
+@app.route(f'{endpoint}/transfo/power/usage/<time>', methods=['GET'])
+@app.route(f'{endpoint}/transfo/power/usage/<time>/<field>', methods=['GET'])
+def get_powerusage_transfo(time, field=None):
     # get route parameters
     fn = request.args.get('fn', default='sum', type=str)
     calendar_time = request.args.get('calendarTime', default=False, type=lambda v: v.lower() == 'true')
@@ -127,7 +121,7 @@ def get_powerusage_duiktank(time, field=None):
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
     print("Connected to Transfo MQTT broker with result code " + str(rc))
-    mqtt.subscribe('servicelocation/477d2645-2919-44c3-acf7-cad592ce7cdc/realtime')
+    # mqtt.subscribe('servicelocation/477d2645-2919-44c3-acf7-cad592ce7cdc/realtime')
 
 @mqtt.on_message()
 def handle_mqtt_message(client, userdata, message):
@@ -167,6 +161,6 @@ def add_point_data(points):
 
 
 
-# # start app
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', debug=True)
+# start app
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True)
