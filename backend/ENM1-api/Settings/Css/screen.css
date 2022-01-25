@@ -1,0 +1,10 @@
+.c-settings {
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+.c-settings_item {
+  margin-bottom: 1rem;
+}

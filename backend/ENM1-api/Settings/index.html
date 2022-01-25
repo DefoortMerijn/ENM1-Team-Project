@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="icon" type="image/x-icon" href="Images/SVG/icon_setting.svg" />
+    <link rel="stylesheet" href="Css/screen.css" />
+    <script src="settings.js"></script>
+  </head>
+  <body>
+    <form class="c-settings js-settings">
+      <div class="c-settings_item">
+        <label for="autoSlide">autoSlide duration</label>
+        <input type="number" name="autoSlide" step="100" placeholder="5000 ms" id="autoslide" />
+      </div>
+      <div class="c-settings_item">
+        <label for="controls">Show Controls</label>
+        <input type="checkbox" name="controls" id="controls" />
+      </div>
+      <div class="c-settings_item">
+        <label for="loop">Looped</label>
+        <input type="checkbox" name="loop" id="loop" />
+      </div>
+      <div class="c-button js-button">
+        <input type="submit" id="button" />
+      </div>
+    </form>
+  </body>
+</html>

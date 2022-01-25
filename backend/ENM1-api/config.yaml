@@ -1,0 +1,16 @@
+Flask:
+  SECRET_KEY: 'jrhb63!4_&'
+MQTT:
+  BROKER_URL: 'howest-energy-monitoring.westeurope.cloudapp.azure.com'
+  BROKER_PORT: 1883
+InfluxDB:
+  Howest:
+    URL: 'URL'
+    TOKEN: 'TOKEN'
+    ORG: 'ORG'
+    BUCKET: 'BUCKET'
+  Transfo:
+    URL: 'http://howest-energy-monitoring.westeurope.cloudapp.azure.com:8086'
+    TOKEN: 'R1y9jV0mvg4_yU-DMCtXnhrNChRsQwxib4Nj60WtWKLbKHChThCzrFFg-kmlAe-yOvKpz9YGOpYnX_Kh7xYxEQ=='
+    ORG: 'Howest'
+    BUCKET: 'Transfosite'
