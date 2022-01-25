@@ -74,11 +74,11 @@ def get_transfo_fields():
         client.close()
         return jsonify(mf), 200
 
-@app.route(f'{endpoint}/transfo/power/usage/<time>', methods=['GET'])
-@app.route(f'{endpoint}/transfo/power/usage/<time>/<field>', methods=['GET'])
-def get_powerusage_transfo(time, field=None):
+@app.route(f'{endpoint}/transfo/power/usage/<measurement>/<time>', methods=['GET'])
+def get_powerusage_transfo(measurement, time):
     # get route parameters
     fn = request.args.get('fn', default='sum', type=str)
+    field = request.args.get('field', default=None, type=str)
     calendar_time = request.args.get('calendarTime', default=False, type=lambda v: v.lower() == 'true')
     
     # check whether correct parameters were given, otherwise return bad request
@@ -99,7 +99,7 @@ def get_powerusage_transfo(time, field=None):
         query = f'''import "date" 
                     from(bucket: "{BUCKET}")
                         |> range(start: {rangeCT if calendar_time else range}, stop: date.truncate(t: now(), unit: {window}))
-                        |> filter(fn: (r) => {f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'})
+                        |> filter(fn: (r) => r._measurement == "{measurement}" and {f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'})
                         |> aggregateWindow(every: {window}, fn: {fn})
                  '''
         tables = client.query_api().query(query, org=ORG)
