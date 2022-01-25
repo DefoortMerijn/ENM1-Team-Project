@@ -14,3 +14,10 @@ InfluxDB:
     TOKEN: 'TOKEN'
     ORG: 'ORG'
     BUCKET: 'BUCKET'
+Smappee:
+  channels:
+    5500031443 D: "Stopcontact16A EB1.D"
+    5500033160 B: "Stopcontact16A EB1.D"
+    5500033160 A: "Stopcontact16A EB1.D"
+    5500033102 A: "Stopcontact 63A fuifzaal EB1"
+    5500033102 B: "Stopcontact 63A fuifzaal EB1"

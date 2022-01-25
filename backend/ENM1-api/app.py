@@ -4,7 +4,7 @@ from email.policy import default
 from itertools import groupby
 from flask import Flask, jsonify, request, url_for, Response, session
 from influxdb_client import InfluxDBClient, Point, WritePrecision
-from influxdb_client.client.write_api import SYNCHRONOUS
+from influxdb_client.client.write_api import WriteOptions
 from datetime import datetime
 from flask_cors import CORS
 from flask_mqtt import Mqtt
@@ -117,15 +117,45 @@ def get_powerusage_duiktank(time, field=None):
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
     print("Connected to Transfo MQTT broker with result code " + str(rc))
-    mqtt.subscribe('/placeholder/topic')
+    mqtt.subscribe('servicelocation/477d2645-2919-44c3-acf7-cad592ce7cdc/realtime')
 
 @mqtt.on_message()
 def handle_mqtt_message(client, userdata, message):
-    data = dict(
-        topic=message.topic,
-        payload=message.payload.decode()
-    )
-    print(data)
+    if message.topic == 'servicelocation/477d2645-2919-44c3-acf7-cad592ce7cdc/realtime':
+        # convert payload into JSON
+        data = json.loads(message.payload.decode('utf-8'))
+        # get Smappee channels from config.yaml
+        channels = config['Smappee']['Channels']
+
+        # create point data
+        points = []
+        for chp in data['channelPowers']:
+            # convert formula to Smappee ID, $5500031443/3$ => 5500031443 D
+            SmappeeID = chp['formula'][1:-2].replace("/", " ") + chr(int(chp['formula'][-2]) + 64 + 1)
+            # get Smappee channel name from config.yaml
+            SmappeeName = channels.get(SmappeeID, None)
+
+            point = Point("Transfo Zwevegem") \
+                        .tag("field", SmappeeName) \
+                        .tag("formula", chp['formula']) \
+                        .tag("phaseid", chp['phaseId']) \
+                        .field("power", chp['power']) \
+                        .field("current", chp['current']) \
+                        .field("apparentpower", chp['apparentPower']) \
+                        .field("servicelocationid", chp['serviceLocationId']) \
+                        .time(datetime.utcnow(), WritePrecision.NS)
+            points.append(point)
+
+        add_point_data(points)
+
+def add_point_data(points):
+    URL, TOKEN, ORG, BUCKET = Influx_howest.values()
+    with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
+        with client.write_api() as write_api:
+            print(f'Writing {len(points)} points to InfluxDB')
+            write_api.write(bucket=BUCKET, org=ORG, record=points)
+
+
 
 # start app
 if __name__ == '__main__':
