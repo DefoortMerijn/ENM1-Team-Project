@@ -1,7 +1,7 @@
 const get = (url) => fetch(url).then((r)=> r.json());
 
 function createChart( ctx, type, data ){
-    return new Chart( ctx ,  {
+    const mychart = new Chart( ctx ,  {
         type: type,
         data: data,
         options: {
@@ -42,6 +42,8 @@ function createChart( ctx, type, data ){
             }    
         }
     });
+    
+    return mychart;
 }
 
 function getData(response){
