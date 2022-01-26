@@ -15,54 +15,55 @@ Reveal.addEventListener("welkom", () => {
 
     var zonneparkingLegend = document.getElementById("js-zonneparkingLegend");
     var zonneparking = document.getElementById("js-zonneparking");
+    var zonneparking2 = document.getElementById("js-zonneparking2")
 
     var windturbineLegend = document.getElementById("js-windturbineLegend");
     var windturbine = document.getElementById("js-windturbine");
 
+    duiktankLegend.style.fill = "green"
+    duiktank.style.fill = "green"
 
-    setTimeout(()=>{
-        duiktankLegend.style.fill = "green"
-        duiktank.style.fill = "green"
-    }, 5000)
     setTimeout(()=>{
         duiktankLegend.style.fill = "red"
         duiktank.style.fill = "#656565"
 
         hoofdgebouwLegend.style.fill = "green"
         hoofdgebouw.style.fill = "green"
-    }, 10000)
+    }, 5000)
     setTimeout(()=>{
         hoofdgebouwLegend.style.fill = "red"
         hoofdgebouw.style.fill = "#656565"
         
         watertorenLegend.style.fill = "green"
         watertoren.style.fill = "green"
-    }, 15000)
+    }, 10000)
     setTimeout(()=>{
         watertorenLegend.style.fill = "red"
-        watertoren.style.fill = "#656565"
+        watertoren.style.fill = "#ff8613"
         
         batterijenLegend.style.fill = "green"
         batterijen.style.fill = "green"
-    }, 20000)
+    }, 15000)
     setTimeout(()=>{
         batterijenLegend.style.fill = "red"
-        batterijen.style.fill = "#656565"
+        batterijen.style.fill = "#4b536b"
         
         zonneparkingLegend.style.fill = "green"
         zonneparking.style.fill = "green"
-    }, 25000)
+        zonneparking2.style.fill = "green"
+    }, 20000)
     setTimeout(()=>{
         zonneparkingLegend.style.fill = "red"
-        zonneparking.style.fill = "#656565"
+        zonneparking.style.fill = "#ff8613"
+        zonneparking2.style.fill = "#656565"
         
         windturbineLegend.style.fill = "green"
         windturbine.style.fill = "green"
-    }, 30000)
+    }, 25000)
     setTimeout(()=>{ 
         windturbineLegend.style.fill = "red"
         windturbine.style.fill = "#656565"
-    }, 35000)
+    }, 30000)
 });
 
 // function createChart( ctx, type, data ){
