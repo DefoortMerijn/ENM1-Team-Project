@@ -38,13 +38,6 @@ p{
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
-.c-start{
-  display: flex !important;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
 .c-dashboard {
   background-color: var(--global-secondary-color);
   color: var(--global-font-color);
@@ -78,7 +71,7 @@ p{
 }
 
 .c-infobar__text {
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: left;
   margin: 0 2rem;
 }
@@ -98,30 +91,25 @@ p{
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
+
+  background-color: var(--global-chart-color);
 }
 
 .c-card {
   background-color: var(--global-main-color);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .c-card__title {
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
 
 .c-card__container {
-  font-size: 2rem;
-  height: 85%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  height: 100%;
 
-.c-chart{
   background-color: var(--global-chart-color);
   border-radius: .5rem;
-  padding: 1rem;
 }
 
 .c-quiz__title {
@@ -159,7 +147,13 @@ p{
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
+.u-col-span{
+  grid-column: 1 / span 2;
+}
 
+.u-row-span{
+  grid-row: 1 / span 2;
+}
 /*------------------------------------*\
 #MEDIA
 \*------------------------------------*/
