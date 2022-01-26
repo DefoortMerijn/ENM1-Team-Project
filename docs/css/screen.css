@@ -11,7 +11,7 @@
   --global-main-color: #1c1f38;
   --global-secondary-color: #0d0f1e;
   --global-tertiary-color: #c92f4d;
-  --global-chart-color: #15182D;
+  --global-chart-color: #15182d;
   --global-font-color: #ffffff;
 
   /* --global-color-dark-blue: #15182d;
@@ -30,15 +30,18 @@
 /*------------------------------------*\
 #GENERIC
 \*------------------------------------*/
-p{
-  margin: 1.4rem 0;
+.reveal p {
+  margin: 0;
   line-height: 1.3;
 }
 
+.reveal ul {
+  list-style-type: none;
+}
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
-.c-start{
+.c-start {
   display: flex !important;
   height: 100%;
   align-items: center;
@@ -91,13 +94,36 @@ p{
 
 .c-container {
   width: 70%;
+  margin: 4rem;
+  display: flex;
+  align-items: baseline;
+}
 
-  padding: 2rem;
+.c-map {
+  max-height: 100%;
+}
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 2rem;
+.c-map__legend {
+  background-color: var(--global-main-color);
+  height: max-content;
+}
+
+.c-legend__list {
+  padding: 2rem 0;
+}
+
+.c-legend__list__item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+
+.c-legend__list__item__rect {
+  padding: 0 2rem;
+  height: 30px;
+  width: 100px;
+  fill: var(--global-tertiary-color);
 }
 
 .c-card {
@@ -117,9 +143,9 @@ p{
   align-items: center;
 }
 
-.c-chart{
+.c-chart {
   background-color: var(--global-chart-color);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   padding: 1rem;
 }
 
@@ -140,18 +166,18 @@ p{
   text-align: left;
   background-color: var(--global-chart-color);
   padding: 1rem;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   transition: background-color 2s;
 }
 
-@media (max-width:1200px)  {
+@media (max-width: 1200px) {
   .c-container {
     padding: 1rem;
     gap: 1rem;
   }
 
-  .c-chart{
-    padding: .5rem;
+  .c-chart {
+    padding: 0.5rem;
   }
 }
 

@@ -22,956 +22,2401 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
-  	</head>
-  	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section class="c-start" data-background-image="assets/img/transfo.jpg">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- <section class="c-start" data-background-image="assets/img/transfo.jpg">
 					<h1>Welkom op Transfo Zwevegem</h1>
-				</section>
-				<!-- !!! Slide 2 !!! -->
-				<section class="c-dashboard" data-state="duiktank">
-					<div class="c-infobar">
-						<div class="c-infobar__logo">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="120"
-								height="40"
-								viewBox="0 0 314.152 129"
-							>
-								<g id="logo" transform="translate(-869 -516)">
-									<g
-										id="Group_51"
-										data-name="Group 51"
-										transform="translate(1044.911 516)"
-									>
-										<text
-										id="FO"
-										transform="translate(54.241 82.347)"
-										fill="#fff"
-										font-size="77"
-										font-family="RobotoCondensed-Light, Roboto"
-										font-weight="300"
-										>
-										<tspan x="0" y="0">FO</tspan>
-										</text>
-										<path
-										id="Path_1"
-										data-name="Path 1"
-										d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-										transform="translate(-392.058 -56.58)"
-										fill="#ec1839"
-										/>
-									</g>
-									<text
-										id="TRAN"
-										transform="translate(869 597.347)"
-										fill="#fff"
-										font-size="76"
-										font-family="RobotoCondensed-Light, Roboto"
-										font-weight="300"
-									>
-									<tspan x="0" y="0">TRAN</tspan>
-									</text>
-								</g>
-							</svg>
-						</div>
-						<div class="c-infobar__title">
-								De Duiktank
-						</div>
-						<div class="c-infobar__text">
-							<p> 
-								Op de Transfosite te Zwevegem staan, verborgen in een bufferbekken, drie oude stookolietanks. 
-								Brainstormsessies door een internationale groep jonge architecten brachten het interessante idee op deze om te vormen in een duiktank.
-							</p>
-							<p>
-								Duiken in de duiktank is te vergelijken met duiken in open water. 
-								In België en Nederland duiken in open water betekent ook altijd dat de zichtbaarheid beperkt is.
-								De realisatie van de duiktank is dan ook een perfecte tussenstap tussen duiken in een zwembad en in open water. 
-								Ideaal dus om de duiker veilig klaar te stomen voor het woelige buitenwater.
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/diving_tank.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title u-col-span-1">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month u-col-span-2">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card u-col-span-1">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card u-col-span-2">
-							<div class="c-card__title c-quiz__title">Het verbruik van de duiktank is ongeveer hoeveel wattage?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a fragment highlight-green">A. 2000</div>
-								<div class="c-quiz__question c-quiz__question__b">B. 3000</div>
-								<div class="c-quiz__question c-quiz__question__c">C. 4000</div>
-								<div class="c-quiz__question c-quiz__question__d">D. 5000</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- !!! Slide 3 !!! -->
-				<section class="c-dashboard" data-state="demo">
-					<div class="c-infobar">
-						<div class="c-infobar__logo ">
-							<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="120"
-							height="40"
-							viewBox="0 0 314.152 129"
-							  >
-							<g id="logo" transform="translate(-869 -516)">
-							  <g
-								id="Group_51"
-								data-name="Group 51"
-								transform="translate(1044.911 516)"
-							  >
-								<text
-								  id="FO"
-								  transform="translate(54.241 82.347)"
-								  fill="#fff"
-								  font-size="77"
-								  font-family="RobotoCondensed-Light, Roboto"
-								  font-weight="300"
-								>
-								  <tspan x="0" y="0">FO</tspan>
-								</text>
-								<path
-								  id="Path_1"
-								  data-name="Path 1"
-								  d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-								  transform="translate(-392.058 -56.58)"
-								  fill="#ec1839"
-								/>
-							  </g>
-							  <text
-								id="TRAN"
-								transform="translate(869 597.347)"
-								fill="#fff"
-								font-size="76"
-								font-family="RobotoCondensed-Light, Roboto"
-								font-weight="300"
-							  >
-								<tspan x="0" y="0">TRAN</tspan>
-							  </text>
-							</g>
-						  </svg>
-						</div>
-						<div class="c-infobar__title">
-							Demostand
-						</div>
-						<div class="c-infobar__text">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet tincidunt rutrum. 
-								Integer cursus tristique posuere. Donec vel dui varius, mattis lectus eu, luctus dolor. 
-								Nullam ut neque a nunc condimentum tincidunt. Fusce dictum neque libero, id suscipit urna pharetra faucibus. 
-								Nulla feugiat commodo purus, eu scelerisque magna consequat id. Duis nec egestas orci. 
-							</p>
-							<p>
-								Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla ut pulvinar diam, in sagittis turpis. 
-								Fusce placerat luctus libero pretium laoreet. Proin dictum, justo eu porttitor sollicitudin, augue felis facilisis risus, at ultrices lorem lectus vel justo. 
-								Nullam neque tellus, hendrerit vel dictum at, interdum a lectus. Morbi convallis id urna quis laoreet. 
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/diving_tank.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart2" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart2" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart2" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title c-quiz__title">Quizvraag over energie of over het onderdeel zelf?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a">A. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__b fragment highlight-green">B. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__c">C. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__d">D. Antwoord</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- !!! Slide 4 !!! -->
-				<section class="c-dashboard" data-state="hoofdgebouw">
-					<div class="c-infobar">
-						<div class="c-infobar__logo ">
-							<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="120"
-							height="40"
-							viewBox="0 0 314.152 129"
-							  >
-							<g id="logo" transform="translate(-869 -516)">
-							  <g
-								id="Group_51"
-								data-name="Group 51"
-								transform="translate(1044.911 516)"
-							  >
-								<text
-								  id="FO"
-								  transform="translate(54.241 82.347)"
-								  fill="#fff"
-								  font-size="77"
-								  font-family="RobotoCondensed-Light, Roboto"
-								  font-weight="300"
-								>
-								  <tspan x="0" y="0">FO</tspan>
-								</text>
-								<path
-								  id="Path_1"
-								  data-name="Path 1"
-								  d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-								  transform="translate(-392.058 -56.58)"
-								  fill="#ec1839"
-								/>
-							  </g>
-							  <text
-								id="TRAN"
-								transform="translate(869 597.347)"
-								fill="#fff"
-								font-size="76"
-								font-family="RobotoCondensed-Light, Roboto"
-								font-weight="300"
-							  >
-								<tspan x="0" y="0">TRAN</tspan>
-							  </text>
-							</g>
-						  </svg>
-						</div>
-						<div class="c-infobar__title">
-							Hoofdgebouw
-						</div>
-						<div class="c-infobar__text">
-							<p>
-                Het hoofdgebouw bevat 3 delen: het kantoorgebouw, de feestzaal en de machinezaal.
-  
-							</p>
-							<p>
-                De Machinezaal is een uniek decor voor elk groot feest, de Pompenzaal biedt een creatieve waaier aan inrichtingsmogelijkheden en de Polyvalente zaal is bijzonder goed uitgerust.
-                Alle zalen kunnen zowel privé als zakelijk gebruikt worden. 
-                Bekijk de fotogalerij voor een overzicht van de mogeljikheden met de zalen.
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/hoofdgebouw.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart3" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart3" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart3" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title c-quiz__title">Quizvraag over energie of over het onderdeel zelf?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a">A. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__b">B. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__c fragment highlight-green">C. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__d">D. Antwoord</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- !!! Slide 5 !!! -->
-				<section class="c-dashboard" data-state="silo">
-					<div class="c-infobar">
-						<div class="c-infobar__logo ">
-							<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="120"
-							height="40"
-							viewBox="0 0 314.152 129"
-							  >
-							<g id="logo" transform="translate(-869 -516)">
-							  <g
-								id="Group_51"
-								data-name="Group 51"
-								transform="translate(1044.911 516)"
-							  >
-								<text
-								  id="FO"
-								  transform="translate(54.241 82.347)"
-								  fill="#fff"
-								  font-size="77"
-								  font-family="RobotoCondensed-Light, Roboto"
-								  font-weight="300"
-								>
-								  <tspan x="0" y="0">FO</tspan>
-								</text>
-								<path
-								  id="Path_1"
-								  data-name="Path 1"
-								  d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-								  transform="translate(-392.058 -56.58)"
-								  fill="#ec1839"
-								/>
-							  </g>
-							  <text
-								id="TRAN"
-								transform="translate(869 597.347)"
-								fill="#fff"
-								font-size="76"
-								font-family="RobotoCondensed-Light, Roboto"
-								font-weight="300"
-							  >
-								<tspan x="0" y="0">TRAN</tspan>
-							  </text>
-							</g>
-						  </svg>
-						</div>
-						<div class="c-infobar__title">
-							Silo
-						</div>
-						<div class="c-infobar__text">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet tincidunt rutrum. 
-								Integer cursus tristique posuere. Donec vel dui varius, mattis lectus eu, luctus dolor. 
-								Nullam ut neque a nunc condimentum tincidunt. Fusce dictum neque libero, id suscipit urna pharetra faucibus. 
-								Nulla feugiat commodo purus, eu scelerisque magna consequat id. Duis nec egestas orci. 
-							</p>
-							<p>
-								Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla ut pulvinar diam, in sagittis turpis. 
-								Fusce placerat luctus libero pretium laoreet. Proin dictum, justo eu porttitor sollicitudin, augue felis facilisis risus, at ultrices lorem lectus vel justo. 
-								Nullam neque tellus, hendrerit vel dictum at, interdum a lectus. Morbi convallis id urna quis laoreet. 
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/diving_tank.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart4" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart4" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart4" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title c-quiz__title">Quizvraag over energie of over het onderdeel zelf?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a">A. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__b">B. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__c">C. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__d fragment highlight-green">D. Antwoord</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- !!! Slide 6 !!! -->
-				<section class="c-dashboard" data-state="mechanikergebouw">
-					<div class="c-infobar">
-						<div class="c-infobar__logo ">
-							<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="120"
-							height="40"
-							viewBox="0 0 314.152 129"
-							  >
-							<g id="logo" transform="translate(-869 -516)">
-							  <g
-								id="Group_51"
-								data-name="Group 51"
-								transform="translate(1044.911 516)"
-							  >
-								<text
-								  id="FO"
-								  transform="translate(54.241 82.347)"
-								  fill="#fff"
-								  font-size="77"
-								  font-family="RobotoCondensed-Light, Roboto"
-								  font-weight="300"
-								>
-								  <tspan x="0" y="0">FO</tspan>
-								</text>
-								<path
-								  id="Path_1"
-								  data-name="Path 1"
-								  d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-								  transform="translate(-392.058 -56.58)"
-								  fill="#ec1839"
-								/>
-							  </g>
-							  <text
-								id="TRAN"
-								transform="translate(869 597.347)"
-								fill="#fff"
-								font-size="76"
-								font-family="RobotoCondensed-Light, Roboto"
-								font-weight="300"
-							  >
-								<tspan x="0" y="0">TRAN</tspan>
-							  </text>
-							</g>
-						  </svg>
-						</div>
-						<div class="c-infobar__title">
-							Mechanikergebouw Oenanthe
-						</div>
-						<div class="c-infobar__text">
-							<p>
-                De natuursportorganisatie Oenanthe bestaat uit een team van professionele sportmonitoren
-                dat instaat voor de organisatie en begeleiding van evenementen
-                waar sport, natuur en avontuur centraal staan.
-							</p>
-							<p>
-                Naast onze activiteiten op Transfo Zwevegem en het PRNC De Gavers in Harelbeke
-                verhuren we heel wat materiaal voor evenementen over Vlaanderen en omstreken.
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/diving_tank.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart5" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart5" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart5" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title c-quiz__title">Quizvraag over energie of over het onderdeel zelf?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a">A. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__b">B. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__c">C. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__d fragment highlight-green">D. Antwoord</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- !!! Slide 7 !!! -->
-				<section class="c-dashboard" data-state="waterkot">
-					<div class="c-infobar">
-						<div class="c-infobar__logo ">
-							<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="120"
-							height="40"
-							viewBox="0 0 314.152 129"
-							  >
-							<g id="logo" transform="translate(-869 -516)">
-							  <g
-								id="Group_51"
-								data-name="Group 51"
-								transform="translate(1044.911 516)"
-							  >
-								<text
-								  id="FO"
-								  transform="translate(54.241 82.347)"
-								  fill="#fff"
-								  font-size="77"
-								  font-family="RobotoCondensed-Light, Roboto"
-								  font-weight="300"
-								>
-								  <tspan x="0" y="0">FO</tspan>
-								</text>
-								<path
-								  id="Path_1"
-								  data-name="Path 1"
-								  d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-								  transform="translate(-392.058 -56.58)"
-								  fill="#ec1839"
-								/>
-							  </g>
-							  <text
-								id="TRAN"
-								transform="translate(869 597.347)"
-								fill="#fff"
-								font-size="76"
-								font-family="RobotoCondensed-Light, Roboto"
-								font-weight="300"
-							  >
-								<tspan x="0" y="0">TRAN</tspan>
-							  </text>
-							</g>
-						  </svg>
-						</div>
-						<div class="c-infobar__title">
-							Waterkot
-						</div>
-						<div class="c-infobar__text">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet tincidunt rutrum. 
-								Integer cursus tristique posuere. Donec vel dui varius, mattis lectus eu, luctus dolor. 
-								Nullam ut neque a nunc condimentum tincidunt. Fusce dictum neque libero, id suscipit urna pharetra faucibus. 
-								Nulla feugiat commodo purus, eu scelerisque magna consequat id. Duis nec egestas orci. 
-							</p>
-							<p>
-								Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla ut pulvinar diam, in sagittis turpis. 
-								Fusce placerat luctus libero pretium laoreet. Proin dictum, justo eu porttitor sollicitudin, augue felis facilisis risus, at ultrices lorem lectus vel justo. 
-								Nullam neque tellus, hendrerit vel dictum at, interdum a lectus. Morbi convallis id urna quis laoreet. 
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/diving_tank.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart6" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart6" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart6" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title c-quiz__title">Quizvraag over energie of over het onderdeel zelf?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a">A. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__b">B. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__c fragment highlight-green">C. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__d">D. Antwoord</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- !!! Slide 8 !!! -->
-				<section class="c-dashboard" data-state="">
-					<div class="c-infobar">
-						<div class="c-infobar__logo ">
-							<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="120"
-							height="40"
-							viewBox="0 0 314.152 129"
-							  >
-							<g id="logo" transform="translate(-869 -516)">
-							  <g
-								id="Group_51"
-								data-name="Group 51"
-								transform="translate(1044.911 516)"
-							  >
-								<text
-								  id="FO"
-								  transform="translate(54.241 82.347)"
-								  fill="#fff"
-								  font-size="77"
-								  font-family="RobotoCondensed-Light, Roboto"
-								  font-weight="300"
-								>
-								  <tspan x="0" y="0">FO</tspan>
-								</text>
-								<path
-								  id="Path_1"
-								  data-name="Path 1"
-								  d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-								  transform="translate(-392.058 -56.58)"
-								  fill="#ec1839"
-								/>
-							  </g>
-							  <text
-								id="TRAN"
-								transform="translate(869 597.347)"
-								fill="#fff"
-								font-size="76"
-								font-family="RobotoCondensed-Light, Roboto"
-								font-weight="300"
-							  >
-								<tspan x="0" y="0">TRAN</tspan>
-							  </text>
-							</g>
-						  </svg>
-						</div>
-						<div class="c-infobar__title">
-							Naam sectie
-						</div>
-						<div class="c-infobar__text">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet tincidunt rutrum. 
-								Integer cursus tristique posuere. Donec vel dui varius, mattis lectus eu, luctus dolor. 
-								Nullam ut neque a nunc condimentum tincidunt. Fusce dictum neque libero, id suscipit urna pharetra faucibus. 
-								Nulla feugiat commodo purus, eu scelerisque magna consequat id. Duis nec egestas orci. 
-							</p>
-							<p>
-								Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla ut pulvinar diam, in sagittis turpis. 
-								Fusce placerat luctus libero pretium laoreet. Proin dictum, justo eu porttitor sollicitudin, augue felis facilisis risus, at ultrices lorem lectus vel justo. 
-								Nullam neque tellus, hendrerit vel dictum at, interdum a lectus. Morbi convallis id urna quis laoreet. 
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/diving_tank.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title c-quiz__title">Quizvraag over energie of over het onderdeel zelf?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a">A. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__b fragment highlight-green">B. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__c">C. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__d">D. Antwoord</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- !!! Slide 9 !!! -->
-				<section class="c-dashboard" data-state="">
-					<div class="c-infobar">
-						<div class="c-infobar__logo ">
-							<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="120"
-							height="40"
-							viewBox="0 0 314.152 129"
-							  >
-							<g id="logo" transform="translate(-869 -516)">
-							  <g
-								id="Group_51"
-								data-name="Group 51"
-								transform="translate(1044.911 516)"
-							  >
-								<text
-								  id="FO"
-								  transform="translate(54.241 82.347)"
-								  fill="#fff"
-								  font-size="77"
-								  font-family="RobotoCondensed-Light, Roboto"
-								  font-weight="300"
-								>
-								  <tspan x="0" y="0">FO</tspan>
-								</text>
-								<path
-								  id="Path_1"
-								  data-name="Path 1"
-								  d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-								  transform="translate(-392.058 -56.58)"
-								  fill="#ec1839"
-								/>
-							  </g>
-							  <text
-								id="TRAN"
-								transform="translate(869 597.347)"
-								fill="#fff"
-								font-size="76"
-								font-family="RobotoCondensed-Light, Roboto"
-								font-weight="300"
-							  >
-								<tspan x="0" y="0">TRAN</tspan>
-							  </text>
-							</g>
-						  </svg>
-						</div>
-						<div class="c-infobar__title">
-							Naam sectie
-						</div>
-						<div class="c-infobar__text">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet tincidunt rutrum. 
-								Integer cursus tristique posuere. Donec vel dui varius, mattis lectus eu, luctus dolor. 
-								Nullam ut neque a nunc condimentum tincidunt. Fusce dictum neque libero, id suscipit urna pharetra faucibus. 
-								Nulla feugiat commodo purus, eu scelerisque magna consequat id. Duis nec egestas orci. 
-							</p>
-							<p>
-								Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla ut pulvinar diam, in sagittis turpis. 
-								Fusce placerat luctus libero pretium laoreet. Proin dictum, justo eu porttitor sollicitudin, augue felis facilisis risus, at ultrices lorem lectus vel justo. 
-								Nullam neque tellus, hendrerit vel dictum at, interdum a lectus. Morbi convallis id urna quis laoreet. 
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/diving_tank.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title c-quiz__title">Quizvraag over energie of over het onderdeel zelf?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a fragment highlight-green">A. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__b">B. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__c">C. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__d">D. Antwoord</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- !!! Slide 10 !!! -->
-				<section class="c-dashboard" data-state="">
-					<div class="c-infobar">
-						<div class="c-infobar__logo ">
-							<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="120"
-							height="40"
-							viewBox="0 0 314.152 129"
-							  >
-							<g id="logo" transform="translate(-869 -516)">
-							  <g
-								id="Group_51"
-								data-name="Group 51"
-								transform="translate(1044.911 516)"
-							  >
-								<text
-								  id="FO"
-								  transform="translate(54.241 82.347)"
-								  fill="#fff"
-								  font-size="77"
-								  font-family="RobotoCondensed-Light, Roboto"
-								  font-weight="300"
-								>
-								  <tspan x="0" y="0">FO</tspan>
-								</text>
-								<path
-								  id="Path_1"
-								  data-name="Path 1"
-								  d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
-								  transform="translate(-392.058 -56.58)"
-								  fill="#ec1839"
-								/>
-							  </g>
-							  <text
-								id="TRAN"
-								transform="translate(869 597.347)"
-								fill="#fff"
-								font-size="76"
-								font-family="RobotoCondensed-Light, Roboto"
-								font-weight="300"
-							  >
-								<tspan x="0" y="0">TRAN</tspan>
-							  </text>
-							</g>
-						  </svg>
-						</div>
-						<div class="c-infobar__title">
-							Naam sectie
-						</div>
-						<div class="c-infobar__text">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet tincidunt rutrum. 
-								Integer cursus tristique posuere. Donec vel dui varius, mattis lectus eu, luctus dolor. 
-								Nullam ut neque a nunc condimentum tincidunt. Fusce dictum neque libero, id suscipit urna pharetra faucibus. 
-								Nulla feugiat commodo purus, eu scelerisque magna consequat id. Duis nec egestas orci. 
-							</p>
-							<p>
-								Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla ut pulvinar diam, in sagittis turpis. 
-								Fusce placerat luctus libero pretium laoreet. Proin dictum, justo eu porttitor sollicitudin, augue felis facilisis risus, at ultrices lorem lectus vel justo. 
-								Nullam neque tellus, hendrerit vel dictum at, interdum a lectus. Morbi convallis id urna quis laoreet. 
-							</p>
-						</div>
-						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
-							<defs>
-								<clipPath id="clip">
-									<polygon points="0 0, 100 30, 0 100, 0 100" />
-								</clipPath>
-							</defs>
-							<image href="assets/img/diving_tank.jpg" x="0" y="-3" height="12" width="10" clip-path="url(#clip)"/>
-						</svg>
-					</div>
-					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart" style="border-radius: .5rem;"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart" style="border-radius: .5rem;"></canvas>
-							</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-                				<canvas id="c-comparison-chart" style="border-radius: .5rem;"></canvas>
-              				</div>
-						</div>
-						<div class="c-card">
-							<div class="c-card__title c-quiz__title">Quizvraag over energie of over het onderdeel zelf?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a">A. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__b fragment highlight-green">B. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__c">C. Antwoord</div>
-								<div class="c-quiz__question c-quiz__question__d">D. Antwoord</div>
-							</div>
-						</div>
-					</div>
-				</section>
-      		</div>
-    	</div>
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script src="plugin/fullscreen/plugin.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
-		<script src="js/app.js"></script>
->>>>>>> feature/presentation
+				</section> -->
+        <!-- !!! Slide 2 !!! -->
+        <section class="c-dashboard" data-state="duiktank">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">De Transfo site</div>
+            <div class="c-infobar__text">
+              <p>
+                Op de Transfosite te Zwevegem staan, verborgen in een
+                bufferbekken, drie oude stookolietanks. Brainstormsessies door
+                een internationale groep jonge architecten brachten het
+                interessante idee op deze om te vormen in een duiktank.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/diving_tank.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <svg
+              id="Layer_1"
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 500 450"
+              class="c-map"
+            >
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #ececec;
+                  }
+                  .cls-2 {
+                    fill: #c3d890;
+                  }
+                  .cls-3 {
+                    fill: #81d1f5;
+                  }
+                  .cls-4 {
+                    fill: #d0e29b;
+                  }
+                  .cls-5 {
+                    fill: #c2db8c;
+                  }
+                  .cls-6 {
+                    fill: #bfc9d0;
+                  }
+                  .cls-7 {
+                    fill: #656565;
+                  }
+                  .cls-8 {
+                    fill: #604c39;
+                  }
+                  .cls-9 {
+                    fill: #754448;
+                  }
+                  .cls-10 {
+                    fill: #71c3b3;
+                    stroke: #000;
+                    stroke-width: 0.1px;
+                  }
+                  .cls-10,
+                  .cls-15,
+                  .cls-16,
+                  .cls-17,
+                  .cls-18,
+                  .cls-19 {
+                    stroke-miterlimit: 10;
+                  }
+                  .cls-11 {
+                    fill: #4b536b;
+                  }
+                  .cls-12 {
+                    fill: #67708a;
+                  }
+                  .cls-13 {
+                    fill: #ff8613;
+                  }
+                  .cls-14 {
+                    fill: #f2af5a;
+                  }
+                  .cls-15,
+                  .cls-16,
+                  .cls-17,
+                  .cls-18 {
+                    fill: none;
+                    stroke: #b8b8b8;
+                  }
+                  .cls-15 {
+                    stroke-width: 6px;
+                  }
+                  .cls-16 {
+                    stroke-width: 6.35px;
+                  }
+                  .cls-17 {
+                    stroke-width: 4.96px;
+                  }
+                  .cls-18 {
+                    stroke-width: 5.44px;
+                  }
+                  .cls-19 {
+                    stroke: #e80a0a;
+                    stroke-width: 0.5px;
+                  }
+                </style>
+              </defs>
+              <g id="V2">
+                <g id="ground">
+                  <path
+                    id="ground-2"
+                    data-name="ground"
+                    class="cls-1"
+                    d="M806,90.67l2.78,49.59-34.56,2.34v-4.49l-68.3,10.74L729.8,291.27h23.44l12,85.41-56.79,34,8.74,34.75L854,400.11l13.9,54.47s20.85,19.91,25.62,28.11l20.65,41.19-26.61,16.79s57.19-7,66.72-1.17l-1.19-52.71L885.48,350s24.87-16.1,30.09-18l58.67-25.62s11.92-3.66,20.56-3.95c0,0,64-6.74,69.4-6.45V218.11h12.21v-7.18h116.16l5.76-19.71s-7.15-2-3.18-17.58L1205.88,127H1096.27V97.51Z"
+                    transform="translate(-705.88 -90.67)"
+                  />
+                  <g id="green">
+                    <path
+                      id="grass"
+                      class="cls-2"
+                      d="M846.62,99.28v33.78s.61,5.63,5.63,5.63H888s17.55,1.54,27.88,11.87h22.53V134.82h46.8V128h23.93v57.89h6.24v2.2h5.72v-5.28h49.22v19.88h6.34v3.83h100.95s6.59-15.57,1.84-24.94l9.77-49.09h-97.12v-28Z"
+                      transform="translate(-705.88 -90.67)"
+                    />
+                    <rect
+                      id="water"
+                      class="cls-3"
+                      x="858.71"
+                      y="105.57"
+                      width="99.46"
+                      height="16.88"
+                      transform="translate(-703.75 -106.51) rotate(1)"
+                    />
+                  </g>
+                  <g id="grass-2" data-name="grass">
+                    <path
+                      id="grass-3"
+                      data-name="grass"
+                      class="cls-2"
+                      d="M778.54,153.08l14,.13v-2.65l9.07.4v-6.08l23.23-.53s12.61-1.19,19,.4l40.94,5.68v-2.11H892l-2.7,56.84,20-3.17.71-6.61,6,2.78s-5.29,22-5.67,38.07l-1.89,63.28s-7.55,16.57-13.79,21.15c0,0-27,17.1-46.08,16.22l-12.47,4.19-10-68.35-12.94,1.67-3.4-25.73-13,1.85-9.73-65-3.68.26Z"
+                      transform="translate(-705.88 -90.67)"
+                    />
+                    <polyline
+                      id="grass-4"
+                      data-name="grass"
+                      class="cls-4"
+                      points="126.56 65.73 101.57 66.78 100.87 141.74 144.85 141.74 144.85 162.5 170.9 162.5 181.98 67.31"
+                    />
+                  </g>
+                  <path
+                    id="grass-5"
+                    data-name="grass"
+                    class="cls-2"
+                    d="M1046.92,212.81l1.16,79.4-74,8.77,2.32-4.07V232.23S981.55,214,995.7,214Z"
+                    transform="translate(-705.88 -90.67)"
+                  />
+                  <g id="grass-6" data-name="grass">
+                    <path
+                      id="grass-7"
+                      data-name="grass"
+                      class="cls-5"
+                      d="M942.38,226.67V234A10.8,10.8,0,0,1,939,240.6v16h-6.24v2.17h-5.33V275.1h3.29v6.64h8.15v31.15H915.9v11.43l52.76-22.61s6.77-5.84,6.77-11.23v-50s1.08-6.6,3.15-8.67c0,0-2.49-6.6-6.6-6.6H959.59v1.41Z"
+                      transform="translate(-705.88 -90.67)"
+                    />
+                    <path
+                      id="grass-8"
+                      data-name="grass"
+                      class="cls-4"
+                      d="M946.63,234.52h23V286s-.7,8.32-6.06,10.25l-19,6.7V245.31l2-2Z"
+                      transform="translate(-705.88 -90.67)"
+                    />
+                  </g>
+                  <rect
+                    id="asphalt"
+                    class="cls-6"
+                    x="341.2"
+                    y="122.09"
+                    width="15.54"
+                    height="80.18"
+                  />
+                </g>
+                <polygon
+                  id="building"
+                  class="cls-7"
+                  points="350.27 124.65 349.45 124.65 346.62 124.65 346.62 130.79 349.45 130.79 349.45 201.85 356.57 201.85 356.57 124.65 350.27 124.65"
+                />
+                <g id="mevaco">
+                  <rect
+                    class="cls-8"
+                    x="727.74"
+                    y="157.61"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-722.95 33.11) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="727.74"
+                    y="157.61"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-722.95 33.11) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="745.39"
+                    y="245.56"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-736.95 37.13) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="745.39"
+                    y="245.56"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-736.95 37.13) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="747.3"
+                    y="182.64"
+                    width="25.11"
+                    height="56.48"
+                    transform="translate(-729.99 35.05) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="747.3"
+                    y="182.64"
+                    width="25.11"
+                    height="56.48"
+                    transform="translate(-729.99 35.05) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="727.74"
+                    y="157.61"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-722.95 33.11) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="727.74"
+                    y="157.61"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-722.95 33.11) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="745.39"
+                    y="245.56"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-736.95 37.13) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="745.39"
+                    y="245.56"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-736.95 37.13) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="747.3"
+                    y="182.64"
+                    width="25.11"
+                    height="56.48"
+                    transform="translate(-729.99 35.05) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="747.3"
+                    y="182.64"
+                    width="25.11"
+                    height="56.48"
+                    transform="translate(-729.99 35.05) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="727.74"
+                    y="157.61"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-722.95 33.11) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="727.74"
+                    y="157.61"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-722.95 33.11) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="745.39"
+                    y="245.56"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-736.95 37.13) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="745.39"
+                    y="245.56"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-736.95 37.13) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="747.3"
+                    y="182.64"
+                    width="25.11"
+                    height="56.48"
+                    transform="translate(-729.99 35.05) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="747.3"
+                    y="182.64"
+                    width="25.11"
+                    height="56.48"
+                    transform="translate(-729.99 35.05) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="770.41"
+                    y="287.37"
+                    width="34.16"
+                    height="14.66"
+                    transform="translate(-743.18 40.62) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="785.79"
+                    y="308.52"
+                    width="18.34"
+                    height="46.21"
+                    transform="translate(-749.06 42.32) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="770.41"
+                    y="287.37"
+                    width="34.16"
+                    height="14.66"
+                    transform="translate(-743.18 40.62) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="785.79"
+                    y="308.52"
+                    width="18.34"
+                    height="46.21"
+                    transform="translate(-749.06 42.32) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="770.41"
+                    y="287.37"
+                    width="34.16"
+                    height="14.66"
+                    transform="translate(-743.18 40.62) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="785.79"
+                    y="308.52"
+                    width="18.34"
+                    height="46.21"
+                    transform="translate(-749.06 42.32) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="727.74"
+                    y="157.61"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-722.95 33.11) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="745.39"
+                    y="245.56"
+                    width="47.47"
+                    height="18.2"
+                    transform="translate(-736.95 37.13) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-8"
+                    x="747.3"
+                    y="182.64"
+                    width="25.11"
+                    height="56.48"
+                    transform="translate(-729.99 35.05) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-9"
+                    x="770.41"
+                    y="287.37"
+                    width="34.16"
+                    height="14.66"
+                    transform="translate(-743.18 40.62) rotate(-9.31)"
+                  />
+                  <rect
+                    class="cls-9"
+                    x="785.79"
+                    y="308.52"
+                    width="18.34"
+                    height="46.21"
+                    transform="translate(-749.06 42.32) rotate(-9.31)"
+                  />
+                </g>
+                <g id="buidlings">
+                  <rect
+                    class="cls-9"
+                    x="756.87"
+                    y="373.4"
+                    width="12.91"
+                    height="77.87"
+                    transform="translate(228.46 -528.89) rotate(72.99)"
+                  />
+                  <rect
+                    class="cls-9"
+                    x="710.48"
+                    y="428.41"
+                    width="18.34"
+                    height="7.12"
+                    transform="translate(225.34 -470.94) rotate(73.63)"
+                  />
+                  <rect
+                    class="cls-9"
+                    x="800.22"
+                    y="388.64"
+                    width="19.2"
+                    height="13.39"
+                    transform="translate(254.94 -583.76) rotate(73.63)"
+                  />
+                  <rect
+                    class="cls-9"
+                    x="819.21"
+                    y="388.64"
+                    width="19.2"
+                    height="13.39"
+                    transform="translate(268.58 -601.98) rotate(73.63)"
+                  />
+                  <rect
+                    class="cls-9"
+                    x="848.41"
+                    y="415.15"
+                    width="37.46"
+                    height="9.71"
+                    transform="translate(362.16 -612.99) rotate(76.19)"
+                  />
+                  <rect
+                    class="cls-9"
+                    x="867.66"
+                    y="458.64"
+                    width="38.95"
+                    height="9.71"
+                    transform="translate(-61.58 -598.19) rotate(48.37)"
+                  />
+                </g>
+                <polygon
+                  id="building-2"
+                  data-name="building"
+                  class="cls-7"
+                  points="332.54 179.01 327.96 179.55 327.96 137.51 302.64 137.51 302.64 182.51 287.68 184.26 289.39 198.83 334.24 193.58 332.54 179.01"
+                />
+                <g id="silos">
+                  <circle
+                    id="duiktank"
+                    class="cls-7"
+                    cx="125.05"
+                    cy="113.26"
+                    r="16.69"
+                  />
+                  <ellipse
+                    id="silo_2"
+                    class="cls-7"
+                    cx="158.92"
+                    cy="113.75"
+                    rx="8.59"
+                    ry="8.34"
+                  />
+                  <circle
+                    id="silo_1"
+                    class="cls-8"
+                    cx="158.92"
+                    cy="82.34"
+                    r="10.8"
+                  />
+                </g>
+                <g id="Silo">
+                  <rect
+                    id="voorpost"
+                    class="cls-7"
+                    x="319.26"
+                    y="50.29"
+                    width="40.51"
+                    height="60.98"
+                  />
+                  <g id="solar_panels">
+                    <rect
+                      id="voorpost-2"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="320.57"
+                      y="51.67"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-3"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="325.32"
+                      y="51.67"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-4"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="330.07"
+                      y="51.67"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-5"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="334.82"
+                      y="51.67"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-6"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="339.56"
+                      y="51.67"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-7"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="344.31"
+                      y="51.67"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-8"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="349.06"
+                      y="51.67"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-9"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="353.8"
+                      y="51.67"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-10"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="320.57"
+                      y="59.98"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-11"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="325.32"
+                      y="59.98"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-12"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="330.07"
+                      y="59.98"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-13"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="334.82"
+                      y="59.98"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-14"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="339.56"
+                      y="59.98"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-15"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="344.31"
+                      y="59.98"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-16"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="349.06"
+                      y="59.98"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-17"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="353.8"
+                      y="59.98"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-18"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="320.57"
+                      y="68.28"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-19"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="325.32"
+                      y="68.28"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-20"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="330.07"
+                      y="68.28"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-21"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="334.82"
+                      y="68.28"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-22"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="339.56"
+                      y="68.28"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-23"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="344.31"
+                      y="68.28"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-24"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="349.06"
+                      y="68.28"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-25"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="353.8"
+                      y="68.28"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-26"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="320.57"
+                      y="76.59"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-27"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="325.32"
+                      y="76.59"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-28"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="330.07"
+                      y="76.59"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-29"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="334.82"
+                      y="76.59"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-30"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="339.56"
+                      y="76.59"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-31"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="344.31"
+                      y="76.59"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-32"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="349.06"
+                      y="76.59"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-33"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="353.8"
+                      y="76.59"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-34"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="320.57"
+                      y="84.9"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-35"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="325.32"
+                      y="84.9"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-36"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="330.07"
+                      y="84.9"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-37"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="334.82"
+                      y="84.9"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-38"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="339.56"
+                      y="84.9"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-39"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="344.31"
+                      y="84.9"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-40"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="349.06"
+                      y="84.9"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-41"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="353.8"
+                      y="84.9"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-42"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="320.57"
+                      y="93.21"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-43"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="325.32"
+                      y="93.21"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-44"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="330.07"
+                      y="93.21"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-45"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="334.82"
+                      y="93.21"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-46"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="339.56"
+                      y="93.21"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-47"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="344.31"
+                      y="93.21"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-48"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="349.06"
+                      y="93.21"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-49"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="353.8"
+                      y="93.21"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-50"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="320.57"
+                      y="101.51"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-51"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="325.32"
+                      y="101.51"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-52"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="330.07"
+                      y="101.51"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-53"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="334.82"
+                      y="101.51"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-54"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="339.56"
+                      y="101.51"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-55"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="344.31"
+                      y="101.51"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="voorpost-56"
+                      data-name="voorpost"
+                      class="cls-10"
+                      x="349.06"
+                      y="101.51"
+                      width="4.65"
+                      height="8.37"
+                    />
+                    <rect
+                      id="solar_panel"
+                      class="cls-10"
+                      x="353.8"
+                      y="101.51"
+                      width="4.65"
+                      height="8.37"
+                    />
+                  </g>
+                </g>
+                <rect
+                  id="wkk"
+                  class="cls-7"
+                  x="989.23"
+                  y="104.93"
+                  width="17.74"
+                  height="9.03"
+                  transform="translate(-703.81 -108.08) rotate(1)"
+                />
+                <polygon
+                  id="work_building"
+                  class="cls-11"
+                  points="233.21 79.66 208.64 79.66 208.64 87.68 214.97 87.68 214.97 89.45 220.81 89.45 220.81 87.68 233.21 87.68 233.21 79.66"
+                />
+                <g id="transfo_building">
+                  <polygon
+                    id="mechanic_building"
+                    class="cls-11"
+                    points="276.93 36.26 226.22 36.26 226.22 56.49 226.22 57.75 226.22 62.22 235.13 62.22 235.13 57.75 276.93 57.75 276.93 36.26"
+                  />
+                  <rect
+                    id="water_reserve"
+                    class="cls-11"
+                    x="233.18"
+                    y="93.79"
+                    width="23.29"
+                    height="5.91"
+                  />
+                  <polygon
+                    id="transfo_building-2"
+                    data-name="transfo_building"
+                    class="cls-7"
+                    points="303.42 74.61 303.42 58.8 303.42 57.61 303.42 36.28 294.32 36.28 294.32 28.52 282.99 28.52 282.99 57.61 233.18 57.61 233.18 93.85 269.12 93.85 269.12 97.57 307.45 97.57 307.45 74.61 303.42 74.61"
+                  />
+                  <rect
+                    id="office"
+                    class="cls-11"
+                    x="272.47"
+                    y="87.75"
+                    width="34.03"
+                    height="8.58"
+                  />
+                  <rect
+                    id="machine_room"
+                    class="cls-11"
+                    x="273.43"
+                    y="62.7"
+                    width="27.6"
+                    height="21.1"
+                  />
+                  <rect
+                    id="party_building"
+                    class="cls-11"
+                    x="285.66"
+                    y="37.62"
+                    width="15.37"
+                    height="22.15"
+                  />
+                </g>
+                <rect
+                  id="janitor_building"
+                  class="cls-11"
+                  x="899.55"
+                  y="181.15"
+                  width="5.88"
+                  height="18.2"
+                  transform="translate(-725.68 91.57) rotate(-11.41)"
+                />
+                <polygon
+                  id="building_arts_and_director"
+                  class="cls-12"
+                  points="249.51 151.3 249.51 146.28 245.01 146.28 245.01 154.41 245.88 154.41 245.88 164.09 257.81 164.09 257.81 151.3 249.51 151.3"
+                />
+                <g id="silo-2" data-name="silo">
+                  <rect
+                    id="pv_parking"
+                    class="cls-13"
+                    x="427.82"
+                    y="50.3"
+                    width="8.42"
+                    height="14.84"
+                  />
+                  <rect
+                    id="pv_parking-2"
+                    data-name="pv_parking"
+                    class="cls-7"
+                    x="388.68"
+                    y="50.3"
+                    width="39.16"
+                    height="47.41"
+                  />
+                </g>
+                <circle
+                  id="windturbine"
+                  class="cls-7"
+                  cx="465.07"
+                  cy="62.98"
+                  r="4.58"
+                />
+                <g id="turbine">
+                  <rect
+                    id="building-3"
+                    data-name="building"
+                    class="cls-7"
+                    x="923.44"
+                    y="127.31"
+                    width="5.63"
+                    height="21.85"
+                    transform="translate(-690.36 -170.66) rotate(4.99)"
+                  />
+                  <g id="turbine-2" data-name="turbine">
+                    <rect
+                      class="cls-7"
+                      x="915.95"
+                      y="133.92"
+                      width="7.65"
+                      height="7.5"
+                      rx="3.75"
+                      transform="translate(-690.43 -170.1) rotate(4.99)"
+                    />
+                    <circle class="cls-14" cx="213.89" cy="47" r="3" />
+                  </g>
+                  <rect
+                    id="building-4"
+                    data-name="building"
+                    class="cls-7"
+                    x="910.8"
+                    y="131.17"
+                    width="5.17"
+                    height="11.89"
+                    transform="translate(-690.5 -169.54) rotate(4.99)"
+                  />
+                </g>
+                <path
+                  class="cls-7"
+                  d="M903.48,132.32l-.57,6.5,6.62.58.57-6.49Zm2.51,6.45a3,3,0,1,1,3.48-2.44A3,3,0,0,1,906,138.77Z"
+                  transform="translate(-705.88 -90.67)"
+                />
+                <path
+                  class="cls-13"
+                  d="M907,132.85a3,3,0,1,0,2.43,3.48A3,3,0,0,0,907,132.85Z"
+                  transform="translate(-705.88 -90.67)"
+                />
+                <polygon
+                  id="octagon"
+                  class="cls-8"
+                  points="253.23 113.79 262.25 113.79 268.58 120.13 268.58 128.28 262.33 134.53 253.19 134.53 246.99 128.32 246.99 120.03 253.23 113.79"
+                />
+                <g id="way">
+                  <path
+                    class="cls-15"
+                    d="M949.18,487.7C914.63,423.4,890.26,375.39,885,362.38c-2.54-6.34-4.18-13.35-1-18.82a15.1,15.1,0,0,1,6-5.52c32.86-18,49.48-24.33,49.48-24.33,22.52-8.51,28.59-10.67,33-17.82,2-3.28,3.13-6.72,4.16-18.25,3.09-34.48-3-47.25,5.16-56.87,3-3.53,8.69-7.57,20.66-8.35l67.12.28V190.91h71.29"
+                    transform="translate(-705.88 -90.67)"
+                  />
+                  <path
+                    class="cls-15"
+                    d="M1062.52,290.41q-23.08,1.51-47.33,3.81-22.89,2.2-44.65,4.91"
+                    transform="translate(-705.88 -90.67)"
+                  />
+                </g>
+                <g id="way-2" data-name="way">
+                  <path
+                    class="cls-16"
+                    d="M717.88,416c24.55-14.78,44.58-27.16,58.55-35.87,54.14-33.75,52.78-34.57,64.35-39,29.66-11.46,47.68-9.65,60-27.19,2.52-3.6,6.26-14.32,8.93-27A136.57,136.57,0,0,0,912,270.71a144.51,144.51,0,0,0,.39-16.81c-.65-28.21,2.53-44.33.1-57.46-.21-1.18-1.18-6.17-1.94-13-.36-3.24-.56-5.87-.66-7.45"
+                    transform="translate(-705.88 -90.67)"
+                  />
+                  <path
+                    class="cls-17"
+                    d="M911.47,185c4,0,7.46.08,10.21.13,10,.19,12.45.5,14,2.9.66,1,.66,4,.77,9.86.1,5.06.14,7.61-.4,8.58-1.18,2.12-3.52,2.43-13.42,2-3.6-.16-6.65-.34-9-.5"
+                    transform="translate(-705.88 -90.67)"
+                  />
+                  <path
+                    class="cls-18"
+                    d="M934.09,208.32c5.15,3,8.18,9.51,7.58,15.72a15.45,15.45,0,0,1-7.55,11.76c-1.84,1-3.35,1.1-9.85.76-4.53-.23-8.38-.52-11.32-.76"
+                    transform="translate(-705.88 -90.67)"
+                  />
+                </g>
+                <g id="cross">
+                  <line
+                    class="cls-19"
+                    x1="205.55"
+                    y1="52.98"
+                    x2="202.21"
+                    y2="57.75"
+                  />
+                  <line
+                    class="cls-19"
+                    x1="202.21"
+                    y1="52.98"
+                    x2="205.55"
+                    y2="57.75"
+                  />
+                </g>
+              </g>
+            </svg>
+            <div class="c-map__legend">
+              <ul class="c-legend__list">
+                <li class="c-legend__list__item">
+                  <p>Duiktank</p>
+                  <svg
+                    width="400"
+                    height="110"
+                    class="c-legend__list__item__rect"
+                  >
+                    <rect width="300" height="100" />
+                    Sorry, your browser does not support inline SVG.
+                  </svg>
+                </li>
+                <li class="c-legend__list__item">
+                  <p>Duiktank</p>
+                  <svg
+                    width="400"
+                    height="110"
+                    class="c-legend__list__item__rect"
+                  >
+                    <rect width="300" height="100" />
+                    Sorry, your browser does not support inline SVG.
+                  </svg>
+                </li>
+                <li class="c-legend__list__item">
+                  <p>Duiktank</p>
+                  <svg
+                    width="400"
+                    height="110"
+                    class="c-legend__list__item__rect"
+                  >
+                    <rect width="300" height="100" />
+                    Sorry, your browser does not support inline SVG.
+                  </svg>
+                </li>
+                <li class="c-legend__list__item">
+                  <p>Duiktank</p>
+                  <svg
+                    width="400"
+                    height="110"
+                    class="c-legend__list__item__rect"
+                  >
+                    <rect width="300" height="100" />
+                    Sorry, your browser does not support inline SVG.
+                  </svg>
+                </li>
+                <li class="c-legend__list__item">
+                  <p>Duiktank</p>
+                  <svg
+                    width="400"
+                    height="110"
+                    class="c-legend__list__item__rect"
+                  >
+                    <rect width="300" height="100" />
+                    Sorry, your browser does not support inline SVG.
+                  </svg>
+                </li>
+                <li class="c-legend__list__item">
+                  <p>Duiktank</p>
+                  <svg
+                    width="400"
+                    height="110"
+                    class="c-legend__list__item__rect"
+                  >
+                    <rect width="300" height="100" />
+                    Sorry, your browser does not support inline SVG.
+                  </svg>
+                </li>
+              </ul>
+            </div>
+            <!-- <div class="c-card">
+              <div class="c-card__title u-col-span-1">Vandaag</div>
+              <div class="c-card__container">
+                <canvas id="c-today-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month u-col-span-2">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas id="c-month-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card u-col-span-1">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas id="c-comparison-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card u-col-span-2">
+              <div class="c-card__title c-quiz__title">
+                Het verbruik van de duiktank is ongeveer hoeveel wattage?
+              </div>
+              <div class="c-quiz__container">
+                <div
+                  class="c-quiz__question c-quiz__question__a fragment highlight-green"
+                >
+                  A. 2000
+                </div>
+                <div class="c-quiz__question c-quiz__question__b">B. 3000</div>
+                <div class="c-quiz__question c-quiz__question__c">C. 4000</div>
+                <div class="c-quiz__question c-quiz__question__d">D. 5000</div>
+              </div>
+            </div> -->
+          </div>
+        </section>
+        <!-- !!! Slide 3 !!! -->
+        <section class="c-dashboard" data-state="demo">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">Demostand</div>
+            <div class="c-infobar__text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
+                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
+                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
+                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
+                eu scelerisque magna consequat id. Duis nec egestas orci.
+              </p>
+              <p>
+                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
+                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
+                libero pretium laoreet. Proin dictum, justo eu porttitor
+                sollicitudin, augue felis facilisis risus, at ultrices lorem
+                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
+                interdum a lectus. Morbi convallis id urna quis laoreet.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/diving_tank.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <div class="c-card">
+              <div class="c-card__title">Vandaag</div>
+              <div class="c-card__container">
+                <canvas id="c-today-chart2" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas id="c-month-chart2" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas id="c-comparison-chart2" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title c-quiz__title">
+                Quizvraag over energie of over het onderdeel zelf?
+              </div>
+              <div class="c-quiz__container">
+                <div class="c-quiz__question c-quiz__question__a">
+                  A. Antwoord
+                </div>
+                <div
+                  class="c-quiz__question c-quiz__question__b fragment highlight-green"
+                >
+                  B. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__c">
+                  C. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__d">
+                  D. Antwoord
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- !!! Slide 4 !!! -->
+        <section class="c-dashboard" data-state="hoofdgebouw">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">Hoofdgebouw</div>
+            <div class="c-infobar__text">
+              <p>
+                Het hoofdgebouw bevat 3 delen: het kantoorgebouw, de feestzaal
+                en de machinezaal.
+              </p>
+              <p>
+                De Machinezaal is een uniek decor voor elk groot feest, de
+                Pompenzaal biedt een creatieve waaier aan
+                inrichtingsmogelijkheden en de Polyvalente zaal is bijzonder
+                goed uitgerust. Alle zalen kunnen zowel privé als zakelijk
+                gebruikt worden. Bekijk de fotogalerij voor een overzicht van de
+                mogeljikheden met de zalen.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/hoofdgebouw.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <div class="c-card">
+              <div class="c-card__title">Vandaag</div>
+              <div class="c-card__container">
+                <canvas id="c-today-chart3" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas id="c-month-chart3" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas id="c-comparison-chart3" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title c-quiz__title">
+                Quizvraag over energie of over het onderdeel zelf?
+              </div>
+              <div class="c-quiz__container">
+                <div class="c-quiz__question c-quiz__question__a">
+                  A. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__b">
+                  B. Antwoord
+                </div>
+                <div
+                  class="c-quiz__question c-quiz__question__c fragment highlight-green"
+                >
+                  C. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__d">
+                  D. Antwoord
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- !!! Slide 5 !!! -->
+        <section class="c-dashboard" data-state="silo">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">Silo</div>
+            <div class="c-infobar__text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
+                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
+                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
+                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
+                eu scelerisque magna consequat id. Duis nec egestas orci.
+              </p>
+              <p>
+                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
+                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
+                libero pretium laoreet. Proin dictum, justo eu porttitor
+                sollicitudin, augue felis facilisis risus, at ultrices lorem
+                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
+                interdum a lectus. Morbi convallis id urna quis laoreet.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/diving_tank.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <div class="c-card">
+              <div class="c-card__title">Vandaag</div>
+              <div class="c-card__container">
+                <canvas id="c-today-chart4" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas id="c-month-chart4" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas id="c-comparison-chart4" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title c-quiz__title">
+                Quizvraag over energie of over het onderdeel zelf?
+              </div>
+              <div class="c-quiz__container">
+                <div class="c-quiz__question c-quiz__question__a">
+                  A. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__b">
+                  B. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__c">
+                  C. Antwoord
+                </div>
+                <div
+                  class="c-quiz__question c-quiz__question__d fragment highlight-green"
+                >
+                  D. Antwoord
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- !!! Slide 6 !!! -->
+        <section class="c-dashboard" data-state="mechanikergebouw">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">Mechanikergebouw Oenanthe</div>
+            <div class="c-infobar__text">
+              <p>
+                De natuursportorganisatie Oenanthe bestaat uit een team van
+                professionele sportmonitoren dat instaat voor de organisatie en
+                begeleiding van evenementen waar sport, natuur en avontuur
+                centraal staan.
+              </p>
+              <p>
+                Naast onze activiteiten op Transfo Zwevegem en het PRNC De
+                Gavers in Harelbeke verhuren we heel wat materiaal voor
+                evenementen over Vlaanderen en omstreken.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/diving_tank.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <div class="c-card">
+              <div class="c-card__title">Vandaag</div>
+              <div class="c-card__container">
+                <canvas id="c-today-chart5" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas id="c-month-chart5" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas id="c-comparison-chart5" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title c-quiz__title">
+                Quizvraag over energie of over het onderdeel zelf?
+              </div>
+              <div class="c-quiz__container">
+                <div class="c-quiz__question c-quiz__question__a">
+                  A. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__b">
+                  B. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__c">
+                  C. Antwoord
+                </div>
+                <div
+                  class="c-quiz__question c-quiz__question__d fragment highlight-green"
+                >
+                  D. Antwoord
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- !!! Slide 7 !!! -->
+        <section class="c-dashboard" data-state="waterkot">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">Waterkot</div>
+            <div class="c-infobar__text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
+                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
+                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
+                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
+                eu scelerisque magna consequat id. Duis nec egestas orci.
+              </p>
+              <p>
+                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
+                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
+                libero pretium laoreet. Proin dictum, justo eu porttitor
+                sollicitudin, augue felis facilisis risus, at ultrices lorem
+                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
+                interdum a lectus. Morbi convallis id urna quis laoreet.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/diving_tank.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <div class="c-card">
+              <div class="c-card__title">Vandaag</div>
+              <div class="c-card__container">
+                <canvas id="c-today-chart6" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas id="c-month-chart6" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas id="c-comparison-chart6" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title c-quiz__title">
+                Quizvraag over energie of over het onderdeel zelf?
+              </div>
+              <div class="c-quiz__container">
+                <div class="c-quiz__question c-quiz__question__a">
+                  A. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__b">
+                  B. Antwoord
+                </div>
+                <div
+                  class="c-quiz__question c-quiz__question__c fragment highlight-green"
+                >
+                  C. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__d">
+                  D. Antwoord
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- !!! Slide 8 !!! -->
+        <section class="c-dashboard" data-state="">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">Naam sectie</div>
+            <div class="c-infobar__text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
+                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
+                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
+                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
+                eu scelerisque magna consequat id. Duis nec egestas orci.
+              </p>
+              <p>
+                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
+                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
+                libero pretium laoreet. Proin dictum, justo eu porttitor
+                sollicitudin, augue felis facilisis risus, at ultrices lorem
+                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
+                interdum a lectus. Morbi convallis id urna quis laoreet.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/diving_tank.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <div class="c-card">
+              <div class="c-card__title">Vandaag</div>
+              <div class="c-card__container">
+                <canvas id="c-today-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas id="c-month-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas id="c-comparison-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title c-quiz__title">
+                Quizvraag over energie of over het onderdeel zelf?
+              </div>
+              <div class="c-quiz__container">
+                <div class="c-quiz__question c-quiz__question__a">
+                  A. Antwoord
+                </div>
+                <div
+                  class="c-quiz__question c-quiz__question__b fragment highlight-green"
+                >
+                  B. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__c">
+                  C. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__d">
+                  D. Antwoord
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- !!! Slide 9 !!! -->
+        <section class="c-dashboard" data-state="">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">Naam sectie</div>
+            <div class="c-infobar__text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
+                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
+                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
+                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
+                eu scelerisque magna consequat id. Duis nec egestas orci.
+              </p>
+              <p>
+                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
+                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
+                libero pretium laoreet. Proin dictum, justo eu porttitor
+                sollicitudin, augue felis facilisis risus, at ultrices lorem
+                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
+                interdum a lectus. Morbi convallis id urna quis laoreet.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/diving_tank.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <div class="c-card">
+              <div class="c-card__title">Vandaag</div>
+              <div class="c-card__container">
+                <canvas id="c-today-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas id="c-month-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas id="c-comparison-chart" class="c-chart"></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title c-quiz__title">
+                Quizvraag over energie of over het onderdeel zelf?
+              </div>
+              <div class="c-quiz__container">
+                <div
+                  class="c-quiz__question c-quiz__question__a fragment highlight-green"
+                >
+                  A. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__b">
+                  B. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__c">
+                  C. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__d">
+                  D. Antwoord
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- !!! Slide 10 !!! -->
+        <section class="c-dashboard" data-state="">
+          <div class="c-infobar">
+            <div class="c-infobar__logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="120"
+                height="40"
+                viewBox="0 0 314.152 129"
+              >
+                <g id="logo" transform="translate(-869 -516)">
+                  <g
+                    id="Group_51"
+                    data-name="Group 51"
+                    transform="translate(1044.911 516)"
+                  >
+                    <text
+                      id="FO"
+                      transform="translate(54.241 82.347)"
+                      fill="#fff"
+                      font-size="77"
+                      font-family="RobotoCondensed-Light, Roboto"
+                      font-weight="300"
+                    >
+                      <tspan x="0" y="0">FO</tspan>
+                    </text>
+                    <path
+                      id="Path_1"
+                      data-name="Path 1"
+                      d="M399.8,176.58,446.446,109.4H417.887L438.14,56.58l-46.082,67.751h27.877Z"
+                      transform="translate(-392.058 -56.58)"
+                      fill="#ec1839"
+                    />
+                  </g>
+                  <text
+                    id="TRAN"
+                    transform="translate(869 597.347)"
+                    fill="#fff"
+                    font-size="76"
+                    font-family="RobotoCondensed-Light, Roboto"
+                    font-weight="300"
+                  >
+                    <tspan x="0" y="0">TRAN</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="c-infobar__title">Naam sectie</div>
+            <div class="c-infobar__text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                imperdiet tincidunt rutrum. Integer cursus tristique posuere.
+                Donec vel dui varius, mattis lectus eu, luctus dolor. Nullam ut
+                neque a nunc condimentum tincidunt. Fusce dictum neque libero,
+                id suscipit urna pharetra faucibus. Nulla feugiat commodo purus,
+                eu scelerisque magna consequat id. Duis nec egestas orci.
+              </p>
+              <p>
+                Morbi eu elit sagittis, semper purus nec, posuere risus. Nulla
+                ut pulvinar diam, in sagittis turpis. Fusce placerat luctus
+                libero pretium laoreet. Proin dictum, justo eu porttitor
+                sollicitudin, augue felis facilisis risus, at ultrices lorem
+                lectus vel justo. Nullam neque tellus, hendrerit vel dictum at,
+                interdum a lectus. Morbi convallis id urna quis laoreet.
+              </p>
+            </div>
+            <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
+              <defs>
+                <clipPath id="clip">
+                  <polygon points="0 0, 100 30, 0 100, 0 100" />
+                </clipPath>
+              </defs>
+              <image
+                href="assets/img/diving_tank.jpg"
+                x="0"
+                y="-3"
+                height="12"
+                width="10"
+                clip-path="url(#clip)"
+              />
+            </svg>
+          </div>
+          <div class="c-container">
+            <div class="c-card">
+              <div class="c-card__title">Vandaag</div>
+              <div class="c-card__container">
+                <canvas
+                  id="c-today-chart"
+                  style="border-radius: 0.5rem"
+                ></canvas>
+              </div>
+            </div>
+            <div class="c-card c-card__month">
+              <div class="c-card__title">Maand</div>
+              <div class="c-card__container">
+                <canvas
+                  id="c-month-chart"
+                  style="border-radius: 0.5rem"
+                ></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title">Vergelijking</div>
+              <div class="c-card__container">
+                <canvas
+                  id="c-comparison-chart"
+                  style="border-radius: 0.5rem"
+                ></canvas>
+              </div>
+            </div>
+            <div class="c-card">
+              <div class="c-card__title c-quiz__title">
+                Quizvraag over energie of over het onderdeel zelf?
+              </div>
+              <div class="c-quiz__container">
+                <div class="c-quiz__question c-quiz__question__a">
+                  A. Antwoord
+                </div>
+                <div
+                  class="c-quiz__question c-quiz__question__b fragment highlight-green"
+                >
+                  B. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__c">
+                  C. Antwoord
+                </div>
+                <div class="c-quiz__question c-quiz__question__d">
+                  D. Antwoord
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/fullscreen/plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="js/app.js"></script>
+    >>>>>>> feature/presentation
 
-		<script>
-		// More info about initialization & config:
-		// - https://revealjs.com/initialization/
-		// - https://revealjs.com/config/
-		Reveal.initialize({
-			disableLayout: true,
-			hash: true,
-			// autoSlide: 5000,
-			controls: true,
-			loop: true,
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        disableLayout: true,
+        hash: true,
+        // autoSlide: 5000,
+        controls: true,
+        loop: true,
 
-			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [
-			RevealMarkdown,
-			RevealHighlight,
-			RevealNotes,
-			RevealFullscreen,
-			],
-		});
-		</script>
-  	</body>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealFullscreen,
+        ],
+      });
+    </script>
+  </body>
 </html>
