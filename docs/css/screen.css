@@ -123,6 +123,12 @@ p{
   background-color: none;
 }
 
+.c-card__container--chart{
+  display: flex;
+  align-items: center;
+  background-color: var(--global-chart-color);
+}
+
 .c-legend{
   position: absolute;
   bottom: 1rem;
