@@ -108,8 +108,44 @@ p{
 .c-card__container {
   height: 100%;
 
-  background-color: var(--global-chart-color);
+
   border-radius: .5rem;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.c-card__container--map{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  background-color: none;
+}
+
+.c-legend{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+
+  font-size: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: var(--global-chart-color);
+}
+
+.c-legend__item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-legend__item p{
+  margin-right: .5rem;
 }
 
 .c-quiz__title {
