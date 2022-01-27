@@ -1,14 +1,11 @@
-from cmath import phase
-from collections import defaultdict
-from flask import Flask, jsonify, request
 from influxdb_client import InfluxDBClient, Point, WritePrecision
+from flask import Flask, jsonify, request
+from collections import defaultdict
 from datetime import datetime
-from flask_cors import CORS
 from flask_mqtt import Mqtt
-import os
-import sys
-import yaml
-import json
+from flask_cors import CORS
+import os, sys, yaml, json
+import time as t
 
 # load config file
 if not os.path.isfile("config.yaml"):
@@ -34,9 +31,6 @@ CORS(app)
 
 # main endpoint
 endpoint = '/api/v1'
-# blacklist fields that contain values that cannot be calculated (mean/median/etc)
-field_blacklist = ["CO2_5min", "Description_Weather",
-                   "Humidity", "Pressure", "Temperature", "Windspeed"]
 # time ranges and their corresponding values
 time_ranges = {
     "year": ["date.truncate(t: now(), unit: 1y)", "-1y", "1mo"],
@@ -74,8 +68,6 @@ def get_transfo_fields():
             fTables = client.query_api().query(query, org=ORG)
             fields = [r.values['_value']
                       for r in fTables[0].records]  # convert to list of fields
-            # remove blacklisted fields
-            fields = list(filter(lambda x: x not in field_blacklist, fields))
             # add list of fields to dict under measurement name
             dict[measurement] = fields
             print(fTables)
@@ -106,21 +98,24 @@ def get_powerusage_transfo(measurement, time):
         # get range and window from given time parameter
         rangeCT, range, window = time_ranges[time]
 
-        with InfluxDBClient(url=URL, token=TOKEN, org=ORG, timeout=20000) as client:
+        with InfluxDBClient(url=URL, token=TOKEN, org=ORG, timeout=25000) as client:
 
             # if field param was given -> filter on field, else just filter on blacklist
-            fieldFilter = f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'
+            fieldFilter = f'|> filter(fn: (r) => r._field == "{field}"' if field is not None else ''
             # if showPhases is False, filter out phase fields (L1,L2,L3)
             phaseFilter = '|> filter(fn: (r) => r._field !~ /L\d+$/ )' if not showPhases else ''
             query = f'''import "date" 
                         from(bucket: "{BUCKET}")
                             |> range(start: {rangeCT if calendar_time else range}, stop: date.truncate(t: now(), unit: {window}))
                             |> filter(fn: (r) => r._measurement == "{measurement}")
-                            |> filter(fn: (r) => {fieldFilter})
+                            {fieldFilter}
                             {phaseFilter}
                             |> aggregateWindow(every: {window}, fn: {fn})
                     '''
+            start_time = t.time()
             tables = client.query_api().query(query, org=ORG)
+            print(f'data returned in: {(t.time() - start_time)} secs')
+            # |> drop(columns: ["_start", "_stop", "meter"])
             client.close()
 
             # check for found tables, otherwise return bad request
@@ -141,7 +136,9 @@ def get_powerusage_transfo(measurement, time):
                     'field': field or 'all',
                     'fn': fn,
                     'time': time,
-                    'calendarTime': calendar_time
+                    'calendarTime': calendar_time,
+                    'showPhases': showPhases,
+                    'processingTime': f'{round((t.time() - start_time), 2)} secs'
                 },
                 values=dict
             ), 200
