@@ -63,67 +63,64 @@ Reveal.on( 'ready', event => {
 
 Reveal.addEventListener("welkom", () => {
     var duiktankLegend = document.getElementById("js-duiktankLegend");
-    var duiktank = document.getElementById("js-duiktank");
+    var duiktank = document.getElementById("divingtank");
 
     var hoofdgebouwLegend = document.getElementById("js-hoofdgebouwLegend");
-    var hoofdgebouw = document.getElementById("js-transfo_building-2");
+    var hoofdgebouw = document.getElementById("main_building");
 
     var watertorenLegend = document.getElementById("js-watertorenLegend");
-    var watertoren = document.getElementById("js-watertoren");
+    var watertoren = document.getElementById("water_tower");
 
     var batterijenLegend = document.getElementById("js-batterijenLegend");
-    var batterijen = document.getElementById("js-batterijen");
+    var batterijen = document.getElementById("batteries");
 
     var zonneparkingLegend = document.getElementById("js-zonneparkingLegend");
-    var zonneparking = document.getElementById("js-zonneparking");
-    var zonneparking2 = document.getElementById("js-zonneparking2")
+    var zonneparking = document.getElementById("parking");
 
     var windturbineLegend = document.getElementById("js-windturbineLegend");
-    var windturbine = document.getElementById("js-windturbine");
+    var windturbine = document.getElementById("wind_turbine");
 
     duiktankLegend.classList.add("c-legend__list__item__rect--active");
-    duiktank.classList.add("c-legend__list__item__rect--active");
+    duiktank.classList.add("c-map__section--active");
 
     setTimeout(()=>{
         duiktankLegend.classList.remove("c-legend__list__item__rect--active");
-        duiktank.classList.remove("c-legend__list__item__rect--active");
+        duiktank.classList.remove("c-map__section--active");
 
         hoofdgebouwLegend.classList.add("c-legend__list__item__rect--active");
-        hoofdgebouw.classList.add("c-legend__list__item__rect--active");
+        hoofdgebouw.classList.add("c-map__section--active");
     }, 5000)
     setTimeout(()=>{
         hoofdgebouwLegend.classList.remove("c-legend__list__item__rect--active");
-        hoofdgebouw.classList.remove("c-legend__list__item__rect--active");
+        hoofdgebouw.classList.remove("c-map__section--active");
         
         watertorenLegend.classList.add("c-legend__list__item__rect--active");
-        watertoren.classList.add("c-legend__list__item__rect--active");
+        watertoren.classList.add("c-map__section--active");
     }, 10000)
     setTimeout(()=>{
         watertorenLegend.classList.remove("c-legend__list__item__rect--active");
-        watertoren.classList.remove("c-legend__list__item__rect--active");
+        watertoren.classList.remove("c-map__section--active");
         
         batterijenLegend.classList.add("c-legend__list__item__rect--active");
-        batterijen.classList.add("c-legend__list__item__rect--active");
+        batterijen.classList.add("c-map__section--active");
     }, 15000)
     setTimeout(()=>{
         batterijenLegend.classList.remove("c-legend__list__item__rect--active");
-        batterijen.classList.remove("c-legend__list__item__rect--active");
+        batterijen.classList.remove("c-map__section--active");
         
         zonneparkingLegend.classList.add("c-legend__list__item__rect--active");
-        zonneparking.classList.add("c-legend__list__item__rect--active");
-        zonneparking2.classList.add("c-legend__list__item__rect--active");
+        zonneparking.classList.add("c-map__section--active");
     }, 20000)
     setTimeout(()=>{
         zonneparkingLegend.classList.remove("c-legend__list__item__rect--active");
-        zonneparking.classList.remove("c-legend__list__item__rect--active");
-        zonneparking2.classList.remove("c-legend__list__item__rect--active");
+        zonneparking.classList.remove("c-map__section--active");
         
         windturbineLegend.classList.add("c-legend__list__item__rect--active");
-        windturbine.classList.add("c-legend__list__item__rect--active");
+        windturbine.classList.add("c-map__section--active");
     }, 25000)
     setTimeout(()=>{ 
         windturbineLegend.classList.remove("c-legend__list__item__rect--active");
-        windturbine.classList.remove("c-legend__list__item__rect--active");
+        windturbine.classList.remove("c-map__section--active");
     }, 30000)
 });
 

@@ -123,14 +123,11 @@ html.reveal-full-page .reveal {
 
 .c-container {
   width: 70%;
-
   padding: 2rem;
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
-
   background-color: var(--global-chart-color);
 }
 
@@ -192,7 +189,11 @@ html.reveal-full-page .reveal {
 }
 
 .c-legend__list__item__rect--active {
-  fill: var(--global-tertiary-color)!important;
+  fill: var(--global-tertiary-color) !important;
+}
+
+.c-map__section--active * {
+  fill: var(--global-tertiary-color) !important;
 }
 
 .c-quiz__title {
@@ -207,7 +208,6 @@ html.reveal-full-page .reveal {
 
 .c-quiz__question {
   font-size: 1.25rem;
-  /* margin-left: 2rem; */
   margin-bottom: 1rem;
   text-align: left;
   background-color: var(--global-chart-color);
