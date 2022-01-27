@@ -22,8 +22,8 @@ Route parameters:
 
     Measurement is made out of 1 or more fields
 
-    -`Duiktank`
-      **fields**: 
+    - `Duiktank`
+      **fields:** 
       - `Bord_EB_Niveau1_L1`
       - `Bord_EB_Niveau1_L2`
       - `Bord_EB_Niveau1_L3`
@@ -55,63 +55,63 @@ Route parameters:
       - `TotaalNet`
       - `Voeding_Datarack_L3`
       - `Voeding_Datarack_Totaal`
-    -`Fuifzaal`
-    **field**: 
-      -`Aansluiting_Fuifzaal_EB1_I`
-    -`Conciergewoning`
-    **field**:
-      -`Aansluiting_Conciergewoning_EB2`
-    -`Directeurswoning`
-    **field**:
-      -`Aansluiting_Directeurswoning_EB2`
-    -`Kantoren_Verdiep_4`
-    **field**:
-      -`Aansluiting_kantoren_Verdiep_4_EB3_B`
-    -`Kantoren_Verdiep_5`
-    **field**:
-      -`Aansluiting_kantoren_Verdiep_5_EB3_D`
-    -`Machinezaal`
-    **field**:
-      -`Aansluiting_Machinezaal_EB3_A`
-    -`Mechaniekersgebouw`
-    **field**:
-      -`Aansluiting_Mechaniekersgebouw_EB2`
-    -`Oenanthe`
-    **field**:
-      -`Aansluiting_Oenanthe_EB3_C`
-    -`Reserve_Loods`
-    **field**:
-      -`Aansluiting_Reserve_Loods_EB3_H`
-    -`Opzichterswoning_En_Kantoorgebouwen`
-    **field**:
-      -`Aansluiting_Opzichterswoning_En_Kantoorgebouwen_EB2`
-    -`Silo`
-    **field**:
-      -`Aansluiting_Silo`
-    -`Stopcontacten_Random`
-    **fields**:
-      -`Stopcontact16A_EB1_D`
-      -`Stopcontact32A_EB2_C`
-      -`Stopcontact63A_EB2_A`
-      -`Stopcontact63A_EB2_B`
-      -`Stopcontact63A_Fuifzaal_EB1_E`
-      -`Stopcontact_125A_EB1_A`
-      -`Stopcontact_32A_EB1_C`
-      -`Stopcontact_63A_EB1_B`
-      -`Stopcontact_Fuifzaal_Opbouw`
-    -`Totaal_Deel1`
-    **field**:
-      -`Totaal`
-    -`Totaal_Deel2`
-    **fields**:
-      -`Totaal`
-      -`Totaal_EB2`
-    -`Waterkot`
-    **field**:
-      -`Aansluiting_Waterkot_EB3_I`
-    -`Werkhuis_Elektriciens`
-    **field**:
-      -`Aansluiting_Elektriciens_EB2`
+    - `Fuifzaal`
+    **field:** 
+      - `Aansluiting_Fuifzaal_EB1_I`
+    - `Conciergewoning`
+    **field:**
+      - `Aansluiting_Conciergewoning_EB2`
+    - `Directeurswoning`
+    **field:**
+      - `Aansluiting_Directeurswoning_EB2`
+    - `Kantoren_Verdiep_4`
+    **field:**
+      - `Aansluiting_kantoren_Verdiep_4_EB3_B`
+    - `Kantoren_Verdiep_5`
+    **field:**
+      - `Aansluiting_kantoren_Verdiep_5_EB3_D`
+    - `Machinezaal`
+    **field:**
+      - `Aansluiting_Machinezaal_EB3_A`
+    - `Mechaniekersgebouw`
+    **field:**
+      - `Aansluiting_Mechaniekersgebouw_EB2`
+    - `Oenanthe`
+    **field:**
+      - `Aansluiting_Oenanthe_EB3_C`
+    - `Reserve_Loods`
+    **field:**
+      - `Aansluiting_Reserve_Loods_EB3_H`
+    - `Opzichterswoning_En_Kantoorgebouwen`
+    **field:**
+      - `Aansluiting_Opzichterswoning_En_Kantoorgebouwen_EB2`
+    - `Silo`
+    **field:**
+      - `Aansluiting_Silo`
+    - `Stopcontacten_Random`
+    **fields:**
+      - `Stopcontact16A_EB1_D`
+      - `Stopcontact32A_EB2_C`
+      - `Stopcontact63A_EB2_A`
+      - `Stopcontact63A_EB2_B`
+      - `Stopcontact63A_Fuifzaal_EB1_E`
+      - `Stopcontact_125A_EB1_A`
+      - `Stopcontact_32A_EB1_C`
+      - `Stopcontact_63A_EB1_B`
+      - `Stopcontact_Fuifzaal_Opbouw`
+    - `Totaal_Deel1`
+    **field:**
+      - `Totaal`
+    - `Totaal_Deel2`
+    **fields:**
+      - `Totaal`
+      - `Totaal_EB2`
+    - `Waterkot`
+    **field:**
+      - `Aansluiting_Waterkot_EB3_I`
+    - `Werkhuis_Elektriciens`
+    **field:**
+      - `Aansluiting_Elektriciens_EB2`
 
 - time:
   - `year`: Shows data up until 1 year ago, grouped per month
