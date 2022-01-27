@@ -5,14 +5,17 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from datetime import datetime
 from flask_cors import CORS
 from flask_mqtt import Mqtt
-import os, sys, yaml, json
+import os
+import sys
+import yaml
+import json
 
 # load config file
 if not os.path.isfile("config.yaml"):
-  sys.exit("'config.yaml' not found! Please add it and try again.")
+    sys.exit("'config.yaml' not found! Please add it and try again.")
 else:
-  with open("config.yaml") as file:
-    config = yaml.load(file, Loader=yaml.FullLoader)
+    with open("config.yaml") as file:
+        config = yaml.load(file, Loader=yaml.FullLoader)
 
 
 # start app
@@ -32,7 +35,8 @@ CORS(app)
 # main endpoint
 endpoint = '/api/v1'
 # blacklist fields that contain values that cannot be calculated (mean/median/etc)
-field_blacklist = [ "CO2_5min", "Description_Weather", "Humidity", "Pressure", "Temperature", "Windspeed" ]
+field_blacklist = ["CO2_5min", "Description_Weather",
+                   "Humidity", "Pressure", "Temperature", "Windspeed"]
 # time ranges and their corresponding values
 time_ranges = {
     "year": ["date.truncate(t: now(), unit: 1y)", "-1y", "1mo"],
@@ -49,6 +53,8 @@ def index():
     return 'use /api/v1', 303
 
 # get all available fields & measurements from Transfo influxdb
+
+
 @app.route(f'{endpoint}/transfo/power/fields', methods=['GET'])
 def get_transfo_fields():
     # get Transfo config values
@@ -56,22 +62,27 @@ def get_transfo_fields():
 
     with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
         # get all measurements
-        query = f'import "influxdata/influxdb/schema" schema.measurements(bucket: "{BUCKET}")' 
+        query = f'import "influxdata/influxdb/schema" schema.measurements(bucket: "{BUCKET}")'
         mTables = client.query_api().query(query, org=ORG)
-        measurements = [r.values['_value'] for r in mTables[0].records] # convert to list of measurements
+        # convert to list of measurements
+        measurements = [r.values['_value'] for r in mTables[0].records]
 
         # get all field values for each measurement
         dict = {}
         for measurement in measurements:
             query = f'import "influxdata/influxdb/schema" schema.measurementFieldKeys(bucket: "{BUCKET}",measurement: "{measurement}")'
             fTables = client.query_api().query(query, org=ORG)
-            fields = [r.values['_value'] for r in fTables[0].records] # convert to list of fields
-            fields = list(filter(lambda x: x not in field_blacklist, fields)) # remove blacklisted fields
-            dict[measurement] = fields # add list of fields to dict under measurement name
+            fields = [r.values['_value']
+                      for r in fTables[0].records]  # convert to list of fields
+            # remove blacklisted fields
+            fields = list(filter(lambda x: x not in field_blacklist, fields))
+            # add list of fields to dict under measurement name
+            dict[measurement] = fields
             print(fTables)
 
         client.close()
         return jsonify(dict), 200
+
 
 @app.route(f'{endpoint}/transfo/power/usage/<measurement>/<time>', methods=['GET'])
 def get_powerusage_transfo(measurement, time):
@@ -79,15 +90,16 @@ def get_powerusage_transfo(measurement, time):
         # get route parameters
         fn = request.args.get('fn', default='sum', type=str)
         field = request.args.get('field', default=None, type=str)
-        showPhases = request.args.get('showPhases', default=False, type=lambda v: v.lower() == 'true')
-        calendar_time = request.args.get('calendarTime', default=False, type=lambda v: v.lower() == 'true')
-        
+        showPhases = request.args.get(
+            'showPhases', default=False, type=lambda v: v.lower() == 'true')
+        calendar_time = request.args.get(
+            'calendarTime', default=False, type=lambda v: v.lower() == 'true')
+
         # check whether correct parameters were given, otherwise return bad request
         if time not in time_ranges:
             return jsonify(status_code=400, message=f'time:{time} is not a valid time range, please check documentation'), 400
         if fn not in ['sum', 'mean', 'median', 'min', 'max']:
             return jsonify(status_code=400, message=f'fn:{fn} is not valid, please check documentation'), 400
-
 
         # get Transfo config values
         URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
@@ -95,7 +107,7 @@ def get_powerusage_transfo(measurement, time):
         rangeCT, range, window = time_ranges[time]
 
         with InfluxDBClient(url=URL, token=TOKEN, org=ORG, timeout=20000) as client:
-            
+
             # if field param was given -> filter on field, else just filter on blacklist
             fieldFilter = f'r._field == "{field}"' if field is not None else f'not contains(value: r._field, set: {json.dumps(field_blacklist)})'
             # if showPhases is False, filter out phase fields (L1,L2,L3)
@@ -115,24 +127,24 @@ def get_powerusage_transfo(measurement, time):
             if len(tables) == 0:
                 return jsonify(status_code=400, message='No data found, check if given parameters (measurement & field) are correct (case sensitive)'), 400
 
-            # group by field, each field contains list of respective records with time and value 
+            # group by field, each field contains list of respective records with time and value
             dict = defaultdict()
             for table in tables:
                 for r in table.records:
-                    dict.setdefault(r.values['_field'], []).append({'time': r.values['_time'], 'value': r.values['_value']})
-
+                    dict.setdefault(r.values['_field'], []).append(
+                        {'time': r.values['_time'], 'unit': "Watts per hour", 'value': r.values['_value']})
 
             return jsonify(
-                http_code=200, 
+                http_code=200,
                 info={
-                    'measurement': measurement, 
+                    'measurement': measurement,
                     'field': field or 'all',
                     'fn': fn,
                     'time': time,
                     'calendarTime': calendar_time
-                    }, 
+                },
                 values=dict
-                ), 200
+            ), 200
     except Exception as e:
         return jsonify(status_code=500, message=f'Internal Server Error: {e}'), 500
 ######## END ROUTES ########
@@ -143,6 +155,7 @@ def get_powerusage_transfo(measurement, time):
 def handle_connect(client, userdata, flags, rc):
     print("Connected to Transfo MQTT broker with result code " + str(rc))
     # mqtt.subscribe('servicelocation/477d2645-2919-44c3-acf7-cad592ce7cdc/realtime')
+
 
 @mqtt.on_message()
 def handle_mqtt_message(client, userdata, message):
@@ -156,22 +169,24 @@ def handle_mqtt_message(client, userdata, message):
         points = []
         for chp in data['channelPowers']:
             # convert formula to Smappee ID, $5500031443/3$ => 5500031443 D
-            SmappeeID = chp['formula'][1:-2].replace("/", " ") + chr(int(chp['formula'][-2]) + 64 + 1)
+            SmappeeID = chp['formula'][1:-
+                                       2].replace("/", " ") + chr(int(chp['formula'][-2]) + 64 + 1)
             # get Smappee channel name from config.yaml
             SmappeeName = channels.get(SmappeeID, None)
 
             point = Point("Transfo Zwevegem") \
-                        .tag("field", SmappeeName) \
-                        .tag("formula", chp['formula']) \
-                        .tag("phaseid", chp['phaseId']) \
-                        .field("power", chp['power']) \
-                        .field("current", chp['current']) \
-                        .field("apparentpower", chp['apparentPower']) \
-                        .field("servicelocationid", chp['serviceLocationId']) \
-                        .time(datetime.utcnow(), WritePrecision.NS)
+                .tag("field", SmappeeName) \
+                .tag("formula", chp['formula']) \
+                .tag("phaseid", chp['phaseId']) \
+                .field("power", chp['power']) \
+                .field("current", chp['current']) \
+                .field("apparentpower", chp['apparentPower']) \
+                .field("servicelocationid", chp['serviceLocationId']) \
+                .time(datetime.utcnow(), WritePrecision.NS)
             points.append(point)
 
         add_point_data(points)
+
 
 def add_point_data(points):
     URL, TOKEN, ORG, BUCKET = Influx_howest.values()
