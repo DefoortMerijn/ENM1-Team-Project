@@ -235,7 +235,7 @@
 									<polygon id="building_arts_and_director" class="cls-12" points="249.51 151.3 249.51 146.28 245.01 146.28 245.01 154.41 245.88 154.41 245.88 164.09 257.81 164.09 257.81 151.3 249.51 151.3"/>
 									<g id="silo-2" data-name="silo">
 										<rect id="js-zonneparking" class="cls-13" x="427.82" y="50.3" width="8.42" height="14.84"/>
-										<rect id="pv_parking-2" data-name="pv_parking" class="cls-7" x="388.68" y="50.3" width="39.16" height="47.41"/>
+										<rect id="js-zonneparking2" data-name="pv_parking" class="cls-7" x="388.68" y="50.3" width="39.16" height="47.41"/>
 									</g>
 									<circle id="js-windturbine" class="cls-7" cx="465.07" cy="62.98" r="4.58"/>
 									<g id="turbine">
@@ -364,18 +364,15 @@
 							</svg>
 						</div>
 						<div class="c-infobar__title">
-								De Duiktank
+							Transfo Topverbruikers
 						</div>
 						<div class="c-infobar__text">
 							<p> 
-								Op de Transfosite te Zwevegem staan, verborgen in een bufferbekken, drie oude stookolietanks. 
-								Brainstormsessies door een internationale groep jonge architecten brachten het interessante idee op deze om te vormen in een duiktank.
+								Hiernaast zien we een grafiek die het gemiddelde jaarlijkse verbruik van de verschillende Transfo onderdelen in kaart brengt. 
+								Zoals je kan zien aan het gemiddelde verbruik van een vlaamse woning zijn dit enorme hoge verbruiken.
 							</p>
 							<p>
-								Duiken in de duiktank is te vergelijken met duiken in open water. 
-								In België en Nederland duiken in open water betekent ook altijd dat de zichtbaarheid beperkt is.
-								De realisatie van de duiktank is dan ook een perfecte tussenstap tussen duiken in een zwembad en in open water. 
-								Ideaal dus om de duiker veilig klaar te stomen voor het woelige buitenwater.
+								De hoogste verbruiker verbruikt ongeveer wel <span id="c-topverbruiker">0</span>x het verbruik van een gemiddeld huishouden!
 							</p>
 						</div>
 						<svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
@@ -388,31 +385,9 @@
 						</svg>
 					</div>
 					<div class="c-container">
-						<div class="c-card">
-							<div class="c-card__title u-col-span-1">Vandaag</div>
-							<div class="c-card__container">
-								<canvas id="c-today-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card c-card__month u-col-span-2">
-							<div class="c-card__title">Maand</div>
-							<div class="c-card__container">
-								<canvas id="c-month-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card u-col-span-1">
-							<div class="c-card__title">Vergelijking</div>
-							<div class="c-card__container">
-								<canvas id="c-comparison-chart" class="c-chart"></canvas>
-							</div>
-						</div>
-						<div class="c-card u-col-span-2">
-							<div class="c-card__title c-quiz__title">Het verbruik van de duiktank is ongeveer hoeveel wattage?</div>
-							<div class="c-quiz__container">
-								<div class="c-quiz__question c-quiz__question__a fragment highlight-green">A. 2000</div>
-								<div class="c-quiz__question c-quiz__question__b">B. 3000</div>
-								<div class="c-quiz__question c-quiz__question__c">C. 4000</div>
-								<div class="c-quiz__question c-quiz__question__d">D. 5000</div>
+						<div class="c-card u-col-span u-row-span">
+							<div class="c-card__container c-card__container--chart">
+								<canvas id="js-topverbruikersChart" class="c-chart"></canvas>
 							</div>
 						</div>
 					</div>

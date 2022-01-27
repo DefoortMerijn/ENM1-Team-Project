@@ -1,4 +1,65 @@
-// const get = (url) => fetch(url).then((r)=> r.json());
+const get = (url) => fetch(url).then((r)=> r.json());
+let topverbruikersChart = null;
+
+Reveal.on( 'ready', event => {
+    const ctx = document.getElementById('js-topverbruikersChart');
+    topverbruikersChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: 'Verbruik in wattage',
+                data: [5,2,3,5,6,4],
+                backgroundColor: [
+                    'rgba(255, 99, 132)',
+                    'rgba(54, 162, 235)',
+                    'rgba(255, 206, 86)',
+                    'rgba(75, 192, 192)',
+                    'rgba(153, 102, 255)',
+                    'rgba(255, 159, 64)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+           plugins:{
+                legend: {
+                    display: true,
+                    labels: {
+                        color: "rgba(255,255,255)"
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color: "rgba(255,255,255, 0.4)"
+                    },
+                    beginAtZero: true,
+                    ticks:{
+                        color: "rgba(255,255,255)",
+                        callback: function(value, index, ticks) {
+                            return value + "w";
+                        }
+                    }
+                },
+                x: {
+                    ticks:{
+                        color: "rgba(255,255,255)",
+                    }
+                },
+            }
+        }
+        });
+  } );
 
 Reveal.addEventListener("welkom", () => {
     var duiktankLegend = document.getElementById("js-duiktankLegend");
@@ -15,55 +76,78 @@ Reveal.addEventListener("welkom", () => {
 
     var zonneparkingLegend = document.getElementById("js-zonneparkingLegend");
     var zonneparking = document.getElementById("js-zonneparking");
+    var zonneparking2 = document.getElementById("js-zonneparking2")
 
     var windturbineLegend = document.getElementById("js-windturbineLegend");
     var windturbine = document.getElementById("js-windturbine");
 
+    duiktankLegend.style.fill = "green"
+    duiktank.style.fill = "green"
 
-    setTimeout(()=>{
-        duiktankLegend.style.fill = "green"
-        duiktank.style.fill = "green"
-    }, 5000)
     setTimeout(()=>{
         duiktankLegend.style.fill = "red"
         duiktank.style.fill = "#656565"
 
         hoofdgebouwLegend.style.fill = "green"
         hoofdgebouw.style.fill = "green"
-    }, 10000)
+    }, 5000)
     setTimeout(()=>{
         hoofdgebouwLegend.style.fill = "red"
         hoofdgebouw.style.fill = "#656565"
         
         watertorenLegend.style.fill = "green"
         watertoren.style.fill = "green"
-    }, 15000)
+    }, 10000)
     setTimeout(()=>{
         watertorenLegend.style.fill = "red"
-        watertoren.style.fill = "#656565"
+        watertoren.style.fill = "#ff8613"
         
         batterijenLegend.style.fill = "green"
         batterijen.style.fill = "green"
-    }, 20000)
+    }, 15000)
     setTimeout(()=>{
         batterijenLegend.style.fill = "red"
-        batterijen.style.fill = "#656565"
+        batterijen.style.fill = "#4b536b"
         
         zonneparkingLegend.style.fill = "green"
         zonneparking.style.fill = "green"
-    }, 25000)
+        zonneparking2.style.fill = "green"
+    }, 20000)
     setTimeout(()=>{
         zonneparkingLegend.style.fill = "red"
-        zonneparking.style.fill = "#656565"
+        zonneparking.style.fill = "#ff8613"
+        zonneparking2.style.fill = "#656565"
         
         windturbineLegend.style.fill = "green"
         windturbine.style.fill = "green"
-    }, 30000)
+    }, 25000)
     setTimeout(()=>{ 
         windturbineLegend.style.fill = "red"
         windturbine.style.fill = "#656565"
-    }, 35000)
+    }, 30000)
 });
+
+Reveal.addEventListener("verbruikers", () => {
+    var verbruiker1 = 3305000;
+    var verbruiker2 = Math.random();
+    var verbruiker3 = Math.random();
+    var verbruiker4 = Math.random();
+    var verbruiker5 = Math.random();
+    var vlaamseWoning = Math.random();
+
+    var data = [verbruiker1, verbruiker2, verbruiker3, verbruiker4, verbruiker5, vlaamseWoning]
+    var labels = ["Duiktank", "Hoofdgebouw", "dinges", "dink", "uh", "Vlaams woning"]
+
+    topverbruikersChart.data.labels = labels;
+    topverbruikersChart.data.datasets[0].data = data;
+    topverbruikersChart.update()
+
+    var Hoogsteverbruiker = Math.max(...data);
+
+    document.getElementById("c-topverbruiker").innerHTML = Math.round(Hoogsteverbruiker /  3305000)
+    console.log();
+});
+
 
 // function createChart( ctx, type, data ){
 //     const mychart = new Chart( ctx ,  {
