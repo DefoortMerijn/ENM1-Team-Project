@@ -105,47 +105,48 @@ Reveal.addEventListener("welkom", () => {
     var windturbineLegend = document.getElementById("js-windturbineLegend");
     var windturbine = document.getElementById("js-windturbine");
 
-    duiktankLegend.style.fill = "green"
-    duiktank.style.fill = "green"
+    duiktankLegend.classList.add("c-legend__list__item__rect--active");
+    duiktank.classList.add("c-legend__list__item__rect--active");
 
     setTimeout(()=>{
-        duiktankLegend.style.fill = "red"
-        duiktank.style.fill = "#656565"
+        duiktankLegend.classList.remove("c-legend__list__item__rect--active");
+        duiktank.classList.remove("c-legend__list__item__rect--active");
 
-        hoofdgebouwLegend.style.fill = "green"
-        hoofdgebouw.style.fill = "green"
+        hoofdgebouwLegend.classList.add("c-legend__list__item__rect--active");
+        hoofdgebouw.classList.add("c-legend__list__item__rect--active");
     }, 5000)
     setTimeout(()=>{
-        hoofdgebouwLegend.style.fill = "red"
-        hoofdgebouw.style.fill = "#656565"
+        hoofdgebouwLegend.classList.remove("c-legend__list__item__rect--active");
+        hoofdgebouw.classList.remove("c-legend__list__item__rect--active");
         
-        watertorenLegend.style.fill = "green"
-        watertoren.style.fill = "green"
+        watertorenLegend.classList.add("c-legend__list__item__rect--active");
+        watertoren.classList.add("c-legend__list__item__rect--active");
     }, 10000)
     setTimeout(()=>{
-        watertorenLegend.style.fill = "red"
-        watertoren.style.fill = "#ff8613"
+        watertorenLegend.classList.remove("c-legend__list__item__rect--active");
+        watertoren.classList.remove("c-legend__list__item__rect--active");
         
-        batterijenLegend.style.fill = "green"
-        batterijen.style.fill = "green"
+        batterijenLegend.classList.add("c-legend__list__item__rect--active");
+        batterijen.classList.add("c-legend__list__item__rect--active");
     }, 15000)
     setTimeout(()=>{
-        batterijenLegend.style.fill = "red"
-        batterijen.style.fill = "#4b536b"
+        batterijenLegend.classList.remove("c-legend__list__item__rect--active");
+        batterijen.classList.remove("c-legend__list__item__rect--active");
         
-        zonneparkingLegend.style.fill = "green"
-        zonneparking.style.fill = "green"
+        zonneparkingLegend.classList.add("c-legend__list__item__rect--active");
+        zonneparking.classList.add("c-legend__list__item__rect--active");
+        zonneparking2.classList.add("c-legend__list__item__rect--active");
     }, 20000)
     setTimeout(()=>{
-        zonneparkingLegend.style.fill = "red"
-        zonneparking.style.fill = "#656565"
-        
-        windturbineLegend.style.fill = "green"
-        windturbine.style.fill = "green"
+        zonneparkingLegend.classList.remove("c-legend__list__item__rect--active");
+        zonneparking.classList.remove("c-legend__list__item__rect--active");
+
+        windturbineLegend.classList.add("c-legend__list__item__rect--active");
+        windturbine.classList.add("c-legend__list__item__rect--active");
     }, 25000)
     setTimeout(()=>{ 
-        windturbineLegend.style.fill = "red"
-        windturbine.style.fill = "#656565"
+        windturbineLegend.classList.remove("c-legend__list__item__rect--active");
+        windturbine.classList.remove("c-legend__list__item__rect--active");
     }, 30000)
 });
 

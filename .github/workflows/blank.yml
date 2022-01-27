@@ -4,10 +4,6 @@ name: Build Master
 # events but only for the master branch
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - develop
-      - main
 
 env:
   AZURE_FUNCTIONAPP_NAME: ENM1  # set this to your application's name
