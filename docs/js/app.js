@@ -1,5 +1,30 @@
 const get = (url) => fetch(url).then((r)=> r.json());
-let topverbruikersChart = null;
+var topverbruikersChart = null;
+
+function average(array)
+{
+  var sum = 0;
+  for (var i = 0; i < array.length; i++){
+    if( array[i] === null ){
+        sum += 0;
+    }
+    else{
+        sum += array[i];
+    }
+  } 
+  return parseFloat(sum / array.length);
+}
+
+function createArrayFromResponse (responseData){
+    var arrayPower = [];
+    responseData.values.TotaalNet.forEach((element) => {
+                    var el = element.value;
+                    arrayPower.push(el)
+            }
+    );
+
+    return arrayPower
+}
 
 Reveal.on( 'ready', event => {
     const ctx = document.getElementById('js-topverbruikersChart');
@@ -8,7 +33,7 @@ Reveal.on( 'ready', event => {
         data: {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             datasets: [{
-                label: 'Verbruik in wattage',
+                label: 'Verbruik in Kilowatt',
                 data: [5,2,3,5,6,4],
                 backgroundColor: [
                     'rgba(255, 99, 132)',
@@ -47,7 +72,7 @@ Reveal.on( 'ready', event => {
                     ticks:{
                         color: "rgba(255,255,255)",
                         callback: function(value, index, ticks) {
-                            return value + "w";
+                            return value + "Kw";
                         }
                     }
                 },
@@ -124,16 +149,25 @@ Reveal.addEventListener("welkom", () => {
     }, 30000)
 });
 
-Reveal.addEventListener("verbruikers", () => {
-    var verbruiker1 = 3305000;
-    var verbruiker2 = Math.random();
-    var verbruiker3 = Math.random();
-    var verbruiker4 = Math.random();
-    var verbruiker5 = Math.random();
-    var vlaamseWoning = Math.random();
+Reveal.addEventListener("verbruikers", async () => {
+    const urlDuiktank = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Duiktank/year?field=TotaalNet&fn=mean";
+    const urlHoofdgebouw = "";
+    const urlSilo = "";
+    const urlDing = "";
+    const urlDink= "";
+    const urlnogiets = "";
+
+    responseDuiktank = await get(urlDuiktank);
+
+    var verbruiker1 = average(createArrayFromResponse(responseDuiktank));
+    var verbruiker2 = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+    var verbruiker3 = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+    var verbruiker4 = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+    var verbruiker5 = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+    var vlaamseWoning = 3500;
 
     var data = [verbruiker1, verbruiker2, verbruiker3, verbruiker4, verbruiker5, vlaamseWoning]
-    var labels = ["Duiktank", "Hoofdgebouw", "dinges", "dink", "uh", "Vlaams woning"]
+    var labels = ["Duiktank", "Hoofdgebouw", "Mechaniekersgebouw", "Oenanthé", "Silo", "Vlaams woning"]
 
     topverbruikersChart.data.labels = labels;
     topverbruikersChart.data.datasets[0].data = data;
@@ -141,8 +175,7 @@ Reveal.addEventListener("verbruikers", () => {
 
     var Hoogsteverbruiker = Math.max(...data);
 
-    document.getElementById("c-topverbruiker").innerHTML = Math.round(Hoogsteverbruiker /  3305000)
-    console.log();
+    document.getElementById("c-topverbruiker").innerHTML = Math.round(Hoogsteverbruiker / 3500)
 });
 
 

@@ -131,6 +131,12 @@ html.reveal-full-page .reveal {
   background-color: var(--global-chart-color);
 }
 
+
+.c-container--renewable{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
 .c-card {
   background-color: var(--global-main-color);
   border-radius: 1rem;
@@ -223,8 +229,8 @@ html.reveal-full-page .reveal {
   grid-column: 1 / span 2;
 }
 
-.u-row-span {
-  grid-row: 1 / span 2;
+.u-col-span-2{
+  grid-column: 1 / span 3;
 }
 
 .u-grid-template-y-2-x-2 {
