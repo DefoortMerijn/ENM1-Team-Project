@@ -162,6 +162,11 @@ html.reveal-full-page .reveal {
   background-color: var(--global-chart-color);
 }
 
+.c-map {
+  position: absolute;
+  height: 100%;
+}
+
 .c-legend {
   position: absolute;
   bottom: 1rem;
@@ -193,10 +198,12 @@ html.reveal-full-page .reveal {
 }
 
 .c-legend__list__item__rect--active {
+  transition: 0.5s ease-in;
   fill: var(--global-tertiary-color) !important;
 }
 
 .c-map__section--active * {
+  transition: 0.5s ease-in;
   fill: var(--global-tertiary-color) !important;
 }
 
