@@ -171,11 +171,9 @@ html.reveal-full-page .reveal {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-
   font-size: 1rem;
   display: flex;
   padding: 1rem;
-
   border-radius: 0.5rem;
   background-color: var(--global-chart-color);
 }
