@@ -200,12 +200,26 @@ Reveal.addEventListener("HernieuwbareEnergie", async () => {
     const Totaleenergie = document.getElementById("js-renewableEnergiesCounterTotal");
 
     setInterval(() => {
-        Zonnenergie.innerHTML = Math.floor(Math.random() * (420 - 0 + 1)) + 0;;
-        Windenergie.innerHTML = Math.floor(Math.random() * (95 - 0 + 1)) + 0;;
-        SmartGrid.innerHTML = Math.floor(Math.random() * (100 - 0 + 1)) + 0;;
+        Zonnenergie.innerHTML = Math.floor(Math.random() * (420 - 0 + 1)) + 0;
+        Windenergie.innerHTML = Math.floor(Math.random() * (95 - 0 + 1)) + 0;
+        SmartGrid.innerHTML = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
         PumpedStorage.innerHTML = Math.random().toFixed(2);
 
-        Batteries.innerHTML = Math.floor(Math.random() * (100 - 0 + 1)) + 0;;
-        Totaleenergie.innerHTML = Math.floor(Math.random() * (1000 - 400 + 1)) + 400;;
-    }, 1000);
+        Batteries.innerHTML = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+        Totaleenergie.innerHTML = Math.floor(Math.random() * (1000 - 400 + 1)) + 400;
+    }, 5000);
+});
+
+Reveal.addEventListener("water-tower", async () => {
+    const solar_panels_amount = document.getElementById("js-solar-panels__amount");
+    const water_tower_watts = document.getElementById("js-water-tower__watts");
+    let watts = 0;
+    console.log(water_tower_watts);
+    setInterval(() => {
+        watts = Math.floor(Math.random() * (100 - 0 +1)) + 0;
+        water_tower_watts.textContent = watts;
+        solar_panels_amount.textContent = watts / 10;
+    }, 5000);
+    
+    
 });
