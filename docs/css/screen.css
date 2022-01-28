@@ -57,6 +57,12 @@ html.reveal-full-page .reveal {
   margin: none;
 }
 /*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+.o-text-center {
+  text-align: center;
+}
+/*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
 .reveal .slides {
@@ -149,9 +155,10 @@ html.reveal-full-page .reveal {
   background-color: var(--global-chart-color);
 }
 
-.c-card__container--renewables{
+.c-card__container--renewables {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -171,19 +178,24 @@ html.reveal-full-page .reveal {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
-  margin-top: 1rem; 
+  margin-top: 1rem;
 }
 
-.c-battery{
+.c-battery {
   text-align: center;
 }
 
-.c-renewableEnergiesCounter{
+.reveal img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.c-renewableEnergiesCounter {
   text-align: center;
   font-size: 2rem;
 }
 
-.c-renewableEnergiesCounter__Label{
+.c-renewableEnergiesCounter__Label {
   text-align: center;
   font-size: 1.5rem;
 }
@@ -215,7 +227,6 @@ html.reveal-full-page .reveal {
   padding: 1rem;
   margin: 0;
 }
-
 
 .c-map__section--active * {
   transition: 0.5s ease-in;
@@ -269,6 +280,10 @@ html.reveal-full-page .reveal {
 
 .u-grid-item-space-y-1-x-2 {
   grid-area: 1 / span 2;
+}
+
+.u-grid-item-space-y-1-x-2-y-3-x-2 {
+  grid-area: 1 / 2 / 3 / 2;
 }
 
 .u-grid-item-space-y-2-x-1 {
