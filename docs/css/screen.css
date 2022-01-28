@@ -71,15 +71,6 @@ html.reveal-full-page .reveal {
   display: flex !important;
 }
 
-/* .c-dashboard {
-  background-color: var(--global-secondary-color);
-  color: var(--global-font-color);
-  display: grid !important;
-  height: 100%;
-  grid-template-rows: repeat(1, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-} */
-
 .c-infobar {
   background-color: var(--global-main-color);
   width: 30%;
@@ -104,10 +95,6 @@ html.reveal-full-page .reveal {
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
-
-/* .c-infobar__title--underline {
-  border-bottom: 5px solid var(--global-color-white);
-} */
 
 .c-infobar__text {
   font-size: 1.4rem;
@@ -162,6 +149,34 @@ html.reveal-full-page .reveal {
   background-color: var(--global-chart-color);
 }
 
+.c-card__container--renewables{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c-renewableEnergiesCounters{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 1rem; 
+}
+
+.c-battery{
+  text-align: center;
+}
+
+.c-renewableEnergiesCounter{
+  text-align: center;
+  font-size: 2rem;
+}
+
+.c-renewableEnergiesCounter__Label{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 .c-map {
   position: absolute;
   height: 100%;
@@ -175,7 +190,7 @@ html.reveal-full-page .reveal {
   font-size: 1rem;
   display: flex;
   padding: 1rem;
-  
+
   border-radius: 0.5rem;
   background-color: var(--global-chart-color);
 }
@@ -191,12 +206,6 @@ html.reveal-full-page .reveal {
   margin-right: 1rem;
 }
 
-/* .c-legend__list__item__rect { */
-  /* padding: 0.4rem 2rem; */
-  /* height: 40px;
-  width: 125px;
-  fill: var(--global-color-white);
-} */
 
 .c-map__section--active * {
   transition: 0.5s ease-in;
@@ -211,7 +220,6 @@ html.reveal-full-page .reveal {
 
 .c-legend__list__item__rect--active {
   transition: 0.5s ease-in;
-  /* fill: var(--global-tertiary-color) !important; */
   background-color: var(--global-tertiary-color);
 }
 

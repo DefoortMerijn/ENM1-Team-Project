@@ -19,6 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
@@ -35363,7 +35364,7 @@
                   er op transfo site diverse technologieën voor hernieuwbare
                   energie geplaatst worden.
                 </p>
-                <p>De...</p>
+                <p>Hiernaast kun je zien hoeveel energie deze nieuwe technologieën opbrengen.</p>
               </div>
             </div>
             <svg viewbox="0 0 10 6.7" class="c-infobar__backgroundImage">
@@ -35383,24 +35384,73 @@
             </svg>
           </div>
           <div class="c-container c-container--renewable">
-            <div class="c-card u-col-span-2">
-              <div class="c-card__container"></div>
+            <div class="c-card u-col-span-2 u-row-span-2">
+              <div class="c-card__container c-card__container--renewables">
+                <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_kcwpiswk.json"  background="transparent"  speed="1"  style="width: 60wh; height: 50vh"  loop  autoplay>
+                </lottie-player>
+                <div class="c-renewableEnergiesCounters">
+                  <div>
+                    <div class="c-renewableEnergiesCounter">
+                      <span id="js-renewableEnergiesCounterZon">266</span>
+                      Kwh
+                    </div>
+                    <div class="c-renewableEnergiesCounter__Label">Zonne-energie</div>
+                  </div>
+                  <div>
+                    <div class="c-renewableEnergiesCounter">
+                      <span id="js-renewableEnergiesCounterWind">90</span>
+                      Kwh
+                    </div>
+                    <div class="c-renewableEnergiesCounter__Label">Windenergie</div>
+                  </div>
+                  <div>
+                    <div class="c-renewableEnergiesCounter">
+                      <span id="js-renewableEnergiesCounterGrid">420</span>
+                      Kwh
+                    </div>
+                    <div class="c-renewableEnergiesCounter__Label">Smart-grid</div>
+                  </div>
+                  <div>
+                    <div class="c-renewableEnergiesCounter">
+                      <span id="js-renewableEnergiesCounterPump">1</span>
+                      Kwh
+                    </div>
+                    <div class="c-renewableEnergiesCounter__Label">Pumped storage</div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="c-card">
               <div class="c-card__container">
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                 <lottie-player
                   src="https://assets5.lottiefiles.com/private_files/lf30_a7aaf4au.json"
                   background="transparent"
                   speed="1"
-                  style="width: 300px; height: 300px"
+                  style="width: 30wh; height: 26vh"
                   loop
                   autoplay
-                ></lottie-player>
+                >
+                </lottie-player>
+                <div class="c-battery">
+                  <div class="c-renewableEnergiesCounter">
+                  <span id="js-renewableEnergiesCounterBattery">25</span>%
+                  </div>
+                  <div class="c-renewableEnergiesCounter__Label">Laadcapaciteit</div>
+                </div>
               </div>
             </div>
-            <div class="c-card u-col-span-3">
-              <div class="c-card__container"></div>
+            <div class="c-card">
+              <div class="c-card__container">
+                <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_tmwrika0.json"  background="transparent"  speed="1"  style="width: 30wh; height: 26vh"  loop  autoplay>
+                </lottie-player>
+                <div class="c-battery">
+                  <div class="c-renewableEnergiesCounter">
+                    <span id="js-renewableEnergiesCounterTotal">0</span> 
+                    kwh
+                  </div>
+                  <div class="c-renewableEnergiesCounter__Label">Totaal Opgewekte energie</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
