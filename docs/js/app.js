@@ -84,7 +84,7 @@ Reveal.on( 'ready', event => {
             }
         }
         });
-  } );
+});
 
 const map_animation = () => {
         var duiktankLegend = document.getElementById("js-duiktankLegend");
@@ -147,7 +147,7 @@ const map_animation = () => {
             windturbineLegend.classList.remove("c-legend__list__item__rect--active");
             windturbine.classList.remove("c-map__section--active");
         }, 30000);
-    };
+};
 
 Reveal.addEventListener("welkom", () => {
     map_animation();
@@ -208,4 +208,13 @@ Reveal.addEventListener("HernieuwbareEnergie", async () => {
         Batteries.innerHTML = Math.floor(Math.random() * (100 - 0 + 1)) + 0;;
         Totaleenergie.innerHTML = Math.floor(Math.random() * (1000 - 400 + 1)) + 400;;
     }, 1000);
+});
+
+Reveal.addEventListener("Quiz1", () => {
+    setTimeout(()=>{
+        console.log("test")
+        var answer = document.getElementById("js-quiz1Answer").parentElement;
+
+        answer.classList.add("c-quiz-answer");
+    },15000)
 });

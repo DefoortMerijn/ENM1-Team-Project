@@ -86,7 +86,7 @@ html.reveal-full-page .reveal {
 }
 
 .c-infobar__info {
-  margin: 3rem;
+  margin: 0 3rem;
 }
 
 .c-infobar__title {
@@ -155,6 +155,17 @@ html.reveal-full-page .reveal {
   justify-content: center;
 }
 
+.c-card__container--quiz{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.c-quiz-answer{
+  background-color: green;
+}
+
 .c-renewableEnergiesCounters{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -220,26 +231,6 @@ html.reveal-full-page .reveal {
 .c-legend__list__item__rect--active {
   transition: 0.5s ease-in;
   background-color: var(--global-tertiary-color);
-}
-
-.c-quiz__title {
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.c-quiz__container {
-  list-style-type: upper-alpha !important;
-  display: block !important;
-}
-
-.c-quiz__question {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  text-align: left;
-  background-color: var(--global-chart-color);
-  padding: 1rem;
-  border-radius: 0.4rem;
-  transition: background-color 2s;
 }
 
 /*------------------------------------*\
