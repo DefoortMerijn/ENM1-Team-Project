@@ -4,7 +4,10 @@ from collections import defaultdict
 from datetime import datetime
 from flask_mqtt import Mqtt
 from flask_cors import CORS
-import os, sys, yaml, json
+import os
+import sys
+import yaml
+import json
 import time as t
 
 # load config file
@@ -82,6 +85,7 @@ def get_powerusage_transfo(measurement, time):
         # get route parameters
         fn = request.args.get('fn', default='sum', type=str)
         field = request.args.get('field', default=None, type=str)
+        print(field)
         showPhases = request.args.get(
             'showPhases', default=False, type=lambda v: v.lower() == 'true')
         calendar_time = request.args.get(
@@ -101,7 +105,7 @@ def get_powerusage_transfo(measurement, time):
         with InfluxDBClient(url=URL, token=TOKEN, org=ORG, timeout=25000) as client:
 
             # if field param was given -> filter on field, else just filter on blacklist
-            fieldFilter = f'|> filter(fn: (r) => r._field == "{field}"' if field is not None else ''
+            fieldFilter = f'|> filter(fn: (r) => r._field == "{field}")' if field is not None else ''
             # if showPhases is False, filter out phase fields (L1,L2,L3)
             phaseFilter = '|> filter(fn: (r) => r._field !~ /L\d+$/ )' if not showPhases else ''
             query = f'''import "date" 
