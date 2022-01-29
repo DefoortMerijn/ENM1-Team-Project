@@ -223,35 +223,55 @@ Reveal.addEventListener("water-tower", async () => {
 });
 
 Reveal.addEventListener("Quiz1", () => {
-    setTimeout(()=>{
-        var answer = document.getElementById("js-quiz1Answer").parentElement;
+    var answer = document.getElementById("js-quiz3Answer").parentElement;
 
+    if(answer.classList.contains("c-quiz-answer"))
+    {
+        answer.classList.remove("c-quiz-answer")
+    }
+
+    setTimeout(()=>{
         answer.classList.add("c-quiz-answer");
     },15000)
 });
 
 Reveal.addEventListener("Quiz2", () => {
-    setTimeout(()=>{
-        var answer = document.getElementById("js-quiz2Answer").parentElement;
+    var answer = document.getElementById("js-quiz3Answer").parentElement;
 
+    if(answer.classList.contains("c-quiz-answer"))
+    {
+        answer.classList.remove("c-quiz-answer")
+    }
+
+    setTimeout(()=>{
         answer.classList.add("c-quiz-answer");
     },15000)
 });
 
 Reveal.addEventListener("Quiz3", () => {
-    setTimeout(()=>{
-        var answer = document.getElementById("js-quiz3Answer").parentElement;
+    var answer = document.getElementById("js-quiz3Answer").parentElement;
 
+    if(answer.classList.contains("c-quiz-answer"))
+    {
+        answer.classList.remove("c-quiz-answer")
+    }
+
+    setTimeout(()=>{
         answer.classList.add("c-quiz-answer");
     },15000)
 });
 
 Reveal.addEventListener("Quiz4", () => {
-    setTimeout(()=>{
-        console.log("test")
-        var answer1 = document.getElementById("js-quiz4Answer").parentElement;
-        var answer2 = document.getElementById("js-quiz4Answer2").parentElement;
+    var answer1 = document.getElementById("js-quiz4Answer").parentElement;
+    var answer2 = document.getElementById("js-quiz4Answer2").parentElement;
 
+    if(answer1.classList.contains("c-quiz-answer"))
+    {
+        answer1.classList.remove("c-quiz-answer")
+        answer2.classList.remove("c-quiz-answer")
+    }
+
+    setTimeout(()=>{
         answer1.classList.add("c-quiz-answer");
         answer2.classList.add("c-quiz-answer");
     },15000)
