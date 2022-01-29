@@ -170,6 +170,7 @@ html.reveal-full-page .reveal {
 }
 
 .c-quiz-answer{
+  transition: 0.5s ease-in;
   background-color: green;
 }
 

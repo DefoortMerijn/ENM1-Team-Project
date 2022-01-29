@@ -214,7 +214,7 @@ Reveal.addEventListener("water-tower", async () => {
     const solar_panels_amount = document.getElementById("js-solar-panels__amount");
     const water_tower_watts = document.getElementById("js-water-tower__watts");
     let watts = 0;
-    console.log(water_tower_watts);
+
     setInterval(() => {
         watts = Math.floor(Math.random() * (100 - 0 +1)) + 0;
         water_tower_watts.textContent = watts;
@@ -224,8 +224,15 @@ Reveal.addEventListener("water-tower", async () => {
 
 Reveal.addEventListener("Quiz1", () => {
     setTimeout(()=>{
-        console.log("test")
         var answer = document.getElementById("js-quiz1Answer").parentElement;
+
+        answer.classList.add("c-quiz-answer");
+    },15000)
+});
+
+Reveal.addEventListener("Quiz2", () => {
+    setTimeout(()=>{
+        var answer = document.getElementById("js-quiz2Answer").parentElement;
 
         answer.classList.add("c-quiz-answer");
     },15000)
