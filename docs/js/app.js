@@ -237,3 +237,11 @@ Reveal.addEventListener("Quiz2", () => {
         answer.classList.add("c-quiz-answer");
     },15000)
 });
+
+Reveal.addEventListener("Quiz3", () => {
+    setTimeout(()=>{
+        var answer = document.getElementById("js-quiz3Answer").parentElement;
+
+        answer.classList.add("c-quiz-answer");
+    },15000)
+});
