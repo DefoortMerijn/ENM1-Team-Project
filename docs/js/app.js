@@ -245,3 +245,14 @@ Reveal.addEventListener("Quiz3", () => {
         answer.classList.add("c-quiz-answer");
     },15000)
 });
+
+Reveal.addEventListener("Quiz4", () => {
+    setTimeout(()=>{
+        console.log("test")
+        var answer1 = document.getElementById("js-quiz4Answer").parentElement;
+        var answer2 = document.getElementById("js-quiz4Answer2").parentElement;
+
+        answer1.classList.add("c-quiz-answer");
+        answer2.classList.add("c-quiz-answer");
+    },15000)
+});
