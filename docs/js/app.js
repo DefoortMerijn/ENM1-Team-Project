@@ -222,6 +222,23 @@ Reveal.addEventListener("water-tower", async () => {
     }, 5000);
 });
 
+Reveal.addEventListener("duiktank", async ()=>{
+    console.log("test")
+    const urlCurrent = "";
+    const urlMonth = "";
+    const url = "";
+
+    const current = document.getElementById("js-duiktankCurrent");
+    const month = document.getElementById("js-duiktankMonth");
+
+    current.innerHTML = Math.floor(Math.random() * (15 - 0 + 1)) + 0;
+    month.innerHTML = Math.floor(Math.random() * (69 - 0 + 1)) + 0;
+
+    setInterval(() => {
+        current.innerHTML = Math.floor(Math.random() * (15 - 0 + 1)) + 0;
+    }, 5000);
+});
+
 Reveal.addEventListener("Quiz1", () => {
     var answer = document.getElementById("js-quiz1Answer").parentElement;
 
