@@ -26,7 +26,7 @@ function createArrayFromResponse (responseData){
     return arrayPower
 }
 
-Reveal.on( 'ready', event => {
+Reveal.on( 'ready', () => {
     const ctx = document.getElementById('js-topverbruikersChart');
     topverbruikersChart = new Chart(ctx, {
         type: 'bar',
@@ -223,7 +223,7 @@ Reveal.addEventListener("water-tower", async () => {
 });
 
 Reveal.addEventListener("Quiz1", () => {
-    var answer = document.getElementById("js-quiz3Answer").parentElement;
+    var answer = document.getElementById("js-quiz1Answer").parentElement;
 
     if(answer.classList.contains("c-quiz-answer"))
     {
@@ -236,7 +236,7 @@ Reveal.addEventListener("Quiz1", () => {
 });
 
 Reveal.addEventListener("Quiz2", () => {
-    var answer = document.getElementById("js-quiz3Answer").parentElement;
+    var answer = document.getElementById("js-quiz2Answer").parentElement;
 
     if(answer.classList.contains("c-quiz-answer"))
     {

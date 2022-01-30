@@ -139,34 +139,38 @@ html.reveal-full-page .reveal {
   border-radius: 0.5rem;
   box-sizing: border-box;
   padding: 1rem;
-}
 
-.c-card__container--map {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-color: none;
-}
-
-.c-card__container--chart {
-  display: flex;
-  align-items: center;
-  background-color: var(--global-chart-color);
-}
-
-.c-card__container--renewables {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.c-card__container--map {
+  position: relative;
+  background-color: none;
+}
+
+.c-card__container--chart {
+  background-color: var(--global-chart-color);
+}
+
+.c-card__container--divingIcon{
+  justify-content: space-between;
+}
+
 .c-card__container--quiz{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 2rem;
+}
+
+.c-card__counter{
+  text-align: center;
+  font-size: 2rem;
+}
+
+.c-card__counterLabel{
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .c-quiz-answer{
@@ -182,23 +186,9 @@ html.reveal-full-page .reveal {
   margin-top: 1rem;
 }
 
-.c-battery {
-  text-align: center;
-}
-
 .reveal img {
   max-height: 100%;
   max-width: 100%;
-}
-
-.c-renewableEnergiesCounter {
-  text-align: center;
-  font-size: 2rem;
-}
-
-.c-renewableEnergiesCounter__Label {
-  text-align: center;
-  font-size: 1.5rem;
 }
 
 .c-map {
