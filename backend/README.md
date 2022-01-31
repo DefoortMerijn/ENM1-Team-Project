@@ -43,4 +43,3 @@
    For example: When querying for a data from a month ago, data returned will be only of current month if True, else it will return data from a full 31 days ago
    
    For example: Given the date 20 April: with calendarTime False, the time range will be April 20 - March 20, withe calendarTime True, the time range will be April 20 - April 01
-
