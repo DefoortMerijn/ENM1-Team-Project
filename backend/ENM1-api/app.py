@@ -36,10 +36,11 @@ CORS(app)
 endpoint = '/api/v1'
 # time ranges and their corresponding values
 time_ranges = {
-    "year": ["date.truncate(t: now(), unit: 1y)", "-1y", "1mo"],
-    "month": ["date.truncate(t: now(), unit: 1mo)", "-1mo", "1d"],
-    "week": ["date.truncate(t: now(), unit: 1w)", "-1w", "1d"],
-    "day": ["date.truncate(t: now(), unit: 1d)", "-1d", "1h"],
+    "year": ["date.truncate(t: now(), unit: 1y)", "-1y", "1y"],
+    "month": ["date.truncate(t: now(), unit: 1mo)", "-1y", "1mo"],
+    "week": ["date.truncate(t: now(), unit: 1w)", "-1mo", "1w"],
+    "day": ["date.truncate(t: now(), unit: 1d)", "-1w", "1d"],
+    "hour": ["date.truncate(t: now(), unit: 1d)", "-1d", "1h"],
     "recent": ["date.truncate(t: now(), unit: 1h)", "-1h", "5m"],
 }
 
