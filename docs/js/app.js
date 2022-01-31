@@ -1,5 +1,6 @@
 const get = (url) => fetch(url).then((r)=> r.json());
 var topverbruikersChart = null;
+var duiktankChart = null;
 
 function average(array)
 {
@@ -24,6 +25,19 @@ function createArrayFromResponse (responseData){
     );
 
     return arrayPower
+}
+
+function createLabelsFromResponse (responseData){
+    const monthNames = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
+    var array = [];
+    responseData.values.TotaalNet.forEach((element) => {
+            var el = new Date(element.time);
+            var label = monthNames[el.getMonth()]
+            array.push(label)
+        }
+    );
+
+    return array
 }
 
 Reveal.on( 'ready', () => {
@@ -83,7 +97,77 @@ Reveal.on( 'ready', () => {
                 },
             }
         }
-        });
+    });
+
+    const ctxDuiktank = document.getElementById('js-duiktankChart');
+    duiktankChart = new Chart(ctxDuiktank, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: 'Verbruik in Kilowatt',
+                data: [5,2,3,5,6,4],
+                backgroundColor: [
+                    'rgb(148, 202, 227)',
+                    'rgb(244, 174, 26)',
+                    'rgb(243, 107, 40)',
+                    'rgb(239, 73, 36)',
+                    'rgb(238, 47, 68)',
+                    'rgb(236, 70, 139)',
+                    'rgb(184, 86, 161)',
+                    'rgb(145, 91, 166)',
+                    'rgb(81, 139, 201)',
+                    'rgb(39, 190, 182)',
+                    'rgb(103, 191, 107)',
+                    'rgb(161, 205, 73)',
+                ],
+                borderColor: [
+                    'rgb(148, 202, 227)',
+                    'rgb(244, 174, 26)',
+                    'rgb(243, 107, 40)',
+                    'rgb(239, 73, 36)',
+                    'rgb(238, 47, 68)',
+                    'rgb(236, 70, 139)',
+                    'rgb(184, 86, 161)',
+                    'rgb(145, 91, 166)',
+                    'rgb(81, 139, 201)',
+                    'rgb(39, 190, 182)',
+                    'rgb(103, 191, 107)',
+                    'rgb(161, 205, 73)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+           plugins:{
+                legend: {
+                    display: true,
+                    labels: {
+                        color: "rgba(255,255,255)"
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color: "rgba(255,255,255, 0.4)"
+                    },
+                    beginAtZero: true,
+                    ticks:{
+                        color: "rgba(255,255,255)",
+                        callback: function(value, index, ticks) {
+                            return value + "Kw";
+                        }
+                    }
+                },
+                x: {
+                    ticks:{
+                        color: "rgba(255,255,255)",
+                    }
+                },
+            }
+        }
+    });
 });
 
 const map_animation = () => {
@@ -154,12 +238,14 @@ Reveal.addEventListener("welkom", () => {
 });
 
 Reveal.addEventListener("verbruikers", async () => {
-    const urlDuiktank = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Duiktank/year?field=TotaalNet&fn=mean";
-    const urlHoofdgebouw = "";
-    const urlSilo = "";
-    const urlDing = "";
-    const urlDink= "";
-    const urlnogiets = "";
+    const urlDuiktank = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Duiktank/monthly?field=TotaalNet&fn=mean";
+    const urlHoofdgebouwFuifzaal = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Fuifzaal/monthly?field=Aansluiting_Fuifzaal_EB1_I&fn=mean";
+    const urlHoofdgebouwMachinezaal = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Machinezaal/monthly?field=Aansluiting_Machinezaal_EB3_A&fn=mean";
+    const urlHoofdgebouwKantoor1 = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Kantoren_Verdiep_4/monthly?field=Aansluiting_kantoren_Verdiep_4_EB3_B&fn=mean";
+    const urlHoofdgebouwKantoor2 = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Kantoren_Verdiep_5/monthly?field=Aansluiting_kantoren_Verdiep_5_EB3_D&fn=mean";
+    const urlSilo = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Silo/monthly?field=Aansluiting_Silo&fn=mean";
+    const urlMechanieker = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Mechaniekersgebouw/monthly?field=Aansluiting_Mechaniekersgebouw_EB2&fn=mean";
+    const urlOenanthe = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Oenanthe/monthly?field=Aansluiting_Oenanthe_EB3_C&fn=mean";
 
     responseDuiktank = await get(urlDuiktank);
 
@@ -207,7 +293,7 @@ Reveal.addEventListener("HernieuwbareEnergie", async () => {
 
         Batteries.innerHTML = Math.floor(Math.random() * (100 - 0 + 1)) + 0;;
         Totaleenergie.innerHTML = Math.floor(Math.random() * (1000 - 400 + 1)) + 400;;
-    }, 1000);
+    }, 5000);
 });
 
 Reveal.addEventListener("water-tower", async () => {
@@ -223,20 +309,35 @@ Reveal.addEventListener("water-tower", async () => {
 });
 
 Reveal.addEventListener("duiktank", async ()=>{
-    console.log("test")
-    const urlCurrent = "";
-    const urlMonth = "";
-    const url = "";
+    const urlCurrent = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Duiktank/daily?field=TotaalNet&fn=mean";
+    const urlMonth = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Duiktank/monthly?field=TotaalNet&fn=mean";
+    const urlYear = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Duiktank/monthly?field=TotaalNet&fn=mean";
+
+    responseCurrent = await get(urlCurrent);
+    repsonseMonth = await get(urlMonth);
+    responseYear = await get(urlYear);
 
     const current = document.getElementById("js-duiktankCurrent");
     const month = document.getElementById("js-duiktankMonth");
 
-    current.innerHTML = Math.floor(Math.random() * (15 - 0 + 1)) + 0;
-    month.innerHTML = Math.floor(Math.random() * (69 - 0 + 1)) + 0;
+    var tempData = createArrayFromResponse(responseYear);
+    var labels = createLabelsFromResponse(responseYear);
+    var data = []
 
-    setInterval(() => {
-        current.innerHTML = Math.floor(Math.random() * (15 - 0 + 1)) + 0;
-    }, 5000);
+    tempData.forEach((element) => {
+        console.log(element)
+        var el = element / 1000;
+        data.push(el)
+        }
+    )
+
+
+    current.innerHTML = Math.round(responseCurrent.values.TotaalNet[6].value / 1000);
+    month.innerHTML = Math.round(responseCurrent.values.TotaalNet[6].value / 1000) * 24 * 30;
+
+    duiktankChart.data.labels = labels;
+    duiktankChart.data.datasets[0].data = data;
+    duiktankChart.update()
 });
 
 Reveal.addEventListener("Quiz1", () => {

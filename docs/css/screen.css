@@ -136,7 +136,7 @@ html.reveal-full-page .reveal {
 
 .c-card__container {
   height: 100%;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   box-sizing: border-box;
   padding: 1rem;
 
@@ -151,12 +151,29 @@ html.reveal-full-page .reveal {
   background-color: none;
 }
 
-.c-card__container--chart {
+.c-chart {
   background-color: var(--global-chart-color);
+  padding: 1rem;
+  border-radius: .5rem;
 }
 
 .c-card__container--divingIcon{
   justify-content: space-between;
+}
+
+.c-card__container--divingChart{
+  flex-direction: row;
+  padding: 0;
+  width: 35vw; 
+  min-width: 35vw;
+}
+
+.c-card--test{
+  display: flex;
+}
+
+.c-card--test div{
+  margin-left: 2rem;
 }
 
 .c-card__container--quiz{
