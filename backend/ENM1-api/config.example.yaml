@@ -1,0 +1,23 @@
+Flask:
+  SECRET_KEY: 'SECRET_KEY'
+MQTT:
+  BROKER_URL: 'BROKER_URL'
+  BROKER_PORT: 1883
+InfluxDB:
+  Howest:
+    URL: 'URL'
+    TOKEN: 'TOKEN'
+    ORG: 'ORG'
+    BUCKET: 'BUCKET'
+  Transfo:
+    URL: 'URL'
+    TOKEN: 'TOKEN'
+    ORG: 'ORG'
+    BUCKET: 'BUCKET'
+Smappee:
+  channels:
+    5500031443 D: "Stopcontact16A EB1.D"
+    5500033160 B: "Stopcontact16A EB1.D"
+    5500033160 A: "Stopcontact16A EB1.D"
+    5500033102 A: "Stopcontact 63A fuifzaal EB1"
+    5500033102 B: "Stopcontact 63A fuifzaal EB1"
