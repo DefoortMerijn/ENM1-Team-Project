@@ -36,7 +36,7 @@ CORS(app)
 endpoint = '/api/v1'
 # time ranges and their corresponding values
 time_ranges = {
-    "yearly": ["date.truncate(t: now(), unit: 1y)", "-3y", "1y"],
+    "yearly": ["2019-01-01T01:00:00.000000000Z", "-3y", "1y"],
     "monthly": ["date.truncate(t: now(), unit: 1y)", "-1y", "1mo"],
     "weekly": ["date.truncate(t: now(), unit: 1mo)", "-1mo", "1w"],
     "daily": ["date.truncate(t: now(), unit: 1mo)", "-1mo", "1d"],
@@ -91,6 +91,8 @@ def get_powerusage_transfo(measurement, time):
             'showPhases', default=False, type=lambda v: v.lower() == 'true')
         calendar_time = request.args.get(
             'calendarTime', default=False, type=lambda v: v.lower() == 'true')
+        showRecent = request.args.get(
+            'showRecent', default=False, type=lambda v: v.lower() == 'true')
 
         # check whether correct parameters were given, otherwise return bad request
         if time not in time_ranges:
@@ -111,7 +113,7 @@ def get_powerusage_transfo(measurement, time):
             phaseFilter = '|> filter(fn: (r) => r._field !~ /L\d+$/ )' if not showPhases else ''
             query = f'''import "date" 
                         from(bucket: "{BUCKET}")
-                            |> range(start: {rangeCT if calendar_time else range}, stop: date.truncate(t: now(), unit: {window}))
+                            |> range(start: {rangeCT if calendar_time else range}, stop: now())
                             |> filter(fn: (r) => r._measurement == "{measurement}")
                             {fieldFilter}
                             {phaseFilter}
@@ -133,6 +135,10 @@ def get_powerusage_transfo(measurement, time):
                 for r in table.records:
                     dict.setdefault(r.values['_field'], []).append(
                         {'time': r.values['_time'], 'unit': "Watts per hour", 'value': r.values['_value']})
+            # If recent values are disabled, remove the last item of each array in dict
+            if not showRecent:
+                for key, value in dict.items():
+                    dict[key] = value[:-1]
 
             return jsonify(
                 http_code=200,
