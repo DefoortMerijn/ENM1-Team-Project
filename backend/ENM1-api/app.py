@@ -31,13 +31,12 @@ app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds
 Influx_howest = config['InfluxDB']['Howest']
 Influx_transfo = config['InfluxDB']['Transfo']
 ##### END CONFIG #####
-mqtt = Mqtt(app)
 CORS(app)
+mqtt = Mqtt(app)
+endpoint = '/api/v1' # main endpoint
 
-
-# main endpoint
-endpoint = '/api/v1'
 # time ranges and their corresponding values
+## timeRange: [truncated_start, default_start, window/every]
 time_ranges = {
     "yearly": ["2019-01-01T01:00:00.000000000Z", "-3y", "1y"],
     "monthly": ["date.truncate(t: now(), unit: 1y)", "-1y", "1mo"],
@@ -70,13 +69,12 @@ def get_transfo_fields():
             # get all field values for each measurement
             dict = {}
             for measurement in measurements:
-                query = f'import "influxdata/inmeasurementFieldKeys(bucket: "{BUCKET}",measurement: "{measurement}")'
+                query = f'import "influxdata/influxdb/schema" schema.measurementFieldKeys(bucket: "{BUCKET}",measurement: "{measurement}")'
                 fTables = client.query_api().query(query, org=ORG)
                 fields = [r.values['_value']
                         for r in fTables[0].records]  # convert to list of fields
                 # add list of fields to dict under measurement name
                 dict[measurement] = fields
-                print(fTables)
 
             client.close()
             return jsonify(dict), 200
@@ -84,20 +82,17 @@ def get_transfo_fields():
         logging.error(e)
         return jsonify(status_code=500, message=f'Internal Server Error, see logs for more info', error=e.message or type(e).__name__), 500
 
-
+# geeft data terug van de gekozen measurement
+# bekijk documentatie voor meer informatie over de parameters
 @app.route(f'{endpoint}/transfo/power/usage/<measurement>/<time>', methods=['GET'])
 def get_powerusage_transfo(measurement, time):
     try:
         # get route parameters
         fn = request.args.get('fn', default='sum', type=str)
         field = request.args.get('field', default=None, type=str)
-        print(field)
-        showPhases = request.args.get(
-            'showPhases', default=False, type=lambda v: v.lower() == 'true')
-        calendar_time = request.args.get(
-            'calendarTime', default=False, type=lambda v: v.lower() == 'true')
-        showRecent = request.args.get(
-            'showRecent', default=False, type=lambda v: v.lower() == 'true')
+        showPhases = request.args.get('showPhases', default=False, type=lambda v: v.lower() == 'true')
+        calendar_time = request.args.get('calendarTime', default=False, type=lambda v: v.lower() == 'true')
+        showRecent = request.args.get('showRecent', default=False, type=lambda v: v.lower() == 'true')
 
         # check whether correct parameters were given, otherwise return bad request
         if time not in time_ranges:
@@ -126,8 +121,6 @@ def get_powerusage_transfo(measurement, time):
                     '''
             start_time = t.time()
             tables = client.query_api().query(query, org=ORG)
-            print(f'data returned in: {(t.time() - start_time)} secs')
-            # |> drop(columns: ["_start", "_stop", "meter"])
             client.close()
 
             # check for found tables, otherwise return bad request
@@ -165,6 +158,9 @@ def get_powerusage_transfo(measurement, time):
 
 
 ######## MQTT ########
+######
+# MQTT wordt niet (meer) gebruikt, maar blijft in de code staan om eventueel later nog data toe te voegen aan influxdb
+######
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
     print("Connected to Transfo MQTT broker with result code " + str(rc))
