@@ -4,11 +4,14 @@ from collections import defaultdict
 from datetime import datetime
 from flask_mqtt import Mqtt
 from flask_cors import CORS
-import os
-import sys
-import yaml
-import json
+import os, sys, yaml, json, logging
 import time as t
+
+# handle logging
+log_filename = "logs/output.log"
+os.makedirs(os.path.dirname(log_filename), exist_ok=True)
+log_handlers = [logging.FileHandler(filename=log_filename, mode='w', encoding='utf-8'), logging.StreamHandler()]
+logging.basicConfig(handlers=log_handlers, level=logging.DEBUG, format="%(asctime)s %(name)s [%(levelname)s] %(message)s")
 
 # load config file
 if not os.path.isfile("config.yaml"):
@@ -51,33 +54,35 @@ def index():
     return 'use /api/v1', 303
 
 # get all available fields & measurements from Transfo influxdb
-
-
 @app.route(f'{endpoint}/transfo/power/fields', methods=['GET'])
 def get_transfo_fields():
-    # get Transfo config values
-    URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
+    try:
+        # get Transfo config values
+        URL, TOKEN, ORG, BUCKET = Influx_transfo.values()
 
-    with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
-        # get all measurements
-        query = f'import "influxdata/influxdb/schema" schema.measurements(bucket: "{BUCKET}")'
-        mTables = client.query_api().query(query, org=ORG)
-        # convert to list of measurements
-        measurements = [r.values['_value'] for r in mTables[0].records]
+        with InfluxDBClient(url=URL, token=TOKEN, org=ORG) as client:
+            # get all measurements
+            query = f'import "influxdata/influxdb/schema" schema.measurements(bucket: "{BUCKET}")'
+            mTables = client.query_api().query(query, org=ORG)
+            # convert to list of measurements
+            measurements = [r.values['_value'] for r in mTables[0].records]
 
-        # get all field values for each measurement
-        dict = {}
-        for measurement in measurements:
-            query = f'import "influxdata/influxdb/schema" schema.measurementFieldKeys(bucket: "{BUCKET}",measurement: "{measurement}")'
-            fTables = client.query_api().query(query, org=ORG)
-            fields = [r.values['_value']
-                      for r in fTables[0].records]  # convert to list of fields
-            # add list of fields to dict under measurement name
-            dict[measurement] = fields
-            print(fTables)
+            # get all field values for each measurement
+            dict = {}
+            for measurement in measurements:
+                query = f'import "influxdata/inmeasurementFieldKeys(bucket: "{BUCKET}",measurement: "{measurement}")'
+                fTables = client.query_api().query(query, org=ORG)
+                fields = [r.values['_value']
+                        for r in fTables[0].records]  # convert to list of fields
+                # add list of fields to dict under measurement name
+                dict[measurement] = fields
+                print(fTables)
 
-        client.close()
-        return jsonify(dict), 200
+            client.close()
+            return jsonify(dict), 200
+    except Exception as e:
+        logging.error(e)
+        return jsonify(status_code=500, message=f'Internal Server Error, see logs for more info', error=e.message or type(e).__name__), 500
 
 
 @app.route(f'{endpoint}/transfo/power/usage/<measurement>/<time>', methods=['GET'])
@@ -154,7 +159,8 @@ def get_powerusage_transfo(measurement, time):
                 values=dict
             ), 200
     except Exception as e:
-        return jsonify(status_code=500, message=f'Internal Server Error: {e}'), 500
+        logging.error(e)
+        return jsonify(status_code=500, message=f'Internal Server Error, see logs for more info', error=e.message or type(e).__name__), 500
 ######## END ROUTES ########
 
 
@@ -207,4 +213,4 @@ def add_point_data(points):
 
 # start app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=False)

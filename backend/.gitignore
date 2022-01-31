@@ -12,6 +12,8 @@ ENV/
 env.bak/
 venv.bak/
 
+# Logs
+logs/
 
 # Test files
 test.py
