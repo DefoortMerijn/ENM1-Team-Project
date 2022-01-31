@@ -42,7 +42,7 @@ jobs:
           name: python-app
           path: |
             ./backend/ENM1-api/
-            !venv/
+            !./backend/ENM1-api/venv/
 
   deploy:
     runs-on: ubuntu-latest
