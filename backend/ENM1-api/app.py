@@ -36,7 +36,7 @@ CORS(app)
 endpoint = '/api/v1'
 # time ranges and their corresponding values
 time_ranges = {
-    "yearly": ["date.truncate(t: now(), unit: 1y)", "-1y", "1y"],
+    "yearly": ["date.truncate(t: now(), unit: 1y)", "-3y", "1y"],
     "monthly": ["date.truncate(t: now(), unit: 1y)", "-1y", "1mo"],
     "weekly": ["date.truncate(t: now(), unit: 1mo)", "-1mo", "1w"],
     "daily": ["date.truncate(t: now(), unit: 1mo)", "-1mo", "1d"],
