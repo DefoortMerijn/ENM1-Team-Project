@@ -17,10 +17,11 @@
 - measurement: The measurement you want to filter on
 
 - time:
-  - `year`: Shows data up until 1 year ago, grouped per month
-  - `month`: Shows data up until 31 days ago, grouped per day
-  - `week`: Shows data up until 7 days ago, grouped per day
-  - `day`: Shows data up until 24 hours ago, grouped per hour
+  - `yearly`: Shows data of until 3 years ago, grouped per year
+  - `monthly`: Shows data up until 1 year ago, grouped per month
+  - `weekly`: Shows data up until 1 month ago, grouped per week
+  - `daily`: Shows data up until 1 week ago, grouped per day
+  - `hourly`: Shows data up until 1 day ago, grouped per hour
   - `recent`: Shows data up until 1 hour ago, grouped per 5 min
 
 **Query parameters [optional]:**
