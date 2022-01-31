@@ -17,12 +17,12 @@
 - measurement: The measurement you want to filter on
 
 - time:
-  - `yearly`: Shows data of until 3 years ago, grouped per year
-  - `monthly`: Shows data up until 1 year ago, grouped per month
-  - `weekly`: Shows data up until 1 month ago, grouped per week
-  - `daily`: Shows data up until 1 week ago, grouped per day
-  - `hourly`: Shows data up until 1 day ago, grouped per hour
-  - `recent`: Shows data up until 1 hour ago, grouped per 5 min
+  - `yearly`: Show yearly data, until 2020
+  - `monthly`: Show monthly data, up until 1 year ago
+  - `weekly`: Show weekly data, up until 1 month ago
+  - `daily`: Show daily data, up until 1 month ago
+  - `hourly`: Show hourly data, up until 1 day ago
+  - `recent`: Show 5 minute data, up until 1 hour ago
 
 **Query parameters [optional]:**
 
@@ -34,10 +34,13 @@
   - `median`: returns the median of the values
   - `min`: returns the smallest value of the requested data
   - `max`: returns the largest value of the requested data
-
-- `&calendarTime`: True/False, whether to return a calendar time period, defaults to False
-
-   For example: When querying for a month, data returned will be only of current month if True, else it will return data from a full 31 days ago
    
+- `&showRecent`: True/False, whether to include the most recent recorded value, defaults to False
 - `&showPhases`: True/False, whether to show phase fields (L1, L2, L3), using this might increase load times, defaults to False
-- `&field`: Filters on measurement field, only showing that single field, if left empty all available fields of the measurement will be queried, this can be slow!
+- `&field`: Filters on measurement field, only showing that single field, if left empty all available fields of the measurement will be queried, this can increase load times.
+- `&calendarTime`: True/False, whether to treat time ranges literally or according to calendar, defaults to False
+
+   For example: When querying for a data from a month ago, data returned will be only of current month if True, else it will return data from a full 31 days ago
+   
+   For example: Given the date 20 April: with calendarTime False, the time range will be April 20 - March 20, withe calendarTime True, the time range will be April 20 - April 01
+
