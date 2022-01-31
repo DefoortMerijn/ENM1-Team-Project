@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - ENM1-Flask
 on:
   push:
     branches:
-      - develop
+      - release
   workflow_dispatch:
 
 defaults:
@@ -40,7 +40,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: python-app
-          path: ./backend/ENM1-api/
+          path: |
+            ./backend/ENM1-api/
+            !venv/
 
   deploy:
     runs-on: ubuntu-latest
