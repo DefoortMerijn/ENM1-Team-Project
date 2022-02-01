@@ -18,7 +18,7 @@ function average(array)
 
 function createArrayFromResponse (responseData){
     var arrayPower = [];
-    responseData.values.TotaalNet.forEach((element) => {
+    responseData.forEach((element) => {
                     var el = element.value;
                     arrayPower.push(el)
             }
@@ -248,12 +248,26 @@ Reveal.addEventListener("verbruikers", async () => {
     const urlOenanthe = "https://enm1-flask.azurewebsites.net/api/v1/transfo/power/usage/Oenanthe/monthly?field=Aansluiting_Oenanthe_EB3_C&fn=mean";
 
     responseDuiktank = await get(urlDuiktank);
+    responseFuifzaal = await get(urlHoofdgebouwFuifzaal)
+    responseMachinezaal = await get(urlHoofdgebouwMachinezaal)
+    responseKantoor1 = await get(urlHoofdgebouwKantoor1)
+    responseKantoor2 = await get(urlHoofdgebouwKantoor2)
+    responseMechanieker = await get(urlMechanieker);
+    responseOenanthe = await get(urlOenanthe);
+    responseSilo = await get(urlSilo);
 
-    var verbruiker1 = average(createArrayFromResponse(responseDuiktank));
-    var verbruiker2 = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
-    var verbruiker3 = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
-    var verbruiker4 = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
-    var verbruiker5 = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+    var arr = createArrayFromResponse(responseFuifzaal.values.Aansluiting_Fuifzaal_EB1_I);
+    var arr2 = createArrayFromResponse(responseMachinezaal.values.Aansluiting_Machinezaal_EB3_A);
+    var arr3 = createArrayFromResponse(responseKantoor1.values.Aansluiting_kantoren_Verdiep_4_EB3_B); 
+    var arr4 = createArrayFromResponse(responseKantoor2.values.Aansluiting_kantoren_Verdiep_5_EB3_D); 
+
+    var hoofdgebouwArray = arr.map((a, i) => a + arr2[i] + arr3[i] + arr4[i]);
+
+    var verbruiker1 = average(createArrayFromResponse(responseDuiktank.values.TotaalNet));
+    var verbruiker2 = average(hoofdgebouwArray);
+    var verbruiker3 = average(createArrayFromResponse(responseMechanieker.values.Aansluiting_Mechaniekersgebouw_EB2));
+    var verbruiker4 = average(createArrayFromResponse(responseOenanthe.values.Aansluiting_Oenanthe_EB3_C));
+    var verbruiker5 = average(createArrayFromResponse(responseSilo.values.Aansluiting_Silo));
     var vlaamseWoning = 3500;
 
     var data = [verbruiker1, verbruiker2, verbruiker3, verbruiker4, verbruiker5, vlaamseWoning]
@@ -325,7 +339,6 @@ Reveal.addEventListener("duiktank", async ()=>{
     var data = []
 
     tempData.forEach((element) => {
-        console.log(element)
         var el = element / 1000;
         data.push(el)
         }
