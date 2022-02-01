@@ -35403,7 +35403,7 @@
                   src="https://assets6.lottiefiles.com/private_files/lf30_kcwpiswk.json"
                   background="transparent"
                   speed="1"
-                  style="width: 60wh; height: 50vh"
+                  style="width: 40wh; height: 40vh"
                   loop
                   autoplay
                 >
@@ -35594,34 +35594,39 @@
        
               </div>
             </div>
-            <div class="c-card c-card__container--renewables u-grid-item-space-y-1-x-2-y-3-x-2">
-              <img
+            <div class="c-card u-grid-item-space-y-1-x-2-y-3-x-2">
+              <div class="c-card__container">
+                <img
                 class="c-image"
                 src="./assets/gif/hydro_pump_storage.gif"
                 alt="hyrdo pump storage"
-              />
+                />
+              </div>
             </div>
             <div class="c-card">
-              <lottie-player
-                  src="https://assets3.lottiefiles.com/packages/lf20_tmwrika0.json"
-                  background="transparent"
-                  speed="1"
-                  style="width: 30wh; height: 26vh"
-                  loop
-                  autoplay
-                >
-              </lottie-player>
-              <div class="c-card__label">
-                <div class="c-card__counterLabel">
-                  Momenteel genereert de watertoren: 
-                </div>
-                <div class="c-card__counter">
-                  <span id="js-water-tower__watts">0</span>Kwh
-                </div>
-                <div class="c-card__counterLabel">
-                  Het <strong>equivalent</strong> van <span id="js-solar-panels__amount"></span> <strong>zonnepanelen</strong>.
-                </div>
-              </div> 
+              <div class="c-card__container">
+                <lottie-player
+                src="https://assets3.lottiefiles.com/packages/lf20_tmwrika0.json"
+                background="transparent"
+                speed="1"
+                style="width: 30wh; height: 24vh"
+                loop
+                autoplay
+              >
+            </lottie-player>
+            <div class="c-card__label">
+              <div class="c-card__counterLabel">
+                Momenteel genereert de watertoren: 
+              </div>
+              <div class="c-card__counter">
+                <span id="js-water-tower__watts">0</span>Kwh
+              </div>
+              <div class="c-card__counterLabel">
+                Het <strong>equivalent</strong> van <span id="js-solar-panels__amount"></span> <strong>zonnepanelen</strong>.
+              </div>
+            </div> 
+              </div>
+       
           </div>
         </section>
         <!-- !!! Slide 5 !!! -->
@@ -35756,11 +35761,11 @@
                 </div>  
               </div>
             </div>
-            <div class="c-card u-col-span-2 c-card--test">
+            <div class="c-card u-col-span-2 c-card--span">
               <div class="c-card__container c-card__container--chart c-card__container--divingChart">
                 <canvas id="js-duiktankChart" class="c-chart"></canvas>
               </div>
-              <div>
+              <div class="c-card__container--side">
                 <p>
                   Hier zien we een jaaroverzicht waarin we het gemiddelde maandelijkse verbruik kunnen terugzien. 
                   Hieruit kunnen we zien dat het verbruik van de duiktank vrij stabiel is, dit komt doordat het water van de duiktank constant geregulariseerd moet worden.
@@ -36179,8 +36184,8 @@
       Reveal.initialize({
         disableLayout: true,
         hash: true,
-        autoSlide: 35000,
-        controls: false,
+        // autoSlide: 35000,
+        controls: true,
         loop: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
