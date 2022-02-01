@@ -35580,7 +35580,18 @@
             <div class="c-card">
               <div class="c-card__container c-card__container--renewables">
                 <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_udcevp8v.json"  background="transparent"  speed=".8"  style="height: 20vh;" loop autoplay></lottie-player>
-                <p class="c-card__text o-text-center">De watertoren bevat: <br><strong>5000 m³</strong> <br> aan water</p>
+                <div class="c-card__label">
+                  <div class="c-card__counterLabel">
+                    De watertoren bevat:
+                  </div>
+                  <div class="c-card__counter">
+                    <span>5000</span>m³
+                  </div>
+                  <div class="c-card__counterLabel">
+                    aan <strong> water</strong>.
+                  </div>
+                </div> 
+       
               </div>
             </div>
             <div class="c-card c-card__container--renewables u-grid-item-space-y-1-x-2-y-3-x-2">
@@ -35600,10 +35611,17 @@
                   autoplay
                 >
               </lottie-player>
-             <p class="c-card__text">
-                  Momenteel genereert de <strong>watertoren</strong> <span id="js-water-tower__watts"></span>kw, Het
-                  <strong>equivalent</strong> van <span id="js-solar-panels__amount"></span> <strong>zonnepanelen</strong>.
-            </p>
+              <div class="c-card__label">
+                <div class="c-card__counterLabel">
+                  Momenteel genereert de watertoren: 
+                </div>
+                <div class="c-card__counter">
+                  <span id="js-water-tower__watts">0</span>Kwh
+                </div>
+                <div class="c-card__counterLabel">
+                  Het <strong>equivalent</strong> van <span id="js-solar-panels__amount"></span> <strong>zonnepanelen</strong>.
+                </div>
+              </div> 
           </div>
         </section>
         <!-- !!! Slide 5 !!! -->

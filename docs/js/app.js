@@ -30,7 +30,7 @@ function createArrayFromResponse (responseData){
 function createLabelsFromResponse (responseData){
     const monthNames = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
     var array = [];
-    responseData.values.TotaalNet.forEach((element) => {
+    responseData.forEach((element) => {
             var el = new Date(element.time);
             var label = monthNames[el.getMonth()]
             array.push(label)
@@ -334,8 +334,8 @@ Reveal.addEventListener("duiktank", async ()=>{
     const current = document.getElementById("js-duiktankCurrent");
     const month = document.getElementById("js-duiktankMonth");
 
-    var tempData = createArrayFromResponse(responseYear);
-    var labels = createLabelsFromResponse(responseYear);
+    var tempData = createArrayFromResponse(responseYear.values.TotaalNet);
+    var labels = createLabelsFromResponse(responseYear.values.TotaalNet);
     var data = []
 
     tempData.forEach((element) => {
